@@ -499,7 +499,7 @@ p.sbmincart-empty-text {
 
 span.money {
 	font-size: 1em;
-	color: #ff4e00;
+	color: var(--pink);
 	font-weight: 700;
 	letter-spacing: 1px;
 }
