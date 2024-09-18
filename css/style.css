@@ -1,13 +1,14 @@
 /* #f35793 */
 :root {
-  --font-family-base: "Roboto", Arial, sans-serif;
+  /* --font-family-base: 'Inconsolata', monospace; */
+  --font-family-base:  'Roboto',Arial,sans-serif;
   --primary-color: var(--pink);
   /* --primary-color: #2196f3; */
 }
 html,
 body {
   margin: 0;
-  font-size: 100%;
+  /* font-size: 100%; */
   /* background: #222222; */
   background: #fff;
   /* font-family: 'Inconsolata', monospace; */
@@ -131,7 +132,7 @@ h1.logo-w3layouts a.navbar-brand {
   color: #ffffff;
   /* color: #828284; */
   font-size: 16px;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; */
   margin: 0em 0.5em;
   padding: 10px 25px;
   text-transform: uppercase;
@@ -1531,8 +1532,17 @@ a.carousel-control-prev.test {
 .about-info a {
   color: #333 !important;
 }
+
+.footer-top-w3layouts-grid-sec{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 0px;
+  padding-left: 0px;
+}
 .footer-top-w3layouts-grid-sec:hover .mail-grid-icon i {
   color: var(--primary-color);
+  
 }
 /*--footer--*/
 
@@ -1737,7 +1747,7 @@ ul.links li a:hover {
 .marquee {
   background-color: #f8f9fa;
   padding: 8px;
-  font-size: 18px;
+  font-size: 16px;
   color: #000;
   font-weight: bold;
 }
