@@ -10,7 +10,7 @@ body {
   font-size: 100%;
   /* background: #222222; */
   background: #fff;
-  font-family: 'Inconsolata', monospace;
+  /* font-family: 'Inconsolata', monospace; */
   font-family: var(--font-family-base);
 }
 
