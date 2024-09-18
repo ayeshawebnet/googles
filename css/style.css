@@ -10,7 +10,7 @@ body {
   font-size: 100%;
   /* background: #222222; */
   background: #fff;
-  /* font-family: 'Inconsolata', monospace; */
+  font-family: 'Inconsolata', monospace;
   font-family: var(--font-family-base);
 }
 
@@ -1735,6 +1735,12 @@ ul.links li a:hover {
 /* marquee */
 
 /*-- responsive media queries --*/
+
+@media (min-width: 1680px) {
+  .carousel-item {
+    background-position: center center !important;
+  }
+}
 
 @media (max-width: 1680px) {
   .header_left {
