@@ -74,7 +74,7 @@ label {
 /*-- header --*/
 
 header {
-  padding: 2em 2em 0 2em;
+  padding: 1em 1em 1em 1em;
 }
 
 .top-bar_sub .btn-primary {
@@ -111,7 +111,7 @@ span.sub {
 }
 
 h1.logo-w3layouts a.navbar-brand {
-  font-size: 1.5em;
+  font-size:2vw;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.26);
   color: #ffffff;
   /* color: #454546; */
@@ -136,12 +136,15 @@ h1.logo-w3layouts a.navbar-brand {
   padding: 10px 25px;
   text-transform: uppercase;
 }
-
 .dropdown-item {
   margin: 0 !important;
   color: #777;
 }
-
+.dropdown-toggle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .dropdown-menu {
   background-color: rgb(255, 255, 255);
 }
@@ -191,7 +194,7 @@ h1.logo-w3layouts a.navbar-brand {
   -moz-border-radius-topright: 0;
   -webkit-border-top-right-radius: 0;
   border-top-right-radius: 0;
-  width: 80%;
+  width: 100%;
   margin-top: 0;
   padding: 0;
   border-color: #ddd;
@@ -259,7 +262,11 @@ li.number-phone {
 .search {
   position: relative;
 }
-
+.cart-inner-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 ul.cart-inner-info li {
   display: inline-block;
   list-style: none;
@@ -279,6 +286,11 @@ ul.cart-inner-info li {
 }
 .top-info i {
   color: var(--primary-color);
+}
+.top-info-cart {
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
 /*-- //header --*/
 
@@ -2109,6 +2121,9 @@ ul.links li a:hover {
     font-size: 0.8em;
     letter-spacing: 1px;
   }
+  h1.logo-w3layouts a.navbar-brand {
+    font-size: 1em;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2124,7 +2139,7 @@ ul.links li a:hover {
     font-size: 0.9em;
   }
   h1.logo-w3layouts a.navbar-brand {
-    font-size: 1.3em;
+    font-size: 1em;
   }
   h3.tittle-w3layouts {
     font-size: 2.2em;
@@ -2186,6 +2201,11 @@ ul.links li a:hover {
     padding: 0;
     text-align: center !important;
     width: 100%;
+    justify-content: center;
+  }
+  .logo-w3layouts {
+    margin: 0 auto;
+    text-align: center;
   }
 }
 

@@ -420,7 +420,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="col-lg-4 single-right-left">
               <div class="grid images_3_of_2">
                 <div class="flexslider1">
-                  <ul class="slides">
+                  <ul class="slides" id="imageGallery-1">
                     <li data-thumb="images/dblack2.jpg">
                       <div class="thumb-image">
                         <img
@@ -521,25 +521,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                   </select>
                 </div>
               </div>
-              <div class="occasional">
+              <div class="occasional image-gallery-group" data-gallery-id="1">
                 <h5>Types :</h5>
                 <div class="colr ert">
-                  <label class="radio"
-                    ><input type="radio" name="radio" checked="" /><i></i> Irayz
-                    Butterfly(Black)</label
-                  >
+					<label class="radio">
+						<input type="radio" name="radio-gallery-1" value="black" checked="checked" /> <i></i> Irayz Butterfly (Black)
+					 </label>
                 </div>
                 <div class="colr">
-                  <label class="radio"
-                    ><input type="radio" name="radio" /><i></i> Irayz Butterfly
-                    (Grey)</label
-                  >
+					<label class="radio">
+						<input type="radio" name="radio-gallery-1" value="grey" /> <i></i> Irayz Butterfly (Grey)
+					</label>
                 </div>
                 <div class="colr">
-                  <label class="radio"
-                    ><input type="radio" name="radio" /><i></i> Irayz Butterfly
-                    (white)</label
-                  >
+					<label class="radio">
+						<input type="radio" name="radio-gallery-1" value="white" /> <i></i> Irayz Butterfly (White)
+					</label>
                 </div>
                 <div class="clearfix"></div>
               </div>
@@ -1551,6 +1548,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       });
     </script>
     <!-- FlexSlider -->
+	 <script src="js/script.js"></script>
     <script src="js/jquery.flexslider.js"></script>
     <script>
       // Can also be used with $(document).ready()
