@@ -583,7 +583,7 @@ span.money {
 }
 
 .link-product-add-cart:hover {
-    background: #ff4e00;
+    background: var(--pink);
     color: #fff;
 }
 
@@ -602,7 +602,7 @@ ul.stars li a {
 }
 
 ul.stars li a i:hover {
-    color: #ff4e00;
+    color: var(--pink);
 }
 
 .product-googles-info {
@@ -730,7 +730,7 @@ ul.stars li a i:hover {
 }
 
 .search-hotel form button.btn1 {
-    color: #ff4e00;
+    color: var(--pink);
     border: none;
     padding: 10px 0;
     outline: none;
@@ -890,7 +890,7 @@ input.checked {
 /*-- customer --*/
 
 .customer-rev ul li i {
-	color: #ff4e00;
+	color: var(--pink);
     font-size: 0.7em;
 }
 
@@ -1022,7 +1022,7 @@ button.googles-cart {
 	cursor: pointer;
 }
 .product-googles-info:hover button.googles-cart{
-	color:#ff4e00;
+	color:var(--pink);
 }
 ul.footer_list_icons.single_in li {
 	color: #2f2f2f;
@@ -1048,7 +1048,7 @@ ul.footer_list_icons.single_in li a:hover {
 
 .single-right-left h3 {
     font-size: 23px;
-    color: #ff4e00;
+    color: var(--pink);
     margin: 0;
     letter-spacing: 1px;
 }
@@ -1129,7 +1129,7 @@ ul.footer_list_icons.single_in li a:hover {
 }
 
 .description input[type="submit"]:hover {
-    background: #ff4e00;
+    background: var(--pink);
 }
 
 .occasion-cart a {
@@ -1188,7 +1188,7 @@ ul.footer_list_icons.single_in li a:hover {
 
 .bootstrap-tab-text-grid-right ul li a {
 	font-size: 1em;
-    color: #ff4e00;
+    color: var(--pink);
 	text-transform: uppercase;
 	text-decoration: none;
 	font-weight: 600;
@@ -1253,7 +1253,7 @@ ul.footer_list_icons.single_in li a:hover {
 .add-review input[type="submit"] {
 	outline: none;
 	padding: 14px 0;
-	background: #ff4e00;
+	background: var(--pink);
 	border: none;
 	width: 20%;
 	font-size: 1em;
@@ -1455,7 +1455,7 @@ span.item_price {
      .add-review input[type="submit"] {
         outline: none;
         padding: 12px 0;
-        background: #ff4e00;
+        background: var(--pink);
         border: none;
         width:30%;
     }
@@ -1542,7 +1542,7 @@ span.item_price {
     .add-review input[type="submit"] {
         outline: none;
         padding: 12px 0;
-        background: #ff4e00;
+        background: var(--pink);
         border: none;
         width: 50%;
     }
@@ -1602,7 +1602,7 @@ span.item_price {
      .add-review input[type="submit"] {
         outline: none;
         padding: 12px 0;
-        background: #ff4e00;
+        background: var(--pink);
         border: none;
         width: 50%;
     }
