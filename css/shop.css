@@ -28,7 +28,7 @@ div#my-cart-modal .modal-header {
 
 div#my-cart-modal h4#myModalLabel {
 	font-size: 20px;
-	color: #F60B0E;
+	color: #f60b96;
 }
 
 div#my-cart-modal .modal-body {
@@ -94,7 +94,7 @@ div#my-cart-modal button.btn.btn-primary {
 }
 
 div#my-cart-modal button.btn.btn-default:hover {
-	background-color: #F60B0E;
+	background-color: #f60b96;
 }
 
 div#my-cart-modal button.btn.btn-primary a {
@@ -102,13 +102,13 @@ div#my-cart-modal button.btn.btn-primary a {
 }
 
 div#my-cart-modal button.btn.btn-primary:hover {
-	background-color: #F60B0E;
+	background-color: #f60b96;
 }
 
 div#my-cart-modal .alert-danger {
 	color: #FFF;
 	text-align: center;
-	background-color: #F60B0E;
+	background-color: #f60b96;
 	font-size: 15px;
 	margin: 20px;
 	border: none;
@@ -123,7 +123,7 @@ div#my-cart-modal .close {
 div#my-cart-modal .close:hover,
 .close:focus {
 	opacity: 1;
-	color: #F60B0E;
+	color: #f60b96;
 }
 
 /*-- //Shopping-Cart-PopUp --*/
@@ -348,7 +348,7 @@ p.sbmincart-empty-text {
 	margin-right: 6px;
 	padding: 0;
 	border: none;
-	color: #F60B0E;
+	color: #f60b96;
 	background: none;
 	outline: none;
 	font-size: 0.87em;
@@ -485,7 +485,7 @@ p.sbmincart-empty-text {
 }
 
 .product-new-top {
-    background: #F60B0E;
+    background: #f60b96;
     color: #fff;
     right: -18px;
     position: absolute;
@@ -1270,7 +1270,8 @@ ul.footer_list_icons.single_in li a:hover {
 .nav .open>a,
 .nav .open>a:hover,
 .nav .open>a:focus {
-	background-color: #F60B0E;
+
+	background-color: #f60b96;
 	color: #fff;
 }
 
