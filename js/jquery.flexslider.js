@@ -151,7 +151,9 @@
         }
       },
       controlNav: {
+        
         setup: function() {
+          
           if (!slider.manualControls) {
             methods.controlNav.setupPaging();
           } else { // MANUALCONTROLS:
@@ -803,9 +805,9 @@
       // FlexSlider: removed() Callback
       vars.removed(slider);
     }
-    
     //FlexSlider: Initialize
     methods.init();
+
   }
   
   //FlexSlider: Default Settings

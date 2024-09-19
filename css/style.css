@@ -133,7 +133,7 @@ h1.logo-w3layouts a.navbar-brand {
   /* color: #828284; */
   font-size: 16px;
   /* letter-spacing: 2px; */
-  margin: 0em 0.5em;
+  /* margin: 0em 0.5em; */
   padding: 10px 25px;
   text-transform: uppercase;
 }
@@ -696,6 +696,59 @@ figure.effect-lexi:hover p {
 }
 
 /*-- //effect --*/
+/*-- //brands --*/
+
+/* Grid container for brands */
+.brands-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap:20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.brand {
+  text-align: center;
+  padding: 0px 50px;
+  background-color: #f7f7f7; /* Optional: add background color */
+  border-radius: 5px; /* Optional: round corners */
+  border: 1px solid #cdcdcd;
+}
+
+.shine {
+  font-size: 1.7em;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.3);
+  background: #979797;
+  background-image: -webkit-linear-gradient(
+    -40deg,
+    transparent 0%,
+    transparent 40%,
+    #fff 50%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200px 100%;
+  -webkit-animation: shine 5s infinite linear;
+}
+
+@-webkit-keyframes shine {
+  0% {
+    background-position: -200px;
+  }
+  100% {
+    background-position: 200px;
+  }
+}
+
+
+
+
+/*-- //brands --*/
+
 /*--/footer-top-w3layouts--*/
 .mail-grid-icon i {
   font-size: 1.3em;
