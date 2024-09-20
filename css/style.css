@@ -134,7 +134,7 @@ h1.logo-w3layouts a.navbar-brand {
   font-size: 16px;
   /* letter-spacing: 2px; */
   /* margin: 0em 0.5em; */
-  padding: 10px 25px;
+  padding: 10px 16px;
   text-transform: uppercase;
 }
 .dropdown-item {
@@ -149,7 +149,13 @@ h1.logo-w3layouts a.navbar-brand {
 .dropdown-menu {
   background-color: rgb(255, 255, 255);
 }
-
+@media (max-width: 992px) {
+  .dropdown-toggle{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+}
 .dropdown-item.active,
 .dropdown-item:active {
   color: #000;
@@ -199,8 +205,8 @@ h1.logo-w3layouts a.navbar-brand {
   margin-top: 0;
   padding: 0;
   border-color: #ddd;
-  margin: 0 auto;
-  left: 9%;
+  margin: 5px auto;
+  left: 0%;
   border-radius: 0;
   top: 50px;
 }

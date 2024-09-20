@@ -399,7 +399,6 @@
      
       </marquee>
       <!-- //marque -->
-
       <!-- banner -->
       <div class="banner">
         <div
@@ -2372,7 +2371,7 @@
     <!-- dropdown nav -->
     <script>
       $(document).ready(function () {
-        $(".dropdown").hover(
+        $(".dropdown").click(
           function () {
             $(".dropdown-menu", this).stop(true, true).slideDown("fast");
             $(this).toggleClass("open");
