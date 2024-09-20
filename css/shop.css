@@ -330,7 +330,8 @@ button.top_googles_cart {
 }
 
 p.sbmincart-empty-text {
-	color: #f44336;
+	/* color: #f44336; */
+	color: #f4368f;
 	font-weight: 500;
 }
 
