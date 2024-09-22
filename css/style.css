@@ -1,7 +1,8 @@
 /* #f35793 */
 :root {
   /* --font-family-base: 'Inconsolata', monospace; */
-  --font-family-base:  'Roboto',Arial,sans-serif;
+  /* --font-family-base:  'Roboto',Arial,sans-serif; */
+  --font-family-base:  "Poppins", sans-serif;;
   --primary-color: var(--pink);
   /* --primary-color: #2196f3; */
 }
@@ -1523,7 +1524,8 @@ a.b-home:hover {
 }
 /*-- //error --*/
 .middle-text-info {
-  background: url(../images/banner-mid.jpg) no-repeat 0px 0px;
+  /* background: url(../images/banner-mid.jpg) no-repeat 0px 0px; */
+  background: url(../images/bg-image-2.jpg) no-repeat 0px 0px;
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -2743,3 +2745,12 @@ ul.links li a:hover {
 }
 
 /*-- //responsive media queries --*/
+/* extra */
+.position-time{
+  position: relative;
+  
+}
+.position-time-inner{
+  position: absolute;
+  right: 800px;
+}
