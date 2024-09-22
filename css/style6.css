@@ -1,7 +1,7 @@
 
 .mobile-nav-button {
 		position: absolute;
-		right: 250px;
+		right: -60px;
 		top: 16px;
 		z-index:9;
 	}
@@ -160,32 +160,52 @@ button#trigger-overlay {
 }
 
 /*--/responsive--*/
+/* @media (min-width: 1200px) {
+    .col-md-5.logo-w3layouts {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+} */
+/* @media(max-width:2100px) {
+    .mobile-nav-button {
+        position: absolute;
+        right: -220px;
+        top: 17px;
+    }
+}
+@media(max-width:1600px) {
+    .mobile-nav-button {
+        position: absolute;
+        right: -220px;
+        top: 17px;
+    }
+}
 @media(max-width:1366px) {
     .mobile-nav-button {
         position: absolute;
-        right: 245px;
-        top: 16px;
+        right: -57px;
+        top: 17px;
     }
 }
 @media(max-width:1280px) {
     .mobile-nav-button {
         position: absolute;
-        right: 230px;
-        top: 16px;
+        right: -88px;
+        top: 17px;
     }
 }
 @media (max-width: 1080px){
     .mobile-nav-button {
         position: absolute;
-        right: 200px;
-        top: 16px;
+        right: -20px;
+        top: 17px;
     }
 }
 @media (max-width: 1050px){
     .mobile-nav-button {
         position: absolute;
-        right: 195px;
-        top: 16px;
+        right: -35px;
+        top: 17px;
     }
     .overlay-door form {
         width: 70%;
@@ -194,11 +214,12 @@ button#trigger-overlay {
 @media (max-width: 1024px){
     .mobile-nav-button {
         position: absolute;
-        right: 185px;
-        top: 16px;
+        right: -36px;
+        top: 15px;
     }
 }
 @media (max-width:767px){
+
     .mobile-nav-button {
         position: absolute;
         right: 185px;
@@ -229,5 +250,5 @@ button#trigger-overlay {
         right: 46px;
         top: 15px;
     }
-}
+} */
 /*--//responsive--*/

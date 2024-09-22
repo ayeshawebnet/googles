@@ -98,7 +98,8 @@ html[xmlns] .flexslider .slides {
   height: auto;
 }
 .flex-viewport {
-  max-height: 450px;
+  /* max-height: 450px; */
+  height: 450px;
   -webkit-transition: all 1s ease;
   -moz-transition: all 1s ease;
   -ms-transition: all 1s ease;
@@ -107,7 +108,9 @@ html[xmlns] .flexslider .slides {
   border: 1px solid #D1CFCF;
 
 }
-
+.flex-viewport:empty {
+  display: none;
+}
 .loading .flex-viewport {
   max-height: 300px;
 }
@@ -115,7 +118,7 @@ html[xmlns] .flexslider .slides {
   margin-right: 5px;
 }
 .flex-direction-nav {
-  *height: 0;
+  height: 0;
 }
 
 .flex-direction-nav .flex-disabled {
@@ -158,7 +161,7 @@ html[xmlns] .flexslider .slides {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 .flex-control-paging li a {
   width: 11px;

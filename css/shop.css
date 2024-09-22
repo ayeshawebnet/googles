@@ -28,7 +28,7 @@ div#my-cart-modal .modal-header {
 
 div#my-cart-modal h4#myModalLabel {
 	font-size: 20px;
-	color: #F60B0E;
+	color: #f60b96;
 }
 
 div#my-cart-modal .modal-body {
@@ -94,7 +94,7 @@ div#my-cart-modal button.btn.btn-primary {
 }
 
 div#my-cart-modal button.btn.btn-default:hover {
-	background-color: #F60B0E;
+	background-color: #f60b96;
 }
 
 div#my-cart-modal button.btn.btn-primary a {
@@ -102,13 +102,13 @@ div#my-cart-modal button.btn.btn-primary a {
 }
 
 div#my-cart-modal button.btn.btn-primary:hover {
-	background-color: #F60B0E;
+	background-color: #f60b96;
 }
 
 div#my-cart-modal .alert-danger {
 	color: #FFF;
 	text-align: center;
-	background-color: #F60B0E;
+	background-color: #f60b96;
 	font-size: 15px;
 	margin: 20px;
 	border: none;
@@ -123,7 +123,7 @@ div#my-cart-modal .close {
 div#my-cart-modal .close:hover,
 .close:focus {
 	opacity: 1;
-	color: #F60B0E;
+	color: #f60b96;
 }
 
 /*-- //Shopping-Cart-PopUp --*/
@@ -330,7 +330,8 @@ button.top_googles_cart {
 }
 
 p.sbmincart-empty-text {
-	color: #f44336;
+	/* color: #f44336; */
+	color: #f4368f;
 	font-weight: 500;
 }
 
@@ -348,7 +349,7 @@ p.sbmincart-empty-text {
 	margin-right: 6px;
 	padding: 0;
 	border: none;
-	color: #F60B0E;
+	color: #f60b96;
 	background: none;
 	outline: none;
 	font-size: 0.87em;
@@ -485,7 +486,7 @@ p.sbmincart-empty-text {
 }
 
 .product-new-top {
-    background: #F60B0E;
+    background: #f60b96;
     color: #fff;
     right: -18px;
     position: absolute;
@@ -583,13 +584,13 @@ span.money {
 }
 
 .link-product-add-cart:hover {
-    background: #ff4e00;
+    background: var(--pink);
     color: #fff;
 }
 
 ul.stars a i {
 	color: #cecbcb;
-	font-size: 0.5em;
+	font-size: 0.7em;
 }
 
 ul.stars li {
@@ -602,11 +603,11 @@ ul.stars li a {
 }
 
 ul.stars li a i:hover {
-    color: #ff4e00;
+    color: var(--pink);
 }
 
 .product-googles-info {
-	padding: 15px;
+	/* padding: 15px; */
 	border: 1px solid #e4e4e4;
 }
 
@@ -730,7 +731,7 @@ ul.stars li a i:hover {
 }
 
 .search-hotel form button.btn1 {
-    color: #ff4e00;
+    color: var(--pink);
     border: none;
     padding: 10px 0;
     outline: none;
@@ -890,7 +891,7 @@ input.checked {
 /*-- customer --*/
 
 .customer-rev ul li i {
-	color: #ff4e00;
+	color: var(--pink);
     font-size: 0.7em;
 }
 
@@ -908,7 +909,8 @@ input.checked {
 .product_price h4 a {
 	color: #959596;
     font-size: 0.8em;
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--font-family-base);
+    /* font-family: 'Inconsolata', monospace; */
 }
 
 /*-- //customer --*/
@@ -1018,11 +1020,12 @@ button.googles-cart {
 	text-align: center;
 	border-left: none !important;
 	background: none;
-	margin-top: 0.5em;
+	/* margin-top: 0.5em; */
 	cursor: pointer;
 }
 .product-googles-info:hover button.googles-cart{
-	color:#ff4e00;
+	/* color:var(--pink); */
+	color:white;
 }
 ul.footer_list_icons.single_in li {
 	color: #2f2f2f;
@@ -1048,7 +1051,7 @@ ul.footer_list_icons.single_in li a:hover {
 
 .single-right-left h3 {
     font-size: 23px;
-    color: #ff4e00;
+    color: var(--pink);
     margin: 0;
     letter-spacing: 1px;
 }
@@ -1129,7 +1132,7 @@ ul.footer_list_icons.single_in li a:hover {
 }
 
 .description input[type="submit"]:hover {
-    background: #ff4e00;
+    background: var(--pink);
 }
 
 .occasion-cart a {
@@ -1188,7 +1191,7 @@ ul.footer_list_icons.single_in li a:hover {
 
 .bootstrap-tab-text-grid-right ul li a {
 	font-size: 1em;
-    color: #ff4e00;
+    color: var(--pink);
 	text-transform: uppercase;
 	text-decoration: none;
 	font-weight: 600;
@@ -1253,7 +1256,7 @@ ul.footer_list_icons.single_in li a:hover {
 .add-review input[type="submit"] {
 	outline: none;
 	padding: 14px 0;
-	background: #ff4e00;
+	background: var(--pink);
 	border: none;
 	width: 20%;
 	font-size: 1em;
@@ -1270,7 +1273,8 @@ ul.footer_list_icons.single_in li a:hover {
 .nav .open>a,
 .nav .open>a:hover,
 .nav .open>a:focus {
-	background-color: #F60B0E;
+
+	background-color: #f60b96;
 	color: #fff;
 }
 
@@ -1455,7 +1459,7 @@ span.item_price {
      .add-review input[type="submit"] {
         outline: none;
         padding: 12px 0;
-        background: #ff4e00;
+        background: var(--pink);
         border: none;
         width:30%;
     }
@@ -1542,7 +1546,7 @@ span.item_price {
     .add-review input[type="submit"] {
         outline: none;
         padding: 12px 0;
-        background: #ff4e00;
+        background: var(--pink);
         border: none;
         width: 50%;
     }
@@ -1602,7 +1606,7 @@ span.item_price {
      .add-review input[type="submit"] {
         outline: none;
         padding: 12px 0;
-        background: #ff4e00;
+        background: var(--pink);
         border: none;
         width: 50%;
     }
