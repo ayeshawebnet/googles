@@ -1,7 +1,7 @@
 .simply-countdown-custom {
   overflow: hidden;
   display: table;
-  margin: 0 auto;
+  float: right;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -26,7 +26,8 @@
   float: left;
   margin: 15px;
   background: none;
-  color: #fff;
+  color: #4c4c4e;
+  /* color: #fff; */
   font-size: 1em;
 }
 

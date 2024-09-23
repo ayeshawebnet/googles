@@ -735,7 +735,7 @@ figure.effect-lexi:hover p {
   font-size: 1.7em;
   font-weight: 800;
   color: rgba(255, 255, 255, 0.3);
-  background: #979797;
+  background: var(--light-brown);
   background-image: -webkit-linear-gradient(
     -40deg,
     transparent 0%,
@@ -1533,21 +1533,31 @@ a.b-home:hover {
 }
 /*-- //error --*/
 .middle-text-info {
-  background: url(../images/banner-mid.jpg) no-repeat 0px 0px;
+  /* background: url(../images/banner-mid.jpg) no-repeat 0px 0px; */
+  background: url(../images/bg-image-4.jpg) no-repeat 0px 0px;
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
   -moz-background-size: cover;
   -ms-background-size: cover;
   min-height: 400px;
-  padding: 3em 0 0 0;
+  /* width:90%; */
+  padding: 3em 3em 0 0;
+}
+.position-time{
+  position: relative;
+  
+}
+.position-time-inner{
+  position: absolute;
+  right: 800px;
 }
 .owl-carousel.owl-theme.row.owl-loaded.owl-drag {
   margin: 0;
 }
 h3.tittle-w3layouts.two {
   font-weight: 300;
-  color: #fff;
+  color: #4c4c4e,;
   letter-spacing: 10px;
 }
 .testimonials_grid h3 {
@@ -2120,6 +2130,15 @@ ul.links li a:hover {
 }
 
 @media (max-width: 1280px) {
+
+  .position-time-inner {
+    position: absolute;
+    right: 550px;
+    top: 50px;
+}
+.position-time-inner img{
+  width: 95%;
+}
   .cart .my-cart {
     display: block;
     position: absolute;
@@ -2177,6 +2196,14 @@ ul.links li a:hover {
 }
 
 @media (max-width: 1080px) {
+  .position-time-inner {
+    position: absolute;
+    right: 500px;
+    top: 100px;
+}
+.position-time-inner img{
+  width: 80%;
+}
   .header_left {
     width: 24.5%;
   }
@@ -2222,6 +2249,14 @@ ul.links li a:hover {
 }
 
 @media (max-width: 1050px) {
+  .position-time-inner {
+    position: absolute;
+    right: 450px;
+    top: 60px;
+}
+.position-time-inner img{
+  width: 400px;
+}
   .navbar-left {
     width: 18%;
   }
@@ -2787,4 +2822,24 @@ ul.links li a:hover {
   width: 100%;
   overflow: hidden;
   height: 92vh;
+}
+
+
+/*-- //coundown animation --*/
+
+img.vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+img.vert-move {
+  -webkit-animation: mover 1s infinite  alternate;
+  animation: mover 1s infinite  alternate;
+}
+@-webkit-keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+@keyframes mover {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
 }
