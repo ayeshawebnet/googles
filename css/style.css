@@ -1,13 +1,16 @@
 /* #f35793 */
 :root {
   /* --font-family-base: 'Inconsolata', monospace; */
-  --font-family-base:  'Roboto',Arial,sans-serif;
-  --primary-color: var(--pink);
+  /* --font-family-base:  'Roboto',Arial,sans-serif; */
+  /* --font-family-base:  "Poppins", sans-serif;; */
+  --font-family-base:  'emoji';
+  --primary-color: var(--light-brown);
   /* --primary-color: #2196f3; */
 }
 html,
 body {
   margin: 0;
+  color: #fbf6f3;
   /* font-size: 100%; */
   /* background: #222222; */
   background: #fff;
@@ -114,11 +117,12 @@ span.sub {
 h1.logo-w3layouts a.navbar-brand {
   font-size:2vw;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.26);
-  color: #ffffff;
+  color: #ffffffa8;
+  /* color: #ffffff; */
   /* color: #454546; */
   margin: 0;
   font-weight: 700;
-  font-family: "emoji";
+  font-family: var(--font-family-base);
   /* font-family: 'Poppins', sans-serif; */
   text-transform: uppercase;
 }
@@ -129,7 +133,8 @@ h1.logo-w3layouts a.navbar-brand {
 
 .navbar-light .navbar-nav .nav-link,
 .dropdown-item {
-  color: #ffffff;
+  color: #ffffffa8;
+  /* color: #ffffff; */
   /* color: #828284; */
   font-size: 16px;
   /* letter-spacing: 2px; */
@@ -175,7 +180,7 @@ h1.logo-w3layouts a.navbar-brand {
 .navbar-light .navbar-nav .nav-link.show,
 .navbar-light .navbar-nav .nav-link.active,
 .navbar-light .navbar-nav .nav-link:hover {
-  color: var(--primary-color);
+  color:#4c4c4e;
   border-radius: 0px;
 }
 
@@ -261,7 +266,9 @@ li.number-phone {
 
 /*-- /search --*/
 .banner-top.container-fluid {
-  background: #222222;
+  background: #a18d84;
+  /* background: #d9cbc5; */
+  /* background: #222222; */
   padding: 0;
   margin: 0;
 }
@@ -334,18 +341,21 @@ ul.cart-inner-info li {
 /*--/slider--*/
 
 .carousel-item {
-  background: -webkit-linear-gradient(
+  background: url(../images/google-banner1.jpg) no-repeat;
+  background-size: cover;
+  height: 100%;
+  /* background: -webkit-linear-gradient(
       rgba(23, 22, 23, 0.2),
       rgba(23, 22, 23, 0.5)
     ),
-    url(../images/banner1.jpg) no-repeat;
+    url(../images/google-banner1.jpg) no-repeat;
   background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)),
-    url(../images/banner1.jpg) no-repeat;
+    url(../images/google-banner1.jpg) no-repeat;
   background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)),
-    url(../images/banner1.jpg) no-repeat;
+    url(../images/google-banner1.jpg) no-repeat;
   background: linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)),
-    url(../images/banner1.jpg) no-repeat;
-  background-size: cover;
+    url(../images/google-banner1.jpg) no-repeat; */
+
 }
 
 .carousel-item.item2 {
@@ -1749,7 +1759,7 @@ ul.links li a:hover {
   -ms-transition: all 0.7s ease-in-out;
 }
 .owl-item.active {
-  padding: 15px;
+  /* padding: 15px; */
   border: 1px solid #e4e4e4;
 }
 
@@ -1807,7 +1817,7 @@ ul.links li a:hover {
   background-color: #f8f9fa;
   padding: 8px;
   font-size: 16px;
-  color: #000;
+  color: #4d4d4d;
   font-weight: bold;
 }
 .marquee span {
@@ -1924,7 +1934,7 @@ ul.links li a:hover {
 .h-bg {
   width: 660px;
   height: 100%;
-  background-color: var(--pink);
+  background-color: var(--light-brown);
   position: absolute;
   left: -659px;
   transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
@@ -2772,3 +2782,9 @@ ul.links li a:hover {
 }
 
 /*-- //responsive media queries --*/
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 92vh;
+}
