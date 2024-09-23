@@ -349,7 +349,7 @@ p.sbmincart-empty-text {
 	margin-right: 6px;
 	padding: 0;
 	border: none;
-	color: #f60b96;
+	color: var(--light-brown);
 	background: none;
 	outline: none;
 	font-size: 0.87em;
@@ -1351,6 +1351,9 @@ span.item_price {
 	float: left;
 	margin-bottom: 2em;
 	width: 100%;
+}
+.radio, .share-on{
+	color: var(--light-brown);
 }
 
 /*-- /Responsive --*/

@@ -2826,7 +2826,7 @@ ul.links li a:hover {
   position: relative;
   width: 100%;
   overflow: hidden;
-  height: 92vh;
+  height: auto;
 }
 
 
