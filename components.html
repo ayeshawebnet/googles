@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pixel Perfect Header</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" rel="stylesheet"> <!-- For icons -->
+    <style>
+        .navbar-custom .form-inline input:focus,
+        .navbar-custom .form-inline input:focus-visible {
+            box-shadow: 0 0 0 0 transparent;
+            outline: none;
+        }
+
+        header .nav-link .badge {
+            position: absolute;
+        }
+
+        header .nav-link {
+            position: relative;
+        }
+
+        span.badge.badge-pill.badge-dark {
+            font-size: 9px;
+            height: 18px;
+            width: 18px;
+            right: 4px;
+            top: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .navbar-custom {
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .navbar-custom .nav-link {
+            color: #000;
+            font-weight: 600;
+            padding: 8px 15px;
+        }
+
+        .navbar-custom .navbar-brand {
+            font-family: 'Georgia', serif;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+        }
+
+        .navbar-custom .form-inline input {
+            width: 200px;
+        }
+
+        input.form-control.header-search::placeholder {
+            color: #000000a3;
+            font-size: 16px;
+        }
+
+        .currency-dropdown,
+        .navbar-icons {
+            margin-left: 15px;
+        }
+
+        .sub-menu .nav-link {
+            color: #000;
+        }
+
+        header .header-search {
+            border: 0px;
+            font-size: 15px;
+            color: #000000;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white navbar-custom">
+            <div class="container d-block">
+                <div class="d-flex justify-content-between">
+                    <!-- Search -->
+                    <form class="form-inline">
+                        <span class="search-icon">
+                            <svg focusable="false" width="18" height="18" class="icon icon--header-search   "
+                                viewBox="0 0 18 18">
+                                <path
+                                    d="M12.336 12.336c2.634-2.635 2.682-6.859.106-9.435-2.576-2.576-6.8-2.528-9.435.106C.373 5.642.325 9.866 2.901 12.442c2.576 2.576 6.8 2.528 9.435-.106zm0 0L17 17"
+                                    fill="none" stroke="currentColor" stroke-width="1.4"></path>
+                            </svg>
+                        </span>
+                        <input class="form-control header-search" type="search" placeholder="Search Products"
+                            aria-label="Search">
+                    </form>
+
+                    <!-- Brand Logo -->
+                    <div class="logo-here">
+                        <a class="navbar-brand mx-auto" href="#">AZELEFA</a>
+                    </div>
+
+                    <!-- Icons Section -->
+                    <div class="navbar-icons d-flex align-items-center">
+
+
+                        <a class="nav-link" href="#">
+                            <svg focusable="false" width="18" height="17" class="icon icon--header-customer   "
+                                viewBox="0 0 18 17">
+                                <circle cx="9" cy="5" r="4" fill="none" stroke="currentColor" stroke-width="1.4"
+                                    stroke-linejoin="round"></circle>
+                                <path d="M1 17v0a4 4 0 014-4h8a4 4 0 014 4v0" fill="none" stroke="currentColor"
+                                    stroke-width="1.4"></path>
+                            </svg>
+                        </a>
+                        <a class="nav-link" href="#">
+                            <svg focusable="false" width="20" height="18" class="icon icon--header-cart   "
+                                viewBox="0 0 20 18">
+                                <path d="M3 1h14l1 16H2L3 1z" fill="none" stroke="currentColor" stroke-width="1.4">
+                                </path>
+                                <path d="M7 4v0a3 3 0 003 3v0a3 3 0 003-3v0" fill="none" stroke="currentColor"
+                                    stroke-width="1.4"></path>
+                            </svg>
+                            <span class="badge badge-pill badge-dark">1</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Submenu -->
+        <div class="sub-menu">
+            <div class="container">
+                <ul class="nav justify-content-center my-2">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Matching Hijab Sets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Apparel</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Prayer Sets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Clearance</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Reviews</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main>
+
+
+
+        <!-- slider_section - start
+			================================================== -->
+        <div class="container-fluid p-0">
+            <div class="row no-gutters">
+                <div class="col-lg-6">
+                    <section class="slider_section simple_shop_slider clearfix">
+                        <div class="main_slider clearfix">
+                            <div class="item d-flex align-items-center"
+                                style="background-image:url(https://jthemes.net/themes/html/neoncart/assets/images/slider/simple_shop/bg_01.jpg)">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="slider_content">
+                                            <h3 data-animation="fadeInUp" data-delay=".2s">Puffer jacket Up to 70% </h3>
+                                            <p data-animation="fadeInUp" data-delay=".4s">Where to go and what to</p>
+                                            <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay=".6s">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item d-flex align-items-center"
+                                style="background-image:url(https://jthemes.net/themes/html/neoncart/assets/images/slider/simple_shop/bg_02.jpg)">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="slider_content">
+                                            <h3 data-animation="fadeInUp" data-delay=".2s">Puffer jacket Up to 70% </h3>
+                                            <p data-animation="fadeInUp" data-delay=".4s">Where to go and what to</p>
+                                            <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay=".6s">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item d-flex align-items-center"
+                                style="background-image:url(https://jthemes.net/themes/html/neoncart/assets/images/slider/simple_shop/bg_01.jpg)">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="slider_content">
+                                            <h3 data-animation="fadeInUp" data-delay=".2s">Puffer jacket Up to 70% </h3>
+                                            <p data-animation="fadeInUp" data-delay=".4s">Where to go and what to</p>
+                                            <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay=".6s">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="item d-flex align-items-center"
+                                style="background-image:url(https://jthemes.net/themes/html/neoncart/assets/images/slider/simple_shop/bg_02.jpg)">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="slider_content">
+                                            <h3 data-animation="fadeInUp" data-delay=".2s">Puffer jacket Up to 70% </h3>
+                                            <p data-animation="fadeInUp" data-delay=".4s">Where to go and what to</p>
+                                            <div class="abtn_wrap clearfix" data-animation="fadeInUp" data-delay=".6s">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="simple_shop_banner"
+                        style="background-image:url(https://jthemes.net/themes/html/neoncart/assets/images/banner/simple_shop/img_01.jpg)">
+                        <div class="item_content">
+                            <h3 class="item_title text-white">Women</h3>
+                            <ul class="ul_li_block mb_50 clearfix">
+                                <li><a href="#!">Shirts</a></li>
+                                <li><a href="#!">Fashion Hoodies </a></li>
+                                <li><a href="#!">Jackets & Coats</a></li>
+                                <li><a href="#!">Jeans</a></li>
+                                <li><a href="#!">Pants</a></li>
+                                <li><a href="#!">Suits & Sport Coats</a></li>
+                                <li><a href="#!">Active</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                    <div class="simple_shop_banner"
+                        style="background-image:url(https://jthemes.net/themes/html/neoncart/assets/images/banner/simple_shop/img_02.jpg)">
+                        <div class="item_content">
+                            <h3 class="item_title text-white">Men</h3>
+                            <ul class="ul_li_block mb_50 clearfix">
+                                <li><a href="#!">Shirts</a></li>
+                                <li><a href="#!">Fashion Hoodies </a></li>
+                                <li><a href="#!">Jackets & Coats</a></li>
+                                <li><a href="#!">Jeans</a></li>
+                                <li><a href="#!">Pants</a></li>
+                                <li><a href="#!">Suits & Sport Coats</a></li>
+                                <li><a href="#!">Active</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- slider_section - end
+			================================================== -->
+
+        <section class="slider_section sports_slider position-relative arrow_ycenter clearfix">
+            <div class="main_slider clearfix" data-slick='{"dots":false}'>
+                <div class="item d-flex align-items-center" data-bg-color="#ebebeb">
+                    <div class="container">
+                        <div class="item_content">
+                            <h3 class="item_title text-uppercase" data-animation="fadeInUp" data-delay=".2s">
+                                Hoodie sweat<span data-text-color="#ff3f3f">shirt</span>
+                            </h3>
+                            <p data-animation="fadeInUp" data-delay=".4s">
+                                Hugo & Marie is an independent artist management firm and creative agency based in New
+                                York City. Founded in 2008, the company has been built around a visual
+                            </p>
+                            <a class="text_btn text-uppercase" href="#!" data-animation="fadeInUp"
+                                data-delay=".6s"><span>Explore Now</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item_image_1">
+                        <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_01.png"
+                            data-animation="fadeInRight" data-delay=".4s" alt="image_not_found">
+                       
+                    </div>
+                    <div class="item_image_2" data-animation="fadeInLeft" data-delay=".5s">
+                        <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_02.png"
+                            alt="image_not_found">
+                    </div>
+                </div>
+
+                <div class="item d-flex align-items-center" data-bg-color="#ebebeb">
+                    <div class="container">
+                        <div class="item_content">
+                            <h3 class="item_title text-uppercase" data-animation="fadeInUp" data-delay=".2s">
+                                Hoodie sweat<span data-text-color="#ff3f3f">shirt</span>
+                            </h3>
+                            <p data-animation="fadeInUp" data-delay=".4s">
+                                Hugo & Marie is an independent artist management firm and creative agency based in New
+                                York City. Founded in 2008, the company has been built around a visual
+                            </p>
+                            <a class="text_btn text-uppercase" href="#!" data-animation="fadeInUp"
+                                data-delay=".6s"><span>Explore Now</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item_image_1">
+                        <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_01.png"
+                            data-animation="fadeInRight" data-delay=".4s" alt="image_not_found">
+                        <div class="small_image_1" data-background="assets/images/slider/sports/shape_01.png"
+                            data-animation="fadeInUp" data-delay=".6s">
+                            <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_03.png"
+                                alt="image_not_found">
+                        </div>
+                    </div>
+                    <div class="item_image_2" data-animation="fadeInLeft" data-delay=".5s">
+                        <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_02.png"
+                            alt="image_not_found">
+                    </div>
+                </div>
+
+                <div class="item d-flex align-items-center" data-bg-color="#ebebeb">
+                    <div class="container">
+                        <div class="item_content">
+                            <h3 class="item_title text-uppercase" data-animation="fadeInUp" data-delay=".2s">
+                                Hoodie sweat<span data-text-color="#ff3f3f">shirt</span>
+                            </h3>
+                            <p data-animation="fadeInUp" data-delay=".4s">
+                                Hugo & Marie is an independent artist management firm and creative agency based in New
+                                York City. Founded in 2008, the company has been built around a visual
+                            </p>
+                            <a class="text_btn text-uppercase" href="#!" data-animation="fadeInUp"
+                                data-delay=".6s"><span>Explore Now</span></a>
+                        </div>
+                    </div>
+
+                    <div class="item_image_1">
+                        <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_01.png"
+                            data-animation="fadeInRight" data-delay=".4s" alt="image_not_found">
+                        <div class="small_image_1" data-background="assets/images/slider/sports/shape_01.png"
+                            data-animation="fadeInUp" data-delay=".6s">
+                            <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_03.png"
+                                alt="image_not_found">
+                        </div>
+                    </div>
+                    <div class="item_image_2" data-animation="fadeInLeft" data-delay=".5s">
+                        <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_02.png"
+                            alt="image_not_found">
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel_nav">
+                <button type="button" class="main_left_arrow text-uppercase">Prev</button>
+                <button type="button" class="main_right_arrow text-uppercase">Next</button>
+            </div>
+
+            <div class="slide_count_wrap text-white">
+                <span class="current">1</span>
+                <span class="total">3</span>
+            </div>
+        </section>
+        <!-- slider_section - end
+			================================================== -->
+          
+
+
+
+
+
+
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            // main slider - start
+            // --------------------------------------------------
+            $('.main_slider').slick({
+                dots: true,
+                fade: true,
+                arrows: true,
+                // speed: 1000,
+                infinite: true,
+                autoplay: true,
+                slidesToShow: 1,
+                // pauseOnHover: true,
+                autoplaySpeed: 6000,
+                prevArrow: ".main_left_arrow",
+                nextArrow: ".main_right_arrow",
+                customPaging: function (slider, i) {
+                    console.log(slider);
+                    var slideNumber = (i + 1),
+                        totalSlides = slider.slideCount;
+                    return '<a class="custom-dot" role="button" title="' + slideNumber + ' of ' + totalSlides + '"><span class="string">' + slideNumber + '</span></a>';
+                }
+            });
+
+            $('.main_slider').on('init', function (e, slick) {
+                var $firstAnimatingElements = $('div.item:first-child').find('[data-animation]');
+                doAnimations($firstAnimatingElements);
+            });
+            $('.main_slider').on('beforeChange', function (e, slick, currentSlide, nextSlide) {
+                var $animatingElements = $('div.item[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
+                doAnimations($animatingElements);
+            });
+            var slideCount = null;
+
+            $('.main_slider').on('init', function (event, slick) {
+                slideCount = slick.slideCount;
+                setSlideCount();
+                setCurrentSlideNumber(slick.currentSlide);
+            });
+            $('.main_slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+                setCurrentSlideNumber(nextSlide);
+            });
+
+            function setSlideCount() {
+                var $el = $('.slide_count_wrap').find('.total');
+                if (slideCount < 10) {
+                    $el.text('0' + slideCount);
+                } else {
+                    $el.text(slideCount);
+                }
+            }
+
+            function setCurrentSlideNumber(currentSlide) {
+                var $el = $('.slide_count_wrap').find('.current');
+                $el.text(currentSlide + 1);
+            }
+
+            function doAnimations(elements) {
+                var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+                elements.each(function () {
+                    var $this = $(this);
+                    var $animationDelay = $this.data('delay');
+                    var $animationType = 'animated ' + $this.data('animation');
+                    $this.css({
+                        'animation-delay': $animationDelay,
+                        '-webkit-animation-delay': $animationDelay
+                    });
+                    $this.addClass($animationType).one(animationEndEvents, function () {
+                        $this.removeClass($animationType);
+                    });
+                });
+            }
+
+            var $timer = 6000;
+            function progressBar() {
+                $(".slick-progress").find("span").removeAttr("style");
+                $(".slick-progress").find("span").removeClass("active");
+                setTimeout(function () {
+                    $(".slick-progress").find("span").css("transition-duration", $timer / 1000 + "s").addClass("active");
+                }, 100);
+            }
+
+            progressBar();
+            $('.main_slider').on("beforeChange", function (e, slick) {
+                progressBar();
+            });
+            // main slider - end
+            // --------------------------------------------------
+
+
+        });
+    </script>
+
+</body>
+
+</html>
