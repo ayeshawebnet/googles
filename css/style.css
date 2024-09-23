@@ -2064,6 +2064,20 @@ ul.links li a:hover {
 }
 
 @media (max-width: 1440px) {
+  .cart .my-cart {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 88%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #252525;
+}
+.h-bg .h-bg-inner {
+  width: 36%;
+  height: 100%;
+  background-color: #464646;
+}
   .header_left {
     width: 39.5%;
   }
@@ -2096,6 +2110,20 @@ ul.links li a:hover {
 }
 
 @media (max-width: 1280px) {
+  .cart .my-cart {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 78%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+    color: #252525;
+}
+.h-bg .h-bg-inner {
+  width: 30%;
+  height: 100%;
+  background-color: #464646;
+}
   .banner_inner {
     background: url(../images/banner4.jpg) no-repeat 0px -55px;
     background-size: cover;
@@ -2249,6 +2277,7 @@ ul.links li a:hover {
   .owl-item.active {
     padding: 0px;
   }
+  
 }
 
 @media (max-width: 1024px) {
