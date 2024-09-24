@@ -891,7 +891,8 @@ input.checked {
 /*-- customer --*/
 
 .customer-rev ul li i {
-	color: var(--light-brown);
+	color: rgb(255, 174, 0);
+	/* color: var(--light-brown); */
     font-size: 0.7em;
 }
 

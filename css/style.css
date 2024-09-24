@@ -342,15 +342,15 @@ ul.cart-inner-info li {
 /*--/slider--*/
 
 .carousel-item {
-  background: url(../images/google-banner1.jpg) no-repeat;
+  /* background: url(../images/google-banner1.jpg) no-repeat; */
   background-size: contain;
   height: 100% !important;
-  /* background: -webkit-linear-gradient(
+  background: -webkit-linear-gradient(
       rgba(23, 22, 23, 0.2),
       rgba(23, 22, 23, 0.5)
     ),
     url(../images/google-banner1.jpg) no-repeat;
-  background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)),
+  /* background: -moz-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)),
     url(../images/google-banner1.jpg) no-repeat;
   background: -ms-linear-gradient(rgba(23, 22, 23, 0.2), rgba(23, 22, 23, 0.5)),
     url(../images/google-banner1.jpg) no-repeat;
@@ -509,8 +509,8 @@ a.animated-button.gibson-three {
 
 a.animated-button.gibson-three:after {
   opacity: 0;
-  background-image: -webkit-linear-gradient(transparent 50%, #e83e8c82 50%);
-  background-image: -moz-linear-gradient(transparent 50%, #e83e8c82 50%);
+  background-image: -webkit-linear-gradient(transparent 50%, #ffffffa8 50%);
+  background-image: -moz-linear-gradient(transparent 50%, #ffffffa8 50%);
   background-size: 10px 10px;
   -moz-transform: translateX(-50%) translateY(-50%) rotate(90deg);
   -ms-transform: translateX(-50%) translateY(-50%) rotate(90deg);
