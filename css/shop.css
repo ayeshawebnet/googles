@@ -760,8 +760,11 @@ ul.stars li a i:hover {
 h3.agileits-sear-head {
 	color: #181c27;
 	margin-bottom: 20px;
-	font-size: 1.1em;
+	font-size: 1.3em;
 	font-weight: 600;
+}
+.special-sec1{
+	background-color: #d9cbc5;
 }
 
 .search-hotel {
@@ -776,6 +779,7 @@ h3.agileits-sear-head {
     text-align: left;
     width: 55%;
     margin-left: 10%;
+	margin-top: 10px;
 }
 .img-deals {
     float: left;
@@ -823,10 +827,17 @@ input#amount1 {
 }
 
 .side-bar {
-	padding: 20px 15px;
-	border: 1px solid #e4e4e4;
+	background: url(../images/verticle-banner2.jpg) no-repeat ;
+  	background-size: cover;
+	/* padding: 20px 15px; */
+	/* border: 1px solid #e4e4e4; */
 }
-
+.side-bar-inner{
+	padding: 20px 15px;
+	/* border: 1px solid red; */
+	background-color: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(5px);
+}
 .shop_left img,
 .shop_right img {
 	width: 100%;
@@ -849,7 +860,7 @@ input#amount1 {
 .shop_right h6 {
 	font-size: 20px;
 	margin-top: 15px;
-	color: #fff;
+	color: black;
 	letter-spacing: 1px;
 	font-weight: 700;
 	position: absolute;
@@ -875,11 +886,11 @@ input.checked {
 }
 
 .left-side ul li span {
-	font-size: 13px;
+	font-size: 16px;
 	color: #000;
 	letter-spacing: 1px;
 	margin-left: 3px;
-	vertical-align: top;
+	/* vertical-align: top; */
 }
 
 .left-side {
@@ -936,10 +947,12 @@ input.checked {
 }
 
 .wrapper_top_shop {
-	padding: 15px;
+	/* padding: 15px; */
 	border: 1px solid #e4e4e4;
 }
-
+.wrapper_top_shop .row{
+	margin: 30px 0px!important;
+}
 /*-- //special deals --*/
 .wrapper_top_shop h4 {
     font-size: 1.2em;
@@ -1672,3 +1685,216 @@ span.item_price {
 }
 
 /*-- //Responsive --*/
+.rock-girl-container{
+	position: relative;
+	height: 100px;	
+}
+
+.rock-girl1{
+	position: absolute;
+	bottom: -51px;
+	left: 246px;
+	
+	
+}
+.rock-girl2{
+	position: absolute;
+	bottom: -51px;
+	right: -53px;
+	width:350px !important;
+}
+.rock-girl3{
+	position: absolute;
+	bottom: -51px;
+	right: 70px;
+}
+
+/* glass animation */
+.glass-container{
+	width: 400px;
+	height: 300px;
+	position: absolute;
+	top: calc(50% - 150px);
+	left: calc(50% - 200px);
+  }
+  .emoticon{
+	width: 400px;
+	height: 250px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	box-sizing: border-box;
+	/* border: 10px solid #000; */
+	border-radius: 50%;
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+  }
+  .eyes{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	top: 70px;
+	left: 119px;
+	background-color: #d9cbc5;
+	border-radius: 50%;
+	box-shadow: 154px 0px 0px #d9cbc5;
+  }
+  @keyframes animationMouth{
+	0%{
+	  border-radius: 0;
+	}
+	90%{
+	  border-radius: 50%;
+	}
+  }
+  .mouth{
+	width: 130px;
+	height: 200px;
+	position: absolute;
+	bottom: 50px;
+	right: 114px;
+	border: 10px solid #d9cbc5;
+	border-top: 10px solid transparent;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-radius: 50%;
+	animation: animationMouth 4s linear;
+  }
+  @keyframes animationGlasses{
+	0%{
+	  opacity: 0;
+	  top: 128px;
+	  left: 328px;
+	}
+	10%{
+	  opacity: 1;
+	  top: 128px;
+	  left: 328px;
+	}
+	30%{
+	  opacity: 1;
+	  top: 58px;
+	  left: 328px;
+	}
+	50%{
+	  opacity: 1;
+	  top: 58px;
+	  left: 328px;
+	}
+	80%{
+	  opacity: 1;
+	  top: 58px;
+	  left: 108px;
+	}
+	100%{
+	  opacity: 1;
+	  top: 58px;
+	  left: 108px;
+	}
+  }
+  .glasses{
+	width: 80px;
+	height: 70px;
+	position: absolute;
+	top: 58px;
+	left: 108px;
+	background-color: #d9cbc5;
+	box-shadow: 145px 0px 0px #d9cbc5;
+	animation: animationGlasses 4s linear;
+  }
+  .glasses:before {
+	content: "";
+	width: 70px;
+	height: 10px;
+	position: absolute;
+	top: 22px;
+	left: -80px;
+	background-color: #d9cbc5;
+  }
+  .glasses:after {
+	content: "";
+	width: 10px;
+	height: 30px;
+	position: absolute;
+	top: 28px;
+	left: -80px;
+	background-color: #d9cbc5;
+  }
+  @keyframes animationTitle{
+	0%{
+	  opacity: 0;
+	}
+	90%{
+	  opacity: 0;
+	}
+	100%{
+	  opacity: 1;
+	}
+  }
+  .glass-container h1{
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	margin: 0;
+	text-align: center;
+	/* font-size: 2.8em; */
+	font-family: Verdana;
+	text-transform: uppercase;
+	font-weight: bold;
+	/* background: -webkit-linear-gradient(rgb(0, 0, 0), rgb(88, 87, 87)); */
+	background: -webkit-linear-gradient(#d9cbc5, #a18d84);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: #000;
+	animation: animationTitle 4s linear;
+  }
+  /* glass animation */
+
+  /* checkbox */
+  .checkbox-wrapper input[type="checkbox"] {
+	visibility: hidden;
+	display: none;
+  }
+  
+  .checkbox-wrapper *,
+  .checkbox-wrapper ::after,
+  .checkbox-wrapper ::before {
+	box-sizing: border-box;
+	user-select: none;
+  }
+  
+  .checkbox-wrapper {
+	position: relative;
+	display: block;
+	overflow: hidden;
+  }
+  
+  .checkbox-wrapper .label {
+	cursor: pointer;
+  }
+  
+  .checkbox-wrapper .check {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	opacity: 0;
+  }
+  
+  .checkbox-wrapper .label svg {
+	vertical-align: middle;
+  }
+  
+  .checkbox-wrapper .path1 {
+	stroke-dasharray: 200;
+	stroke-dashoffset: 200;
+	transition: .5s stroke-dashoffset;
+	opacity: 0;
+  }
+  
+  .checkbox-wrapper .check:checked + label svg g path {
+	stroke-dashoffset: 0;
+	opacity: 1;
+  }
+  /* checkbox */
+  
