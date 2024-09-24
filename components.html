@@ -55,7 +55,7 @@
 
         input.form-control.header-search::placeholder {
             color: #000000a3;
-            font-size: 16px;
+            font-size: 13px;
         }
 
         .currency-dropdown,
@@ -65,11 +65,12 @@
 
         .sub-menu .nav-link {
             color: #000;
+            font-size: 13px;
         }
 
         header .header-search {
             border: 0px;
-            font-size: 15px;
+            font-size: 13px;
             color: #000000;
         }
     </style>
@@ -88,7 +89,7 @@
                     <!-- Search -->
                     <form class="form-inline">
                         <span class="search-icon">
-                            <svg focusable="false" width="18" height="18" class="icon icon--header-search   "
+                            <svg focusable="false" width="15" height="15" class="icon icon--header-search   "
                                 viewBox="0 0 18 18">
                                 <path
                                     d="M12.336 12.336c2.634-2.635 2.682-6.859.106-9.435-2.576-2.576-6.8-2.528-9.435.106C.373 5.642.325 9.866 2.901 12.442c2.576 2.576 6.8 2.528 9.435-.106zm0 0L17 17"
@@ -101,11 +102,11 @@
 
                     <!-- Brand Logo -->
                     <div class="logo-here">
-                        <a class="navbar-brand mx-auto" href="#">AZELEFA</a>
+                        <a class="navbar-brand mx-auto" href="#">Glasses Hub</a>
                     </div>
 
                     <!-- Icons Section -->
-                    <div class="navbar-icons d-flex align-items-center">
+                    <div class="navbar-icons d-flex align-items-center pl-xl-5">
 
 
                         <a class="nav-link" href="#">
@@ -117,8 +118,8 @@
                                     stroke-width="1.4"></path>
                             </svg>
                         </a>
-                        <a class="nav-link" href="#">
-                            <svg focusable="false" width="20" height="18" class="icon icon--header-cart   "
+                        <a class="nav-link open-cart" role="button" >
+                            <svg focusable="false" width="20" height="18" class="icon icon--header-cart"
                                 viewBox="0 0 20 18">
                                 <path d="M3 1h14l1 16H2L3 1z" fill="none" stroke="currentColor" stroke-width="1.4">
                                 </path>
@@ -158,10 +159,91 @@
             </div>
         </div>
     </header>
+    <div class="cart-menu">
+        <div class="cancel">
+            <button class="cancel-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z">
+                    </path>
+                </svg>
+            </button>
+        </div>
+        <div class="side-menu-cart">
+            <main>
+                <a href="#" class="close-button"><span class="close-icon">X</span></a>
+                <h2>Shopping Bag <span class="count">3</span></h2>
+                <ul class="products">
+                    <li class="product">
+                        <a href="#" class="product-link">
+                            <span class="product-image">
+                                <img src="https://via.placeholder.com/75x50/ffffff/cccccc?text=PHOTO" alt="Product Photo">
+                            </span>
+                            <span class="product-details">
+                                <h3>Very Cool Product One</h3>
+                                <span class="qty-price">
+                                    <span class="qty">
+                                        <button class="minus-button" id="minus-button-1">-</button>
+                                        <input type="number" id="qty-input-1" class="qty-input" step="1" min="1" max="1000" name="qty-input" value="1" pattern="[0-9]*" title="Quantity" inputmode="numeric">
+                                        <button class="plus-button" id="plus-button-1">+</button>
+                                        <input type="hidden" name="item-price" id="item-price-1" value="12.00">
+                                    </span>
+                                    <span class="price">$16.00</span>
+                                </span>
+                            </span>
+                        </a>
+                        <a href="#remove" class="remove-button"><span class="remove-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                <path
+                                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z">
+                                </path>
+                            </svg>
+                        </span></a>
+                    </li>
+                    <li class="product">
+                        <a href="#" class="product-link">
+                            <span class="product-image">
+                                <img src="https://via.placeholder.com/75x50/ffffff/cccccc?text=PHOTO" alt="Product Photo">
+                            </span>
+                            <span class="product-details">
+                                <h3>Very Cool Product Two with Long Title</h3>
+                                <span class="qty-price">
+                                    <span class="qty">
+                                        <button class="minus-button" id="minus-button-1">-</button>
+                                        <input type="number" id="qty-input-2" class="qty-input" step="1" min="1" max="1000" name="qty-input" value="1" pattern="[0-9]*" title="Quantity" inputmode="numeric">
+                                        <button class="plus-button" id="plus-button-1">+</button>
+                                        <input type="hidden" name="item-price" id="item-price-2" value="12.00">
+                                    </span>
+                                    <span class="price">$28.00</span>
+                                </span>
+                            </span>
+                        </a>
+                        <a href="#remove" class="remove-button"><span class="remove-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                <path
+                                    d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z">
+                                </path>
+                            </svg>
+                        </span></a>
+                    </li>
+                    
+                </ul>
+                <div class="totals">
+                    <div class="subtotal">
+                        <div class="checkout-here">
+                            <span class="label">Subtotal:</span> <span class="amount">$54.00</span>
+                        </div>
+                    </div>
+                    <a class="checkout-button hover-filled-slide-right" href="">
+                        <span>Cart</span>
+                    </a>
+                </div>
+                
+            </main>
+        </div>
+    </div>
     <main>
-
-
-
         <!-- slider_section - start
 			================================================== -->
         <div class="container-fluid p-0">
@@ -271,7 +353,6 @@
         </div>
         <!-- slider_section - end
 			================================================== -->
-
         <section class="slider_section sports_slider position-relative arrow_ycenter clearfix">
             <div class="main_slider clearfix" data-slick='{"dots":false}'>
                 <div class="item d-flex align-items-center" data-bg-color="#ebebeb">
@@ -292,7 +373,7 @@
                     <div class="item_image_1">
                         <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_01.png"
                             data-animation="fadeInRight" data-delay=".4s" alt="image_not_found">
-                       
+
                     </div>
                     <div class="item_image_2" data-animation="fadeInLeft" data-delay=".5s">
                         <img src="https://jthemes.net/themes/html/neoncart/assets/images/slider/sports/img_02.png"
@@ -373,13 +454,6 @@
         </section>
         <!-- slider_section - end
 			================================================== -->
-          
-
-
-
-
-
-
     </main>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -388,6 +462,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script>
         $(document).ready(function () {
+
+            // Cart Open
+            $(".open-cart").click(function () {
+                $(".cart-menu").addClass("show");
+            });
+
+            $(".cart-menu .cancel").click(function () {
+                $(".cart-menu").removeClass("show");
+            });
+            // Cart Open
+
+
 
             // main slider - start
             // --------------------------------------------------
