@@ -582,12 +582,12 @@
 	<script>
 		$(document).ready(function () {
 			$(".button-log a").click(function () {
-				$(".overlay-login").fadeToggle(200);
+				$(".overlay-login").toggleClass('opened');
 				$(this).toggleClass('btn-open').toggleClass('btn-close');
 			});
 		});
 		$('.overlay-close1').on('click', function () {
-			$(".overlay-login").fadeToggle(200);
+			$(".overlay-login").toggleClass('opened');
 			$(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
 			open = false;
 		});

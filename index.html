@@ -3508,13 +3508,13 @@
     <script>
       $(document).ready(function () {
         $(".button-log a").click(function () {
-          $(".overlay-login").fadeToggle(200);
-          $(this).toggleClass("btn-open").toggleClass("btn-close");
+          $(".overlay-login").toggleClass('opened');
+          $(this).toggleClass('btn-open').toggleClass('btn-close');
         });
       });
-      $(".overlay-close1").on("click", function () {
-        $(".overlay-login").fadeToggle(200);
-        $(".button-log a").toggleClass("btn-open").toggleClass("btn-close");
+      $('.overlay-close1').on('click', function () {
+        $(".overlay-login").toggleClass('opened');
+        $(".button-log a").toggleClass('btn-open').toggleClass('btn-close');
         open = false;
       });
     </script>
