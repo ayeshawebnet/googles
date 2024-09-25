@@ -1,13 +1,13 @@
 /* Cart Sidebar */
 /* Mobile Header Css Start Here */
 .cart-menu {
-	background: #f8f8f8;
-	width: 338px;
+	background: white;
+	/* width: 338px; */
 	position: fixed;
 	height: 100%;
 	z-index: 99;
 	right: 0;
-	padding: 40px 16px;
+	padding: 3em 2em;
 	transform: translateX(150%);
 	transition: 0.8s;
 	top: 0px;
@@ -251,7 +251,7 @@
     padding: 0;
     width: 100%;
     min-height: 30px;
-    background: #cfe3ea; /* lighten($primary, 60%) */
+    background: #f2f2f2; /* lighten($primary, 60%) */
     color: #98989b; /* $gray-600 */
     position: relative;
     display: flex;

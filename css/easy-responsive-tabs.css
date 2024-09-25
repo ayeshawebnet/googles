@@ -49,10 +49,10 @@ h2.resp-accordion {
 }
 
 .resp-tab-active {
-  border-bottom: 4px solid var(--light-brown);
+  border-bottom: 4px solid var(--black);
   margin-bottom: -1px !important;
   position: relative;
-  background: var(--light-brown);
+  background: var(--black);
   color: #fff !important;
 }
 
@@ -61,7 +61,7 @@ h2.resp-accordion {
   position: absolute;
   width: 0;
   height: 0;
-  border-top: 10px solid var(--light-brown);
+  border-top: 10px solid var(--black);
   border-left: 10px solid rgba(69, 42, 21, 0);
   border-right: 10px solid rgba(199, 57, 57, 0);
   left: 45%;
@@ -231,7 +231,7 @@ h2.resp-accordion:first-child {
     border-bottom: 1px solid #c1c1c1 !important;
   }
   h2.resp-tab-active {
-    background: var(--light-brown) !important;
+    background: var(--black) !important;
   }
   .resp-tabs-list li {
       font-size: 13px;
