@@ -645,7 +645,7 @@
                       <div class="row">
                         <div class="el-wrapper">
                           <div class="box-up">
-                            <img class="img" src="images/s1.jpg" alt="" />
+                            <img class="img glass-image" src="images/s1.jpg" alt="" />
                             <div class="img-info">
                               <div class="info-inner">
                                 <span class="p-name">Farenheit</span>
@@ -660,21 +660,21 @@
                                   Available color :
                                   <ul class="colors-container">
                                     <li class="color">
-                                      <a role="button"></a>
+                                      <a role="button" class="color-btn" data-image="/images/m2.jpg"></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
                                     <li class="color">
-                                      <a role="button"></a
+                                      <a role="button" class="color-btn" data-image="/images/m3.jpg"></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
                                     <li class="color active">
-                                      <a role="button"></a
+                                      <a role="button" class="color-btn" data-image="/images/m4.jpg"></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
                                       >
                                     </li>
                                     <li class="color">
-                                      <a role="button"></a
+                                      <a role="button" class="color-btn" data-image="/images/m5.jpg"></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
                                       >
@@ -2967,7 +2967,16 @@
         $().UItoTop({
           easingType: "easeOutQuart",
         });
+
+
+        $(".color-btn").click(function() {
+          $(this).closest('.box-up').find('img').attr('src', $(this).attr("data-image"));
+        });
+
       });
+
+
+
     </script>
     <!--// end-smoth-scrolling -->
 
