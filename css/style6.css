@@ -32,20 +32,20 @@
 
 /* Menu style */
 .overlay form {
-	text-align: center;
-	position: relative;
-	top: 50%;
-	height:auto;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
+	/* text-align: center; */
+	/* position: relative; */
+	/* top: 50%; */
+	/* height:auto; */
+	/* -webkit-transform: translateY(-50%); */
+	/* transform: translateY(-50%); */
 }
 button#trigger-overlay {
-    outline: none;
-    border: none;
-    background: none;
+    /* outline: none; */
+    /* border: none; */
+    /* background: none; */
     text-align: center;
     /* color: #ffffff; */
-    color: #131415;
+    /* color: #131415; */
 	font-size: 1.2em;
 	cursor: pointer;
 }
@@ -132,11 +132,11 @@ button#trigger-overlay {
 }
 
 .overlay-door form {
-	position: absolute;
+	/* position: absolute;
 	left: 50%;
 	-webkit-transform: translateY(-50%) translateX(-50%);
-	transform: translateY(-50%) translateX(-50%);
-	width: 45%;
+	transform: translateY(-50%) translateX(-50%); */
+	/* width: 45%; */
 }
 
 .overlay-door form,

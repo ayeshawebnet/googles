@@ -11,7 +11,8 @@
 html,
 body {
   margin: 0;
-  color: white;
+  /* color: white; */
+  color: black;
   /* font-size: 100%; */
   /* background: #222222; */
   background: white;
@@ -80,6 +81,9 @@ label {
 
 header {
   padding: 1em 1em 1em 1em;
+  box-shadow: 0px 0px 10px #6f6f6f;
+  z-index: 1;
+  position: relative;
 }
 
 .top-bar_sub .btn-primary {
@@ -1528,8 +1532,8 @@ input#datepicker {
 
 /*-- //Popup-Box --*/
 .banner_inner {
-  
-  background: url(../images/texture1.jpg) no-repeat 0px -73px;
+  background-color: #e2e2e2;
+  background: url(../images/texture2.jpg) no-repeat ;
   background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -1541,7 +1545,7 @@ input#datepicker {
 
 ul.short {
   text-align: left;
-  padding: 5em 0em 0 2em;
+  padding: 3em 0em 0 2em;
 }
 
 ul.short li {
@@ -2049,6 +2053,8 @@ ul.links li a:hover {
 
 /* Image Styling */
 .el-wrapper .img {
+  /* width: 316px;*/
+  /* height: 316px;  */
   /* padding: 20px 0; */
   transition: all 800ms cubic-bezier(0, 0, 0.18, 1);
 }
@@ -2273,13 +2279,14 @@ ul.links li a:hover {
   background-color: #464646;
 }
   .banner_inner {
-    /* background: url(../images/banner4.jpg) no-repeat 0px -55px; */
+    background: url(../images/texture2.jpg) no-repeat ;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
     moz-background-size: cover;
     min-height: 159px;
+    background-position: right;
   }
   ul.short {
     text-align: left;
@@ -2461,13 +2468,14 @@ ul.links li a:hover {
 
 @media (max-width: 991px) {
   .banner_inner {
-    background: url(../images/banner4.jpg) no-repeat 0px -20px;
+    background: url(../images/texture2.jpg) no-repeat;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
     moz-background-size: cover;
     min-height: 133px;
+    background-position: center;
   }
   ul.short {
     text-align: left;
@@ -3019,14 +3027,15 @@ img.vert-move {
 }
 
 .colors-container .color:nth-child(3) a {
-  background-color: white;
+  background-color: grey;
 }
 
 .colors-container .color:nth-child(4) a {
-  background-color: grey;
+  background-color: #cacaca;
 }
 
 .color.active {
   border: 2px solid black;
   border-radius: 1rem;
 }
+
