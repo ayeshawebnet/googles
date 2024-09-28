@@ -237,7 +237,7 @@ h1.logo-w3layouts a.navbar-brand {
   position: static;
 }
 
-.nav-mega .dropdown-menu.mega-menu {
+.nav-mega.dropdown-menu.mega-menu {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -247,7 +247,7 @@ h1.logo-w3layouts a.navbar-brand {
   -moz-border-radius-topright: 0;
   -webkit-border-top-right-radius: 0;
   border-top-right-radius: 0;
-  width: 100%;
+  width: 50rem;
   margin-top: 0;
   padding: 0;
   border-color: #ddd;
@@ -257,16 +257,16 @@ h1.logo-w3layouts a.navbar-brand {
   top: 50px;
 }
 
-.nav-mega .dropdown-menu.mega-menu > li {
+.nav-mega.dropdown-menu.mega-menu > li {
   padding: 3em 2em;
 }
 
-.nav-mega .dropdown-menu.mega-menu .media-list .media {
+.nav-mega.dropdown-menu.mega-menu .media-list .media {
   padding: 10px;
   font-size: 13px;
 }
 
-.nav-mega .dropdown-menu.mega-menu .media-list .media-heading {
+.nav-mega.dropdown-menu.mega-menu .media-list .media-heading {
   font-size: 16px;
 }
 
