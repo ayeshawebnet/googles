@@ -53,20 +53,12 @@
 
   <body>
     <div class="banner-top container-fluid" id="home">
-      <!-- marque -->
-      <!-- <marquee behavior="scroll" direction="left" class="marquee">
-        <span>New Arrivals:</span> Ray-Ban, Oakley, Prada, Persol, and more!
-        <span>Shop Now!</span> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Need Help
-        &nbsp;<span><i class="fas fa-phone"></i>&nbsp; </span>Call +923532145671
-      </marquee> -->
-      <!-- //marque -->
       <div class="header-section__upper" data-header-upper="">
         <div class="container-fluid">
           <div class="header-section__row">
             <p class="label">
               Redefining vision with timeless style and clarity since 2024.
             </p>
-
             <ul>
               <li>
                 <a href="blogs.html" class="link link--alt">Blogs</a>
@@ -85,9 +77,10 @@
           class="navbar navbar-expand-lg navbar-light bg-white navbar-custom"
         >
           <div class="container d-block">
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between glasses-header">
+              <div class="d-flex ">
               <!-- Search -->
-              <form class="form-inline">
+              <form class="form-inline header-searchbar">
                 <span class="search-icon">
                   <svg
                     color="#000"
@@ -112,7 +105,11 @@
                   aria-label="Search"
                 />
               </form>
-
+              <!-- Submenu Toggle Button for Mobile -->
+              <button class="navbar-toggler" type="button" onclick="toggleSubMenu()">
+                  <i class="fa fa-bars" aria-hidden="true"></i>
+              </button>
+            </div>
               <!-- Brand Logo -->
               <div class="logo-here">
                 <a class="navbar-brand mx-auto" href="#">Glasses Hub</a>
@@ -148,6 +145,9 @@
                           ></path>
                         </svg>
                       </a>
+                    </li>
+                    <li>
+                        <a class="navbar-brand mx-auto d-none responsive-logo" href="#">Glasses Hub</a>
                     </li>
                     <li class="galssescart galssescart2 cart cart box_1">
                       <a class="nav-link open-cart" role="button">
@@ -195,18 +195,20 @@
             </div>
           </div>
         </nav>
-
         <!-- Submenu -->
         <div class="sub-menu">
           <div class="container">
-            <ul class="nav justify-content-center my-2">
+            <ul class="nav justify-content-center">
               <li class="nav-item">
                 <a class="nav-link active" href="index.html">Home</a>
               </li>
-              <li class="nav-item dropdown">
+              <li class="nav-item"></li>
+                <a class="nav-link" href="shop.php">Shop</a>
+              </li>
+               <!-- <li class="nav-item dropdown">
                 <a
                 class="nav-link dropdown-toggle"
-                href="shop.html"
+                href="shop.php"
                 id="navbarDropdown1"
                 role="button"
                 data-toggle="dropdown"
@@ -224,31 +226,31 @@
                       </h5>
                       <ul>
                         <li class="media-mini mt-3">
-                          <a href="shop.html">Designer Glasses</a>
+                          <a href="shop.php">Designer Glasses</a>
                         </li>
                         <li class="">
-                          <a href="shop.html"> Ray-Ban</a>
+                          <a href="shop.php"> Ray-Ban</a>
                         </li>
                         <li>
-                          <a href="shop.html">Prescription Glasses</a>
+                          <a href="shop.php">Prescription Glasses</a>
                         </li>
                         <li>
-                          <a href="shop.html">Rx Sunglasses</a>
+                          <a href="shop.php">Rx Sunglasses</a>
                         </li>
                         <li>
-                          <a href="shop.html">Contact Lenses</a>
+                          <a href="shop.php">Contact Lenses</a>
                         </li>
                         <li>
-                          <a href="shop.html">Multifocal Glasses</a>
+                          <a href="shop.php">Multifocal Glasses</a>
                         </li>
                         <li>
-                          <a href="shop.html">Kids Glasses</a>
+                          <a href="shop.php">Kids Glasses</a>
                         </li>
                         <li>
-                          <a href="shop.html">Lightweight Glasses</a>
+                          <a href="shop.php">Lightweight Glasses</a>
                         </li>
                         <li>
-                          <a href="shop.html">Sports Glasses</a>
+                          <a href="shop.php">Sports Glasses</a>
                         </li>
                       </ul>
                     </div>
@@ -258,33 +260,33 @@
                       </h5>
                       <ul>
                         <li class="media-mini mt-3">
-                          <a href="shop.html">Brooks Brothers</a>
+                          <a href="shop.php">Brooks Brothers</a>
                         </li>
                         <li>
-                          <a href="shop.html">Persol</a>
+                          <a href="shop.php">Persol</a>
                         </li>
                         <li>
-                          <a href="shop.html">Polo Ralph Lauren</a>
+                          <a href="shop.php">Polo Ralph Lauren</a>
                         </li>
                         <li>
-                          <a href="shop.html">Prada</a>
+                          <a href="shop.php">Prada</a>
                         </li>
                         <li>
-                          <a href="shop.html">Ray-Ban Jr</a>
+                          <a href="shop.php">Ray-Ban Jr</a>
                         </li>
                         <li>
-                          <a href="shop.html">Sferoflex</a>
+                          <a href="shop.php">Sferoflex</a>
                         </li>
                       </ul>
                       <ul class="sub-in text-left">
                         <li>
-                          <a href="shop.html">Polo Ralph Lauren</a>
+                          <a href="shop.php">Polo Ralph Lauren</a>
                         </li>
                         <li>
-                          <a href="shop.html">Prada</a>
+                          <a href="shop.php">Prada</a>
                         </li>
                         <li>
-                          <a href="shop.html">Ray-Ban Jr</a>
+                          <a href="shop.php">Ray-Ban Jr</a>
                         </li>
                       </ul>
                     </div>
@@ -293,7 +295,7 @@
                         Classic Beauty in Black Eyewear
                       </h5>
                       <div class="media-mini mt-3">
-                        <a href="shop.html">
+                        <a href="shop.php">
                           <img
                             src="images/g1.jpg"
                             class="img-fluid"
@@ -306,7 +308,8 @@
                   <hr />
                 </li>
               </ul>
-              </li>
+              </li>  -->
+              
               <li class="nav-item">
                 <a class="nav-link" href="about.html">About us</a>
               </li>
@@ -555,7 +558,7 @@
                   <span>Cool summer sale 50% off</span>
                 </h3>
                 <a
-                  href="shop.html"
+                  href="shop.php"
                   class="btn btn-sm animated-button gibson-three mt-4"
                   style="color: black"
                   >Shop Now</a
@@ -569,7 +572,7 @@
                   <span>Want to Look Your Best?</span>
                 </h3>
                 <a
-                  href="shop.html"
+                  href="shop.php"
                   style="color: white"
                   class="btn btn-sm animated-button gibson-three mt-4"
                   >Shop Now</a
@@ -583,7 +586,7 @@
                   <span>Cool summer sale 50% off</span>
                 </h3>
                 <a
-                  href="shop.html"
+                  href="shop.php"
                   style="color: black"
                   class="btn btn-sm animated-button gibson-three mt-4"
                   >Shop Now</a
@@ -617,7 +620,7 @@
     <!-- /clients-sec -->
     <div class="testimonials p-lg-5 p-3">
       <div class="row last-section">
-        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+        <div class="col-lg-3 col-md-6 footer-top-w3layouts-grid-sec">
           <div class="mail-grid-icon text-center">
             <i class="fas fa-gift"></i>
           </div>
@@ -626,7 +629,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur</p>
           </div>
         </div>
-        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+        <div class="col-lg-3 col-md-6 footer-top-w3layouts-grid-sec">
           <div class="mail-grid-icon text-center">
             <i class="fas fa-shield-alt"></i>
           </div>
@@ -635,7 +638,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur</p>
           </div>
         </div>
-        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+        <div class="col-lg-3 col-md-6 footer-top-w3layouts-grid-sec">
           <div class="mail-grid-icon text-center">
             <i class="fas fa-dollar-sign"></i>
           </div>
@@ -644,7 +647,7 @@
             <p>Lorem ipsum dolor sit amet, consectetur</p>
           </div>
         </div>
-        <div class="col-lg-3 footer-top-w3layouts-grid-sec">
+        <div class="col-lg-3 col-md-6 footer-top-w3layouts-grid-sec">
           <div class="mail-grid-icon text-center">
             <i class="fas fa-truck"></i>
           </div>
@@ -735,7 +738,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -743,7 +746,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -751,7 +754,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -761,7 +764,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -891,7 +894,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -899,7 +902,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -907,7 +910,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -917,7 +920,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -1048,7 +1051,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -1056,7 +1059,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -1064,7 +1067,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -1074,7 +1077,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -1205,7 +1208,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -1213,7 +1216,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -1221,7 +1224,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -1231,7 +1234,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -1367,7 +1370,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -1375,7 +1378,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -1383,7 +1386,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -1393,7 +1396,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -1523,7 +1526,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -1531,7 +1534,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -1539,7 +1542,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -1549,7 +1552,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -1681,7 +1684,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -1689,7 +1692,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -1697,7 +1700,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -1707,7 +1710,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -1838,7 +1841,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m1.jpg"
+                                        data-image="images/m1.jpg"
                                       ></a>
                                       <span class="color-name">asdsa</span>
                                     </li>
@@ -1846,7 +1849,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m2.jpg"
+                                        data-image="images/m2.jpg"
                                       ></a
                                       ><span class="color-name">Team Navy</span>
                                     </li>
@@ -1854,7 +1857,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m3.jpg"
+                                        data-image="images/m3.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pulse Blue</span
@@ -1864,7 +1867,7 @@
                                       <a
                                         role="button"
                                         class="color-btn"
-                                        data-image="/images/m4.jpg"
+                                        data-image="images/m4.jpg"
                                       ></a
                                       ><span class="color-name"
                                         >Pink Fusion</span
@@ -2040,7 +2043,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m1.jpg"
+                                                data-image="images/m1.jpg"
                                               ></a>
                                               <span class="color-name"
                                                 >asdsa</span
@@ -2050,7 +2053,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m2.jpg"
+                                                data-image="images/m2.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Team Navy</span
@@ -2060,7 +2063,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m3.jpg"
+                                                data-image="images/m3.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pulse Blue</span
@@ -2070,7 +2073,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m4.jpg"
+                                                data-image="images/m4.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pink Fusion</span
@@ -2217,7 +2220,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m1.jpg"
+                                                data-image="images/m1.jpg"
                                               ></a>
                                               <span class="color-name"
                                                 >asdsa</span
@@ -2227,7 +2230,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m2.jpg"
+                                                data-image="images/m2.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Team Navy</span
@@ -2237,7 +2240,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m3.jpg"
+                                                data-image="images/m3.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pulse Blue</span
@@ -2247,7 +2250,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m4.jpg"
+                                                data-image="images/m4.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pink Fusion</span
@@ -2394,7 +2397,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m1.jpg"
+                                                data-image="images/m1.jpg"
                                               ></a>
                                               <span class="color-name"
                                                 >asdsa</span
@@ -2404,7 +2407,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m2.jpg"
+                                                data-image="images/m2.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Team Navy</span
@@ -2414,7 +2417,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m3.jpg"
+                                                data-image="images/m3.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pulse Blue</span
@@ -2424,7 +2427,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m4.jpg"
+                                                data-image="images/m4.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pink Fusion</span
@@ -2571,7 +2574,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m1.jpg"
+                                                data-image="images/m1.jpg"
                                               ></a>
                                               <span class="color-name"
                                                 >asdsa</span
@@ -2581,7 +2584,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m2.jpg"
+                                                data-image="images/m2.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Team Navy</span
@@ -2591,7 +2594,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m3.jpg"
+                                                data-image="images/m3.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pulse Blue</span
@@ -2601,7 +2604,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m4.jpg"
+                                                data-image="images/m4.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pink Fusion</span
@@ -2748,7 +2751,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m1.jpg"
+                                                data-image="images/m1.jpg"
                                               ></a>
                                               <span class="color-name"
                                                 >asdsa</span
@@ -2758,7 +2761,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m2.jpg"
+                                                data-image="images/m2.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Team Navy</span
@@ -2768,7 +2771,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m3.jpg"
+                                                data-image="images/m3.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pulse Blue</span
@@ -2778,7 +2781,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m4.jpg"
+                                                data-image="images/m4.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pink Fusion</span
@@ -2925,7 +2928,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m1.jpg"
+                                                data-image="images/m1.jpg"
                                               ></a>
                                               <span class="color-name"
                                                 >asdsa</span
@@ -2935,7 +2938,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m2.jpg"
+                                                data-image="images/m2.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Team Navy</span
@@ -2945,7 +2948,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m3.jpg"
+                                                data-image="images/m3.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pulse Blue</span
@@ -2955,7 +2958,7 @@
                                               <a
                                                 role="button"
                                                 class="color-btn"
-                                                data-image="/images/m4.jpg"
+                                                data-image="images/m4.jpg"
                                               ></a
                                               ><span class="color-name"
                                                 >Pink Fusion</span
@@ -3193,7 +3196,7 @@
                 </p>
                 <p>
                   <a
-                    href="shop.html"
+                    href="shop.php"
                     class="btn btn-sm animated-button gibson-three mt-4"
                     >Shop Now</a
                   >
@@ -3212,7 +3215,7 @@
                 </p>
                 <p>
                   <a
-                    href="shop.html"
+                    href="shop.php"
                     class="btn btn-sm animated-button gibson-three mt-4"
                     >Shop Now</a
                   >
@@ -3231,7 +3234,7 @@
                 </p>
                 <p>
                   <a
-                    href="shop.html"
+                    href="shop.php"
                     class="btn btn-sm animated-button gibson-three mt-4"
                     >Shop Now</a
                   >
@@ -3325,7 +3328,7 @@
                 <a href="404.html">Error</a>
               </li>
               <li>
-                <a href="shop.html">Shop</a>
+                <a href="shop.php">Shop</a>
               </li>
               <li>
                 <a href="contact.html">Contact Us</a>
@@ -3522,11 +3525,12 @@
         $(".dropdown").hover(
           function () {
             $(".dropdown-menu", this).stop(true, true).slideDown("fast");
-            $(this).toggleClass("open");
+            $(this).addClass("open");
           },
           function () {
-            $(".dropdown-menu", this).stop(true, true).slideUp("fast");
-            $(this).toggleClass("open");
+            $(".dropdown-menu").fadeOut("fast");
+            // $(".dropdown-menu", this).stop(true, true).slideUp("fast");
+            $(this).removeClass("open");
           }
         );
       });
@@ -3572,6 +3576,13 @@
           $(this).parent().addClass("active");
         });
       });
+    </script>
+    <script>
+    function toggleSubMenu() 
+    {
+      const submenu = document.querySelector('.sub-menu');
+      submenu.classList.toggle('show');
+    }
     </script>
     <!--// end-smoth-scrolling -->
 

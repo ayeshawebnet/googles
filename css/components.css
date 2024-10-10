@@ -1203,13 +1203,13 @@ section.sports_slider {
 ==========================**/
 .poster-section {
     height: 100%;
-    background-color: #your-color; /* Replace $demo1-bg with actual color */
+    /* background-color: #your-color; Replace $demo1-bg with actual color */
     position: relative;
 }
 .poster-section .poster-image {
     position: relative;
     height: 100%;
-    background-color: #your-color; /* Replace $demo1-bg with actual color */
+    /* background-color: #your-color; Replace $demo1-bg with actual color */
 }
 .poster-section .poster-image .poster-image-details {
     position: absolute;
@@ -1840,7 +1840,7 @@ section.sports_slider {
 }
 
 .ratings.rating3 li i {
-    color: ##CC0D39; /* Replace with the actual value of %primary-color */
+    color: #CC0D39; /* Replace with the actual value of %primary-color */
 }
 
 .ratings.rating3 li:nth-child(4) i,

@@ -1,14 +1,20 @@
+<!--
+	Author: W3layouts
+	Author URL: http://w3layouts.com
+	License: Creative Commons Attribution 3.0 Unported
+	License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
 <!DOCTYPE html>
 <html lang="zxx">
 
 <head>
 	<title>Glasses Hub - Your Ultimate Destination for Eyewear</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta charset="utf-8" />
-    <meta
-      name="glasses, eyeglasses, sunglasses, eyewear, prescription lenses, affordable glasses, stylish eyewear, buy glasses online, Glasses Hub"
-      content="Discover a wide range of stylish and affordable glasses at Glasses Hub. Shop the latest eyeglasses, sunglasses, and prescription lenses for men, women, and kids. Fast shipping and top-quality eyewear guaranteed!"
-    />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta charset="utf-8" />
+	<meta
+		name="glasses, eyeglasses, sunglasses, eyewear, prescription lenses, affordable glasses, stylish eyewear, buy glasses online, Glasses Hub"
+		content="Discover a wide range of stylish and affordable glasses at Glasses Hub. Shop the latest eyeglasses, sunglasses, and prescription lenses for men, women, and kids. Fast shipping and top-quality eyewear guaranteed!" />
 	<script>
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);
@@ -22,16 +28,20 @@
 	<link href="css/login_overlay.css" rel='stylesheet' type='text/css' />
 	<link href="css/style6.css" rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="css/shop.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="css/checkout.css">
+	<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
 	<link href="css/style.css" rel='stylesheet' type='text/css' />
 	<link href="css/fontawesome-all.css" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
-	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-	    rel="stylesheet">
-		<link rel="stylesheet" href="css/components.css" />
+	<link
+		href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+		rel="stylesheet">
+	<link rel="stylesheet" href="css/components.css" />
 </head>
 
 <body>
 	<div class="banner-top container-fluid" id="home">
+		
 		<div class="header-section__upper" data-header-upper="">
 			<div class="container-fluid">
 				<div class="header-section__row">
@@ -404,7 +414,7 @@
 							<a href="index.html">Home</a>
 							<i>|</i>
 						</li>
-						<li>Customers</li>
+						<li>Checkout </li>
 					</ul>
 				</div>
 			</div>
@@ -413,238 +423,214 @@
 		<!--//banner -->
 	</div>
 	<!--// header_top -->
-	<!--/404-->
+	<!--checkout-->
 	<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
-		<div class="container-fluid">
-
-			<div class="inner-sec-shop px-lg-4 px-3">
-				<h3 class="tittle-w3layouts text-center my-lg-4 my-3">Customer says</h3>
-				<div class="row">
-					<div class="col-lg-3 customer-main">
-						<div class="card">
-							<div class="card-body">
-								<div class="customer-img">
-									<img src="images/team1.jpg" alt=" " class="img-fluid rounded">
-								</div>
-								<div class="customer-info text-left py-lg-4 py-2">
-									<h4>Customer 1</h4>
-									<h6>Lorem ipsum dolor sit</h6>
-									<p>Aenean orci erat, placerat id pulvinar nec, tincidunt vel eros.</p>
-									<div class="row  pt-3 mt-3 team-social border-top">
-										<h5 class="col-md-4 text-left">Contact</h5>
-										<ul class="col-md-8 d-flex justify-content-right social-icons">
-
-
-											<li>
-												<a href="#">
-													<i class="fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li class="mx-3">
-												<a href="#">
-													<i class="fab fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fab fa-google-plus-g"></i>
-												</a>
-											</li>
-
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 customer-main">
-						<div class="card">
-							<div class="card-body">
-								<div class="customer-img">
-									<img src="images/team2.jpg" alt=" " class="img-fluid rounded">
-								</div>
-								<div class="customer-info text-left py-lg-4 py-2">
-									<h4>Customer 2</h4>
-									<h6>Lorem ipsum dolor sit</h6>
-									<p>Aenean orci erat, placerat id pulvinar nec, tincidunt vel eros..
-
-									</p>
-									<div class="row  pt-3 mt-3 team-social border-top">
-										<h5 class="col-md-4 text-left">Contact</h5>
-										<ul class="col-md-8 d-flex justify-content-right social-icons">
-
-
-											<li>
-												<a href="#">
-													<i class="fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li class="mx-3">
-												<a href="#">
-													<i class="fab fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fab fa-google-plus-g"></i>
-												</a>
-											</li>
-
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 customer-main">
-						<div class="card">
-							<div class="card-body">
-								<div class="customer-img">
-									<img src="images/team3.jpg" alt=" " class="img-fluid rounded">
-								</div>
-								<div class="customer-info text-left py-lg-4 py-2">
-									<h4>Customer 3</h4>
-									<h6>Lorem ipsum dolor sit</h6>
-									<p>Aenean orci erat, placerat id pulvinar nec, tincidunt vel eros.</p>
-									<div class="row  pt-3 mt-3 team-social border-top">
-										<h5 class="col-md-4 text-left">Contact</h5>
-										<ul class="col-md-8 d-flex justify-content-right social-icons">
-
-
-											<li>
-												<a href="#">
-													<i class="fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li class="mx-3">
-												<a href="#">
-													<i class="fab fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fab fa-google-plus-g"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 customer-main">
-						<div class="card">
-							<div class="card-body">
-								<div class="customer-img">
-									<img src="images/team4.jpg" alt=" " class="img-fluid rounded">
-								</div>
-								<div class="customer-info text-left py-lg-4 py-2">
-									<h4>Customer 4</h4>
-									<h6>Lorem ipsum dolor sit</h6>
-									<p>Aenean orci erat, placerat id pulvinar nec, tincidunt vel eros.</p>
-									<div class="row  pt-3 mt-3 team-social border-top">
-										<h5 class="col-md-4 text-left">Contact</h5>
-										<ul class="col-md-8 d-flex justify-content-right social-icons">
-
-
-											<li>
-												<a href="#">
-													<i class="fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li class="mx-3">
-												<a href="#">
-													<i class="fab fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fab fa-google-plus-g"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 customer-main mt-lg-4">
-						<div class="card">
-							<div class="card-body">
-								<div class="customer-img">
-									<img src="images/team3.jpg" alt=" " class="img-fluid rounded">
-								</div>
-								<div class="customer-info text-left py-lg-4 py-2">
-									<h4>Customer 5</h4>
-									<h6>Lorem ipsum dolor sit</h6>
-									<p>Aenean orci erat, placerat id pulvinar nec, tincidunt vel eros..</p>
-									<div class="row  pt-3 mt-3 team-social border-top">
-										<h5 class="col-md-4 text-left">Contact</h5>
-										<ul class="col-md-8 d-flex justify-content-right social-icons">
-
-
-											<li>
-												<a href="#">
-													<i class="fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li class="mx-3">
-												<a href="#">
-													<i class="fab fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fab fa-google-plus-g"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 customer-main mt-lg-4 mt-2">
-						<div class="card">
-							<div class="card-body">
-								<div class="customer-img">
-									<img src="images/team1.jpg" alt=" " class="img-fluid rounded">
-								</div>
-								<div class="customer-info text-left py-lg-4 py-2">
-									<h4>Customer 6</h4>
-									<h6>Lorem ipsum dolor sit</h6>
-									<p>Aenean orci erat, placerat id pulvinar nec, tincidunt vel eros..</p>
-									<div class="row  pt-3 mt-3 team-social border-top">
-										<h5 class="col-md-4 text-left">Contact</h5>
-										<ul class="col-md-8 d-flex justify-content-right social-icons">
-
-
-											<li>
-												<a href="#">
-													<i class="fab fa-facebook-f"></i>
-												</a>
-											</li>
-											<li class="mx-3">
-												<a href="#">
-													<i class="fab fa-twitter"></i>
-												</a>
-											</li>
-											<li>
-												<a href="#">
-													<i class="fab fa-google-plus-g"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+		<div class="container">
+			<div class="inner-sec-shop">
+				<h3 class="tittle-w3layouts my-lg-4 mt-3">Checkout </h3>
+				<div class="checkout-right">
+					<h4>Your shopping cart contains:
+						<span>3 Products</span>
+					</h4>
+			
 				</div>
+				<div class="checkout-left row">
+
+					<div class="col-md-7 address_form">
+						<h4>Add a new Details</h4>
+						<form action="payment.html" method="post" class="creditly-card-form agileinfo_form">
+							<section class="creditly-wrapper wrapper">
+								<div class="information-wrapper">
+									<div class="first-row form-group">
+										<div class="controls">
+											<label class="control-label">Full name: </label>
+											<input class="billing-address-name form-control" type="text" name="name"
+												placeholder="Full name">
+										</div>
+										<div class="card_number_grids">
+											<div class="card_number_grid_left">
+												<div class="controls">
+													<label class="control-label">Mobile number:</label>
+													<input class="form-control" type="text" placeholder="Mobile number">
+												</div>
+											</div>
+											<div class="card_number_grid_right">
+												<div class="controls">
+													<label class="control-label">Landmark: </label>
+													<input class="form-control" type="text" placeholder="Landmark">
+												</div>
+											</div>
+											<div class="clear"> </div>
+										</div>
+										<div class="controls">
+											<label class="control-label">Town/City: </label>
+											<input class="form-control" type="text" placeholder="Town/City">
+										</div>
+										<div class="controls">
+											<label class="control-label">Address type: </label>
+											<select class="form-control option-w3ls">
+												<option>Office</option>
+												<option>Home</option>
+												<option>Commercial</option>
+
+											</select>
+										</div>
+									</div>
+									<button class="submit check_out">Delivery to this Address</button>
+								</div>
+							</section>
+						</form>
+						<div class="checkout-right-basket">
+							<a href="payment.html">Make a Payment </a>
+						</div>
+					</div>
+					<div class="col-md-5 p-0 checkout-left-basket">
+						<!-- <h4>Continue to basket</h4>
+						<ul>
+							<li>Product1
+								<i>-</i>
+								<span>$281.00 </span>
+							</li>
+							<li>Product2
+								<i>-</i>
+								<span>$325.00 </span>
+							</li>
+							<li>Product3
+								<i>-</i>
+								<span>$325.00 </span>
+							</li>
+							<li>Total Service Charges
+								<i>-</i>
+								<span>$55.00</span>
+							</li>
+							<li>Total
+								<i>-</i>
+								<span>$986.00</span>
+							</li>
+						</ul> -->
+						<!-- /* From Uiverse.io by zanina-yassine */  -->
+						<div class="master-container">
+							<div class="master-card cart">
+								<label class="title">Your cart</label>
+								<?php
+								// Array of products
+								$products = [
+									[
+										'name' => 'Irayz Butterfly',
+										'brand' => 'Rayban',
+										'color' => 'Grey',
+										'price' => 281.00,
+										'image' => 'images/s1.jpg',
+										'quantity' => 1,
+										'url' => 'single.html',
+										'class' => 'rem1'
+									],
+									[
+										'name' => 'Fastrack Aviator',
+										'brand' => 'Rauban',
+										'color' => 'Grey',
+										'price' => 325.00,
+										'image' => 'images/s5.jpg',
+										'quantity' => 2,
+										'url' => 'single.html',
+										'class' => 'rem2'
+									],
+									[
+										'name' => 'Irayz Butterfly',
+										'brand' => 'Rauban',
+										'color' => 'Grey',
+										'price' => 325.00,
+										'image' => 'images/s2.jpg',
+										'quantity' => 4,
+										'url' => 'single.html',
+										'class' => 'rem2'
+									],
+									// Add more products as needed
+								];
+								?>
+
+								<div class="products">
+									<?php foreach ($products as $index => $product): ?>
+										<div class="product rem<?= $index; ?>">
+											<!-- image -->
+											<a href="<?= $product['url']; ?>">
+												<img src="<?= $product['image']; ?>" width="70" height="70"
+													alt="<?= $product['name']; ?>" class="img-responsive">
+											</a>
+											<!-- product detail -->
+											<div>
+												<span><?= $product['name']; ?></span>
+												<p><?= $product['brand']; ?></p>
+												<p><?= $product['color']; ?></p>
+											</div>
+											<!-- qty -->
+											<div class="quantity">
+												<button class="entry value-minus">
+													<svg fill="none" viewBox="0 0 24 24" height="14" width="14"
+														xmlns="http://www.w3.org/2000/svg">
+														<path stroke-linejoin="round" stroke-linecap="round"
+															stroke-width="2.5" stroke="#47484b" d="M20 12L4 12"></path>
+													</svg>
+												</button>
+												<div class="entry value">
+													<span><?= $product['quantity']; ?></span>
+												</div>
+												<button class="entry value-plus active">
+													<svg fill="none" viewBox="0 0 24 24" height="14" width="14"
+														xmlns="http://www.w3.org/2000/svg">
+														<path stroke-linejoin="round" stroke-linecap="round"
+															stroke-width="2.5" stroke="#47484b" d="M12 4V20M20 12H4"></path>
+													</svg>
+												</button>
+											</div>
+											<!-- price -->
+											<label
+												class="product-price small">$<?= number_format($product['price'], 2); ?></label>
+												<!-- close -->
+											<div class="rem">
+												<div class="close<?= $index; ?> close-product"> </div>
+											</div>
+										</div>
+									<?php endforeach; ?>
+								</div>
+
+
+							</div>
+
+							<div class="master-card coupons">
+								<label class="title">Apply coupons</label>
+								<form class="form">
+									<input type="text" placeholder="Apply your coupons here" class="input_field">
+									<button>Apply</button>
+								</form>
+							</div>
+
+							<div class="master-card master-checkout">
+								<label class="title">Checkout</label>
+								<div class="details">
+									<span>Your cart subtotal:</span>
+									<span>47.99$</span>
+									<span>Discount through applied coupons:</span>
+									<span>3.99$</span>
+									<span>Shipping fees:</span>
+									<span>4.99$</span>
+								</div>
+								<div class="checkout--footer">
+									<label class="product-price"><sup>$</sup>57.99</label>
+									<button class="checkout-btn">Checkout</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+
+				</div>
+
 			</div>
+
 		</div>
 	</section>
-	<!--//404-->
+	<!--//checkout-->
 	<!--footer -->
 	<footer class="py-lg-5 py-3">
 		<div class="container-fluid px-lg-5 px-3">
@@ -654,7 +640,8 @@
 						<h3>About Us</h3>
 					</div>
 					<div class="footer-text">
-						<p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget consectetur sed, convallis at
+						<p>Curabitur non nulla sit amet nislinit tempus convallis quis ac lectus. lac inia eget
+							consectetur sed, convallis at
 							tellus. Nulla porttitor accumsana tincidunt.</p>
 						<ul class="footer-social text-left mt-lg-4 mt-3">
 
@@ -736,7 +723,8 @@
 					<div class="footer-text">
 						<p>By subscribing to our mailing list you will always get latest news and updates from us.</p>
 						<form action="#" method="post">
-							<input class="form-control" type="email" name="Email" placeholder="Enter your email..." required="">
+							<input class="form-control" type="email" name="Email" placeholder="Enter your email..."
+								required="">
 							<button class="btn1">
 								<i class="far fa-envelope" aria-hidden="true"></i>
 							</button>
@@ -753,7 +741,6 @@
 		</div>
 	</footer>
 	<!-- //footer -->
-
 	<!--jQuery-->
 	<script src="js/jquery-2.2.3.min.js"></script>
 	<!-- newsletter modal -->
@@ -773,7 +760,7 @@
 			if (this.subtotal() > 0) {
 				items = this.items();
 
-				for (i = 0, len = items.length; i < len; i++) {}
+				for (i = 0, len = items.length; i < len; i++) { }
 			}
 		});
 	</script>
@@ -802,6 +789,60 @@
 		});
 	</script>
 	<!-- carousel -->
+	<!-- easy-responsive-tabs -->
+	<script src="js/easy-responsive-tabs.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('#horizontalTab').easyResponsiveTabs({
+				type: 'default', //Types: default, vertical, accordion           
+				width: 'auto', //auto or any width like 600px
+				fit: true, // 100% fit in a container
+				closed: 'accordion', // Start closed if in accordion view
+				activate: function (event) { // Callback function if tab is switched
+					var $tab = $(this);
+					var $info = $('#tabInfo');
+					var $name = $('span', $info);
+					$name.text($tab.text());
+					$info.show();
+				}
+			});
+			$('#verticalTab').easyResponsiveTabs({
+				type: 'vertical',
+				width: 'auto',
+				fit: true
+			});
+		});
+	</script>
+	<!--quantity-->
+	<script>
+		$('.value-plus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) + 1;
+			divUpd.text(newVal);
+		});
+
+		$('.value-minus').on('click', function () {
+			var divUpd = $(this).parent().find('.value'),
+				newVal = parseInt(divUpd.text(), 10) - 1;
+			if (newVal >= 1) divUpd.text(newVal);
+		});
+	</script>
+	<!--quantity-->
+	<!--close-->
+	<!-- jQuery scripts for removal functionality -->
+	<script>
+		$(document).ready(function () {
+			<?php foreach ($products as $index => $product): ?>
+				$('.close<?= $index; ?>').on('click', function () {
+					$('.rem<?= $index; ?>').fadeOut('slow', function () {
+						$('.rem<?= $index; ?>').remove();
+					});
+				});
+			<?php endforeach; ?>
+		});
+	</script>
+	<!--//close-->
+
 	<!-- dropdown nav -->
 	<script>
 		$(document).ready(function () {
@@ -819,35 +860,41 @@
 	</script>
 	<!-- //dropdown nav -->
 	<script src="js/move-top.js"></script>
-    <script src="js/easing.js"></script>
-    <script>
-        jQuery(document).ready(function($) {
-            $(".scroll").click(function(event) {
-                event.preventDefault();
-                $('html,body').animate({
-                    scrollTop: $(this.hash).offset().top
-                }, 900);
-            });
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            /*
-            						var defaults = {
-            							  containerID: 'toTop', // fading element id
-            							containerHoverID: 'toTopHover', // fading element hover id
-            							scrollSpeed: 1200,
-            							easingType: 'linear' 
-            						 };
-            						*/
+	<script src="js/easing.js"></script>
+	<script>
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 900);
+			});
+		});
+	</script>
+	<script>
+		$(document).ready(function () {
+			/*
+									var defaults = {
+										  containerID: 'toTop', // fading element id
+										containerHoverID: 'toTopHover', // fading element hover id
+										scrollSpeed: 1200,
+										easingType: 'linear' 
+									 };
+									*/
 
-            $().UItoTop({
-                easingType: 'easeOutQuart'
-            });
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
 
-        });
-    </script>
-    <!--// end-smoth-scrolling -->
+		});
+	</script>
+	<script>
+		function toggleSubMenu() {
+			const submenu = document.querySelector('.sub-menu');
+			submenu.classList.toggle('show');
+		}
+	</script>
+	<!--// end-smoth-scrolling -->
 
 
 	<script src="js/bootstrap.js"></script>

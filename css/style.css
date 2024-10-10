@@ -254,7 +254,7 @@ h1.logo-w3layouts a.navbar-brand {
   margin: 5px auto;
   left: 0%;
   border-radius: 0;
-  top: 50px;
+  top: 40px;
 }
 
 .nav-mega.dropdown-menu.mega-menu > li {
@@ -1771,7 +1771,7 @@ footer {
   font-weight: 300;
   font-size: 1.2em;
   line-height: 1.9;
-  color: var(--primary-color);
+  color: white;
 }
 
 .copyright-w3layouts {
@@ -1993,14 +1993,17 @@ ul.links li a:hover {
 
 @media (max-width: 991px) {
   .el-wrapper {
-    width: 345px;
+    width: 100%;
+    /* width: 345px; */
   }
 }
 
 @media (max-width: 767px) {
+  
   .el-wrapper {
-    width: 290px;
-    margin: 30px auto;
+    width: 100%;
+    /* width: 290px;
+    margin: 30px auto; */
   }
 }
 
@@ -2026,6 +2029,7 @@ ul.links li a:hover {
 
 .el-wrapper:hover .info-inner {
   bottom: 280px;
+  background: rgba(240, 248, 255, 0.9);
 }
 
 .el-wrapper:hover .a-size {
@@ -2579,8 +2583,13 @@ ul.links li a:hover {
     margin-top: 1em;
     margin-left: 5%;
   }
+  .footer-top-w3layouts,.footer-social  {
+    text-align: center !important;
+  }
+
   .footer-top-w3layouts-grid-sec {
     margin-bottom: 1em;
+    justify-content: center;
   }
   .footer-grid-w3ls {
     margin-top: 2em;
@@ -2609,6 +2618,9 @@ ul.links li a:hover {
   h1.logo-w3layouts a.navbar-brand {
     font-size: 1em;
   }
+  .navbar-toggler {
+    display: none !important;
+  }
 }
 
 @media (max-width: 900px) {
@@ -2629,6 +2641,9 @@ ul.links li a:hover {
   h3.tittle-w3layouts {
     font-size: 2.2em;
   }
+  .header-section__upper{
+    display: none;
+  }
 }
 
 @media (max-width: 800px) {
@@ -2646,9 +2661,15 @@ ul.links li a:hover {
     min-height: 271px;
     padding: 3em 0 0 0;
   }
+  
 }
-
+@media (max-width: 850px) {
+ .position-new-arrival{
+    display: none;
+  }
+}
 @media (max-width: 768px) {
+
   .carousel-caption h2,
   .carousel-caption h3 {
     line-height: 1.4em;
@@ -2667,8 +2688,85 @@ ul.links li a:hover {
   .carousel-caption {
     bottom: 6em;
   }
-}
 
+  /* submenu */
+    /* Make the submenu a toggle dropdown */
+    .sub-menu {
+      display: none;
+    }
+    
+    .navbar-toggler {
+      display: block !important;
+    }
+  
+    .navbar-expand-lg .navbar-collapse {
+      display: none !important;
+    }
+  
+    .navbar-expand-lg .navbar-collapse.show {
+      display: block !important;
+    }
+  
+    /* Header searchbar and navbar icons in one row */
+    .glasses-header {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+  
+    .header-searchbar,
+    .navbar-icons {
+      display: flex;
+      justify-content: center;
+      margin: 5px 0;
+      width: 100%;
+    }
+  
+    /* Align logo and toggle button in two rows */
+    .logo-here {
+      margin-bottom: 10px;
+      text-align: center;
+      display: none;
+    }
+  .responsive-logo{
+    display: block !important;
+  }
+    /* Make navbar items stacked vertically */
+    .nav-item {
+      display: block;
+      text-align: center;
+      padding: 5px 0;
+    }
+  
+    /* Show the submenu as a dropdown */
+    .sub-menu {
+      display: none;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+      /* padding: 15px 0; */
+    }
+    .sub-menu a{
+      margin: auto;
+    }
+    .sub-menu.show {
+      display: block;
+    }
+ /*  */
+    .cart-inner-info {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0;
+    }
+
+    
+}
+/* General styles */
+.navbar-toggler {
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
 @media (max-width: 767px) {
   label.top-log {
     width: 92%;
@@ -2714,6 +2812,9 @@ ul.links li a:hover {
 }
 
 @media (max-width: 667px) {
+  .brands-grid{
+    display: none;
+  }
   .error_page form {
     margin: 0 auto;
     width: 65%;
@@ -2812,6 +2913,7 @@ ul.links li a:hover {
   h3.tittle-w3layouts.two {
     letter-spacing: 2px;
   }
+
 }
 
 @media (max-width: 568px) {
@@ -2884,7 +2986,13 @@ ul.links li a:hover {
     bottom: 2em;
   }
 }
+@media (max-width:550px){
+  .banner_inner {
+    background:rgb(255, 196, 36) !important;
+    background: none;
+  }
 
+}
 @media (max-width: 384px) {
   .carousel-item {
     height: 14em;
@@ -2925,6 +3033,12 @@ ul.links li a:hover {
   .banner_inner {
     min-height: 109px;
   }
+  .responsive-logo{
+    /* font-size: 20px !important; */
+  }
+  ul.cart-inner-info li {
+    margin-left: 0em !important;
+}
 }
 
 @media (max-width: 375px) {

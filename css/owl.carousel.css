@@ -107,7 +107,8 @@
 
 .owl-carousel.owl-drag .owl-item {
     -ms-touch-action: none;
-    touch-action: none;
+    /* touch-action: none; */
+    touch-action: manipulation;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
