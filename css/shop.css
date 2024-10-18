@@ -1360,17 +1360,24 @@ span.item_price {
 .singlepage button.googles-cart.pgoogles-cart {
   font-size: 13px;
   color: #fff;
+  /* color: #1d1d1d; */
   background: #1d1d1d;
+  /* background: #fff; */
   text-decoration: none;
   position: relative;
   border: none;
-  border-radius: 0;
+  border-radius: 0.25rem;
   text-transform: uppercase;
   padding: 0.7em 1em;
   outline: none;
   letter-spacing: 1px;
   font-weight: 600;
   cursor: pointer;
+  border: 1px solid black;
+  /* &:hover {
+    background: #000;
+    color: #fff;
+  } */
 }
 
 .responsive_tabs {

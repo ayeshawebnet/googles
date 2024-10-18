@@ -740,9 +740,6 @@ button.submit.check_out {
 	transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1);
   }
 
-
-
-
 /*-- //Pay-page --*/
 @media(max-width:510px) {
     .timetable_sub th, .timetable_sub td {
