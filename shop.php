@@ -50,56 +50,56 @@
 
 
 
-.image-container img {
+/* .image-container img {
   width: 100%;
   height: auto;
   transition: transform 0.5s ease;
-}
+} */
 
-.image-container:hover img {
-  transform: scale(1.1); /* Zoom effect */
-}
+/* .image-container:hover img {
+  transform: scale(1.1); 
+} */
 
 /* Info Section */
-.info-inner {
+/* .info-inner {
   text-align: center;
   padding: 10px 0;
   background-color: rgba(240, 248, 255, 0.9);
   border-top: 1px solid #f1f1f1;
-}
+} */
 
 /* Hover Effect for Info Inner */
-.el-wrapper:hover .info-inner {
+/* .el-wrapper:hover .info-inner {
   background-color: rgba(255, 255, 255, 1);
-}
+} */
 
 /* Stars Rating */
-.stars li a i {
+/* .stars li a i {
   color: #ffcc00;
-}
+} */
 
-.stars li a i:hover {
+/* .stars li a i:hover {
   color: #ffd700;
-}
+} */
 
 /* Box-Down Section */
-.box-down {
+/* .box-down {
   text-align: center;
-  padding: 15px;
+  
   background-color: #fafafa;
   transition: background-color 0.3s;
 }
 
 .box-down:hover {
   background-color: #f1f1f1;
-}
+} */
 
-.cart .price {
+/* .cart .price {
   font-size: 1.5rem;
   font-weight: bold;
   color: #ff5e3a;
   display: block;
-}
+} */
 
 .cart .txt {
   display: block;

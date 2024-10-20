@@ -73,7 +73,7 @@ $(document).ready(function() {
                   <div class="h-bg-inner"></div>
                 </div>
                 <a class="cart" href="single.html">
-                  <span class="price">${product.price}</span>
+                  <span class="price">Rs. ${product.price}</span>
                   <span class="add-to-cart">
                     <span class="txt">Quick View</span>
                   </span>
@@ -118,7 +118,7 @@ $(document).ready(function() {
       for (let i = 1; i <= 5; i++) {
           if (i <= rating) {
               // Black colored filled stars
-              starsHTML += `<li><a href="#"><i class="fa fa-star" aria-hidden="true" style="color: #ffcd00;"></i></a></li>`;
+              starsHTML += `<li><a href="#"><i class="fa fa-star" aria-hidden="true" style="color: #ffcc00;"></i></a></li>`;
           } else {
               // Default empty stars
               starsHTML += `<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>`;
