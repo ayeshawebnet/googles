@@ -1663,7 +1663,7 @@ a.b-home:hover {
   position: relative;
   height: 0px;
   float: inline-end;
-  bottom: 145px;
+  bottom: 8px;
   z-index: 1;
 }
 .owl-carousel.owl-theme.row.owl-loaded.owl-drag {
@@ -1988,6 +1988,9 @@ ul.links li a:hover {
   /* width: 360px; */
   /* padding: 15px; */
   /* margin: 15px auto; */
+  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
   background-color: #fff;
 }
 
@@ -2081,10 +2084,11 @@ ul.links li a:hover {
 
 /* Info Inner Section */
 .info-inner {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   bottom: 50px;
   transition: all 400ms cubic-bezier(0, 0, 0.18, 1);
+  padding: 0px 10px;
 }
 
 .info-inner .p-colors {
@@ -2245,7 +2249,11 @@ ul.links li a:hover {
 @media (max-width: 1366px) {
   .el-wrapper:hover .info-inner {
     bottom: 263px;
+    /* display: none; */
   }
+  /* .el-wrapper:hover .a-size {
+    position: relative;
+  } */
   .carousel-indicators {
     bottom: 24%;
     left: 11%;
