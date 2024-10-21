@@ -10,6 +10,7 @@
          addEventListener(
              "load",
              function() {
+               
                  setTimeout(hideURLbar, 0);
              },
              false
@@ -101,7 +102,7 @@
   display: block;
 } */
 
-.cart .txt {
+/* .cart .txt {
   display: block;
   font-size: 1rem;
   color: #007bff;
@@ -110,17 +111,9 @@
 
 .cart .txt:hover {
   color: #0056b3;
-}
+} */
 
-/* Cart Icon Animation */
-.googles-cart i {
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-}
 
-.googles-cart:hover i {
-  transform: rotate(360deg);
-}
 
       </style>
    </head>
@@ -684,7 +677,7 @@
    
                         
                         </div>
-
+                        <div class="row p-row loading-spinner" ></div>
                         <div class="row p-row"  id="product-list">
                            <!-- /womens -->
                            <div class="col-md-3 product-men women_two shop-gd">
@@ -3756,6 +3749,7 @@
                      </ul>
                   </div>
                </div>
+               
                <div class="col-lg-3 footer-grid-w3ls">
                   <div class="footer-title">
                      <h3>Get in touch</h3>
@@ -3841,20 +3835,7 @@
       <script src="js/script.js"></script>
       <!-- //scrip.js -->
       <!-- cart-js -->
-      <script src="js/minicart.js"></script>
-      <script>
-         googles.render();
-         
-         googles.cart.on("googles_checkout", function (evt) {
-           var items, len, i;
-         
-           if (this.subtotal() > 0) {
-             items = this.items();
-         
-             for (i = 0, len = items.length; i < len; i++) {}
-           }
-         });
-      </script>
+ 
       <!-- //cart-js -->
    
       <script>
@@ -4007,6 +3988,23 @@
          AOS.init();
       </script>
       <script src="./ajax/get-products-list.js"></script>
+      <script src="js/minicart.js"></script>
+      <script>
+      // $(document).ready(function() {
+         googles.render();
+         console.log("hello");
+       
+         googles.cart.on("googles_checkout", function (evt) {
+           var items, len, i;
+    
+
+           if (this.subtotal() > 0) {
+             items = this.items();
+             for (i = 0, len = items.length; i < len; i++) {}
+           }
+         });
+      // });   
+      </script>
       <!-- js file -->
    </body>
 </html>

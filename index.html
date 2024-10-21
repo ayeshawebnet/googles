@@ -3437,6 +3437,7 @@
     <!-- cart-js -->
     <script src="js/minicart.js"></script>
     <script>
+      $(document).ready(function() {
       googles.render();
 
       googles.cart.on("googles_checkout", function (evt) {
@@ -3448,6 +3449,8 @@
           for (i = 0, len = items.length; i < len; i++) {}
         }
       });
+      });
+
     </script>
     <!-- //cart-js -->
     <script>
