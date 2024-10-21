@@ -32,97 +32,6 @@
       <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800" rel="stylesheet" />
       <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
       <link rel="stylesheet" href="css/components.css" />
-      <style>
-         /* Overall Card Styles */
-/* .product-googles-info {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-}
-
-.product-googles-info:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-} */
-
-
-
-/* .image-container img {
-  width: 100%;
-  height: auto;
-  transition: transform 0.5s ease;
-} */
-
-/* .image-container:hover img {
-  transform: scale(1.1); 
-} */
-
-/* Info Section */
-/* .info-inner {
-  text-align: center;
-  padding: 10px 0;
-  background-color: rgba(240, 248, 255, 0.9);
-  border-top: 1px solid #f1f1f1;
-} */
-
-/* Hover Effect for Info Inner */
-/* .el-wrapper:hover .info-inner {
-  background-color: rgba(255, 255, 255, 1);
-} */
-
-/* Stars Rating */
-/* .stars li a i {
-  color: #ffcc00;
-} */
-
-/* .stars li a i:hover {
-  color: #ffd700;
-} */
-
-/* Box-Down Section */
-/* .box-down {
-  text-align: center;
-  
-  background-color: #fafafa;
-  transition: background-color 0.3s;
-}
-
-.box-down:hover {
-  background-color: #f1f1f1;
-} */
-
-/* .cart .price {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #ff5e3a;
-  display: block;
-} */
-
-.cart .txt {
-  display: block;
-  font-size: 1rem;
-  color: #007bff;
-  transition: color 0.3s ease;
-}
-
-.cart .txt:hover {
-  color: #0056b3;
-}
-
-/* Cart Icon Animation */
-.googles-cart i {
-  font-size: 1.5rem;
-  transition: transform 0.3s ease;
-}
-
-.googles-cart:hover i {
-  transform: rotate(360deg);
-}
-
-      </style>
    </head>
    <body>
       <div class="banner-top container-fluid" id="home">
@@ -685,7 +594,7 @@
                         
                         </div>
 
-                        <div class="row p-row"  id="product-list">
+                        <div class="row p-row">
                            <!-- /womens -->
                            <div class="col-md-3 product-men women_two shop-gd">
                               <div class="product-googles-info googles">
@@ -4006,7 +3915,6 @@
       <script>
          AOS.init();
       </script>
-      <script src="./ajax/get-products-list.js"></script>
       <!-- js file -->
    </body>
 </html>

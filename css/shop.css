@@ -610,13 +610,8 @@ ul.stars li a i:hover {
 }
 
 .product-googles-info {
+  /* padding: 15px; */
   border: 1px solid #e4e4e4;
-  background-color: #fff;
-  border-radius: 10px;
-  /* box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); */
-  overflow: hidden;
-  position: relative;
-  transition: all 0.3s ease-in-out;
 }
 
 /*-- //effect on products --*/
@@ -1059,18 +1054,6 @@ button.googles-cart {
   /* margin-top: 0.5em; */
   cursor: pointer;
 }
-/* Image Container with Hover Zoom */
-.image-container {
-  position: relative;
-  overflow: hidden;
-}
-.image-container:hover img {
-  transform: scale(1.3); /* Zoom effect */
-}
-.product-googles-info:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
-} 
 .product-googles-info:hover button.googles-cart {
   /* color:var(--black); */
   color: white;
