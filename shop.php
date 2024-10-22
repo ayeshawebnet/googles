@@ -3990,7 +3990,7 @@
       <script src="./ajax/get-products-list.js"></script>
       <script src="js/minicart.js"></script>
       <script>
-      // $(document).ready(function() {
+      $(document).ready(function() {
          googles.render();
          console.log("hello");
        
@@ -4003,7 +4003,7 @@
              for (i = 0, len = items.length; i < len; i++) {}
            }
          });
-      // });   
+      });   
       </script>
       <!-- js file -->
    </body>

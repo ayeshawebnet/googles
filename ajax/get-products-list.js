@@ -93,9 +93,9 @@ $(document).ready(function () {
                           <input type="hidden" name="amount" value="${
                             product.price
                           }" />
-                          <button type="submit" class="googles-cart pgoogles-cart">
-                            <i class="fas fa-cart-plus"></i>
-                          </button>
+                           <button type="submit" class="googles-cart pgoogles-cart">
+                                          <i class="fas fa-cart-plus"></i>
+                                        </button>
                         </form>
                       </div>
                     </span>
