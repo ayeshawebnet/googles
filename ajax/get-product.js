@@ -1,4 +1,4 @@
-$(document).ready(function () {
+function getProductDetails() {
   // Show loader
   $(".loading-spinner").show();
   $("#product-list").hide(); // Initially hide the product list
@@ -9,13 +9,14 @@ $(document).ready(function () {
       jsonrpc: "2.0",
       method: "products.getProductDetails",
       params: {
-        code: "116F0107934-2",
+        code: "20112068",
         sub_shopCode: "gulzarioptics",
       },
       id: "k1PQf2Rp",
     }),
     dataType: "json", // Expect JSON response
     success: function (response) {
+      
       // Check if there's an error
       if (response.error) {
         $("#product-summary").html("<p>Error loading products.</p>");
@@ -50,7 +51,7 @@ $(document).ready(function () {
       $("#product-summary").append(detailsHTML); // Append product details
 
       // Fetch color options after details
-      fetchColorOptions(); 
+      fetchColorOptions(productDetail.productInfo.product_code); 
 
       // Hide loader and show product list
       $(".loading-spinner").hide();
@@ -60,6 +61,7 @@ $(document).ready(function () {
       const productRating = 4; // Example rating
       const productReviewCount = 25; // Example review count
       updateRatings(productRating, productReviewCount);
+      fetchSlideImages(productDetail.productImg)
     },
 
     error: function () {
@@ -91,5 +93,85 @@ $(document).ready(function () {
     $("#review-count").text(reviewCount);
     console.log("starHtml==>", reviewCount);
   }
-});
+  
+  function fetchSlideImages(productImg) {
+    // Example of static slide images; replace this with an API call if needed
+    const slideImages = productImg;
+  
+    // Dynamically create slide images
+    let slideImagesHTML = `
+      <div class="swiper-wrapper">
+    `;
+  
+    slideImages.forEach((data) => {
+      slideImagesHTML += `
+        <div class="swiper-slide">
+          <img src="${data.image}" alt="Product Image" />
+        </div>
+      `;
+    });
+  
+    slideImagesHTML += `
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    `;
+  
+    // Append slide images to the gallery slider
+    $(".gallery-slider").html(slideImagesHTML);
+  
+    // Fetch and append thumbnail images before initializing the main slider
+    fetchThumbnailImages(productImg);
+  }
+  
+  function fetchThumbnailImages(productImg) {
+    // Example of static thumbnail images; replace this with an API call if needed
+    const thumbnailImages = productImg;
 
+    // Dynamically create thumbnail images
+    let thumbnailImagesHTML = `
+      <div class="swiper-wrapper">
+    `;
+  
+    thumbnailImages.forEach((data) => {
+      thumbnailImagesHTML += `
+        <div class="swiper-slide">
+          <img src="${data.image}" alt="Product Image" />
+        </div>
+      `;
+    });
+  
+    thumbnailImagesHTML += `
+      </div>
+    `;
+  
+    // Append thumbnail images to the gallery thumbs
+    $(".gallery-thumbs").html(thumbnailImagesHTML);
+    
+    var slider = new Swiper(".gallery-slider", {
+      slidesPerView: 1,
+      centeredSlides: true,
+      loop: true,
+      loopedSlides: 6, // Number of slides
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      
+    });
+    // Initialize the swiper sliders
+    var thumbs = new Swiper(".gallery-thumbs", {
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      centeredSlides: true,
+      loop: true,
+      slideToClickedSlide: true,
+    });
+  //4系～
+  slider.controller.control = thumbs;
+  thumbs.controller.control = slider;
+  }
+
+}
+
+getProductDetails()

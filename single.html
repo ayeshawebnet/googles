@@ -60,6 +60,8 @@
          href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
          rel="stylesheet"
          />
+         <!-- Swiper CSS -->
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.css">
    </head>
    <body>
       <div class="banner-top container-fluid" id="home">
@@ -215,110 +217,7 @@
                <li class="nav-item"></li>
                  <a class="nav-link" href="shop.php">Shop</a>
                </li>
-                <!-- <li class="nav-item dropdown">
-                 <a
-                 class="nav-link dropdown-toggle"
-                 href="shop.php"
-                 id="navbarDropdown1"
-                 role="button"
-                 data-toggle="dropdown"
-                 aria-haspopup="true"
-                 aria-expanded="false"
-               >
-                 Shops
-               </a>
-               <ul class="nav-mega dropdown-menu mega-menu">
-                 <li>
-                   <div class="row">
-                     <div class="col-md-4 media-list span4 text-left">
-                       <h5 class="tittle-w3layouts-sub">
-                         Top Picks for Every Style
-                       </h5>
-                       <ul>
-                         <li class="media-mini mt-3">
-                           <a href="shop.php">Designer Glasses</a>
-                         </li>
-                         <li class="">
-                           <a href="shop.php"> Ray-Ban</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Prescription Glasses</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Rx Sunglasses</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Contact Lenses</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Multifocal Glasses</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Kids Glasses</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Lightweight Glasses</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Sports Glasses</a>
-                         </li>
-                       </ul>
-                     </div>
-                     <div class="col-md-4 media-list span4 text-left">
-                       <h5 class="tittle-w3layouts-sub">
-                         Designer Collections
-                       </h5>
-                       <ul>
-                         <li class="media-mini mt-3">
-                           <a href="shop.php">Brooks Brothers</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Persol</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Polo Ralph Lauren</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Prada</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Ray-Ban Jr</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Sferoflex</a>
-                         </li>
-                       </ul>
-                       <ul class="sub-in text-left">
-                         <li>
-                           <a href="shop.php">Polo Ralph Lauren</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Prada</a>
-                         </li>
-                         <li>
-                           <a href="shop.php">Ray-Ban Jr</a>
-                         </li>
-                       </ul>
-                     </div>
-                     <div class="col-md-4 media-list span4 text-left">
-                       <h5 class="tittle-w3layouts-sub-nav">
-                         Classic Beauty in Black Eyewear
-                       </h5>
-                       <div class="media-mini mt-3">
-                         <a href="shop.php">
-                           <img
-                             src="images/g1.jpg"
-                             class="img-fluid"
-                             alt=""
-                           />
-                         </a>
-                       </div>
-                     </div>
-                   </div>
-                   <hr />
-                 </li>
-               </ul>
-               </li>  -->
+               
                
                <li class="nav-item">
                  <a class="nav-link" href="about.html">About us</a>
@@ -582,13 +481,12 @@
          <div class="inner-sec-shop ">
             <div class="row">
                <div class="col-lg-6 single-right-left w-100">
-                  <div class="grid images_3_of_2">
-                     <div class="flexslider1">
-                        <ul class="slides imageGallery-1">                           
-                        </ul>
-                        <div class="clearfix"></div>
+                  <div class="gallery">                
+                     <div class="swiper-container gallery-slider">   
                      </div>
-                  </div>
+                     <div class="swiper-container gallery-thumbs">
+                     </div>
+                 </div>
                </div>
                <div class="col-lg-6 single-right-left simpleCart_shelfItem w-100">
                   <div class="product-summary" id="product-summary">
@@ -1977,8 +1875,8 @@
       </script>
       <!-- FlexSlider -->
       <script src="js/jquery.flexslider.js"></script>
-      <!-- <script src="js/script.js"></script> -->
-      <script>
+      
+      <!-- <script>
          document.addEventListener("DOMContentLoaded", function () {
            const galleryGroups = document.querySelectorAll(".image-gallery-group");
          
@@ -2008,45 +1906,45 @@
            };
          
            // Function to load images into the gallery
-           function loadImages(color) {
-             const imageGallery =
-               document.getElementsByClassName("imageGallery-1")[0];
-             const imageUrls = api.getImages(color); // Get the images based on color
-             imageGallery.innerHTML = imageUrls
-               .map(
-                 (url) => `
-         <li data-thumb="${url}">
-           <div class="thumb-image text-center">
-             <img src="${url}" data-imagezoom="true" class="img-fluid" alt="${color}" />
-           </div>
-         </li>
-         `
-               )
-               .join("");
+         //   function loadImages(color) {
+         //     const imageGallery =
+         //       document.getElementsByClassName("imageGallery-1")[0];
+         //     const imageUrls = api.getImages(color); // Get the images based on color
+         //     imageGallery.innerHTML = imageUrls
+         //       .map(
+         //         (url) => `
+         // <li data-thumb="${url}">
+         //   <div class="thumb-image text-center">
+         //     <img src="${url}" data-imagezoom="true" class="img-fluid" alt="${color}" />
+         //   </div>
+         // </li>
+         // `
+         //       )
+         //       .join("");
          
-             console.log("Images for", color, "loaded");
-             // Remove the current Flexslider instance
-             const flexsliderInstance = $(".flexslider1").data("flexslider");
+         //     console.log("Images for", color, "loaded");
+         //     // Remove the current Flexslider instance
+         //     const flexsliderInstance = $(".flexslider1").data("flexslider");
          
-             if (flexsliderInstance) {
-               console.log("flexsliderInstance", flexsliderInstance);
-               $(".flexslider1").data("flexslider", null);
-               $(".flexslider1").find(".slides").removeAttr("style");
-               $(".flexslider1").find(".slides li").removeAttr("style");
-               $(".flexslider1")
-                 .find(".flex-control-nav, .flex-direction-nav")
-                 .remove();
-             }
-             $(".flexslider1").flexslider({
-               animation: "fade",
-               controlNav: "thumbnails",
-               slideshow: false,
-               startAt:2,
-               start: function (slider) {
-               //   console.log("Flexslider initialized ", slider);
-               },
-             });
-           }
+         //     if (flexsliderInstance) {
+         //       console.log("flexsliderInstance", flexsliderInstance);
+         //       $(".flexslider1").data("flexslider", null);
+         //       $(".flexslider1").find(".slides").removeAttr("style");
+         //       $(".flexslider1").find(".slides li").removeAttr("style");
+         //       $(".flexslider1")
+         //         .find(".flex-control-nav, .flex-direction-nav")
+         //         .remove();
+         //     }
+         //     $(".flexslider1").flexslider({
+         //       animation: "fade",
+         //       controlNav: "thumbnails",
+         //       slideshow: false,
+         //       startAt:2,
+         //       start: function (slider) {
+         //       //   console.log("Flexslider initialized ", slider);
+         //       },
+         //     });
+         //   }
          
            // Load images for the default selected color
          //   const defaultColor = document.querySelector(
@@ -2064,7 +1962,7 @@
                });
              });
          });
-      </script>
+      </script> -->
       <!-- //FlexSlider-->
       <script>
          $(".next").click(function(){
@@ -2171,9 +2069,13 @@
       </script>
       <!--// end-smoth-scrolling -->
       <script src="js/bootstrap.js"></script>
+      <!-- Swiper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
+
       <!-- js file -->
        <script src="ajax/get-product.js"></script>
 
       <script src="ajax/get-product-model-filter.js"></script>
+<!-- <script src="js/script.js"></script> -->
    </body>
 </html>

@@ -1,5 +1,5 @@
 // Function to fetch color options
-function fetchColorOptions() {
+function fetchColorOptions(productCode) {
     $.ajax({
       url: "https://gulzarioptics.testspace.click/interface/index.php", // Path to the server-side handler
       method: "POST",
@@ -7,9 +7,9 @@ function fetchColorOptions() {
         "jsonrpc": "2.0",
         "method": "products.getProductModelFilters",
         "params": {
-          "productCode": "116F0107934-2"
+          "productCode": productCode
         },
-        "id": "3FaJOFUV"
+        "id": "R7c1DXiJ"
       }),
       dataType: "json", // Expect JSON response
       success: function (response) {
@@ -22,7 +22,7 @@ function fetchColorOptions() {
         // Assuming response.result contains the product data
         let ProductModelFilters = response.result;
         let ProductModelFiltersFrontColor = ProductModelFilters.front_color;
-        console.log("response ProductModelFilters==>", ProductModelFilters);
+        console.log("response ProductModelFilters==>", response);
         
         // Dynamically create color options
         const colors = ProductModelFiltersFrontColor; // Assume colors are in the API response
@@ -39,8 +39,8 @@ function fetchColorOptions() {
               <label class="radio">
                 <input type="radio" name="radio-gallery-1" value="${color}" ${
                   index === 0 ? 'checked="checked"' : ""
-                } />
-                <span class="color-box ${color}"></span>
+                }/>
+                <span class="color-box" style="background-color:${color}"></span>
               </label>
             </div>
           `;
@@ -108,5 +108,7 @@ function fetchSizeOptions() {
       console.log("Selected size: ", selectedSize);
       // You can perform actions here based on the selected size
     });
-  }
+}
+
+
   

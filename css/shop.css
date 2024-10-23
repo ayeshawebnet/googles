@@ -2423,18 +2423,7 @@ label:last-child span {
   cursor: pointer;
 }
 
-/* Color-specific classes */
-.color-box.black {
-  background-color: black;
-}
 
-.color-box.grey {
-  background-color: grey;
-}
-
-.color-box.brown {
-  background-color: brown;
-}
 
 /* Highlight selected radio option */
 .radio input[type="radio"]:checked + .color-box {
@@ -2753,3 +2742,60 @@ label:last-child span {
 }
 /* //lenses lens-accordian */
 /* glasses overlay end */
+
+
+/* swipper */
+.gallery {
+  width: 100%;
+  max-width: 620px;
+  margin: 40px auto;
+}
+
+/* Main Slider */
+.gallery-slider {
+  width: 100%;
+  height: auto;
+  margin: 0 0 10px 0;
+}
+
+.gallery-slider .swiper-slide {
+  width: auto;
+  height: 400px;
+
+  border: 2px solid #007bff; /* Blue border for the slider images */
+  border-radius: 5px; 
+}
+
+.gallery-slider .swiper-slide img {
+  display: block;
+  width: auto;
+  height: 100%; 
+  margin: 0 auto;
+}
+
+/* Thumbnail Slider */
+.gallery-thumbs {
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+
+  border: 1px solid #333; /* Darker border for thumbnails */
+  border-radius: 5px;
+}
+
+.gallery-thumbs .swiper-slide {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  overflow: hidden;
+  opacity: 0.1;
+}
+
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+}
+
+.gallery-thumbs .swiper-slide img {
+  width: auto;
+  height: 100%;
+}

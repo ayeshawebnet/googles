@@ -39,7 +39,7 @@ $(document).ready(function () {
       // Assuming response.result.list contains the product data
       let products = response.result.list;
       let productHTML = "";
-      console.log("response==>", products);
+      console.log("response==>", response);
       $.each(products, function (index, product) {
         productHTML += `
                   <div class="col-md-3 product-men women_two mb-4">
