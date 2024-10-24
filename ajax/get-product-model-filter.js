@@ -31,7 +31,7 @@ function fetchProductModelFilters(productCode, callback) {
 }
 
 // Function to fetch color options
-function fetchColorOptions(colors) {
+ function  fetchColorOptions(colors) {
   let colorOptionsHTML = `
     <div class="image-gallery-group" data-gallery-id="1">
       <div class="sub-heading">Select Colour :</div>
@@ -111,11 +111,12 @@ function fetchFrontMaterialOptions(materials) {
   <select class="custom-select" id="inputGroupSelectFrontMaterial">
     <option selected>Choose...</option>
     ${materials.map((material) => {
-      return `<option value="${material}">${material}</option>`;})}
+      return `<option value="${material}">${material}</option>`;
+    })}
   </select>
 </div>
   `;
-  $("#product-summary").append(materialHtml);
+  $("#product-filters").append(materialHtml);
 }
 
 function fetchSideMaterialOptions(materials) {
@@ -127,10 +128,11 @@ function fetchSideMaterialOptions(materials) {
   <select class="custom-select" id="inputGroupSelectSideMaterial">
     <option selected>Choose...</option>
     ${materials.map((material) => {
-      return `<option value="${material}">${material}</option>`;})}
+      return `<option value="${material}">${material}</option>`;
+    })}
   </select>
   `;
-  $("#product-summary").append(materialHtml);
+  $("#product-filters").append(materialHtml);
 }
 
 function fetchShapeOptions(shape) {
@@ -142,12 +144,94 @@ function fetchShapeOptions(shape) {
   <select class="custom-select" id="inputGroupSelectShapeO">
     <option selected>Choose...</option>
    ${shape.map((shape) => {
-    return `<option value="${shape}">${shape}</option>`;
+     return `<option value="${shape}">${shape}</option>`;
    })}
   </select>
   `;
-  $("#product-summary").append(shapeHtml);
+  $("#product-filters").append(shapeHtml);
 }
+
+function fetchFrameWidthOptions(width) {
+  let widthHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectFrameWidth">Frame Width</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectFrameWidth">
+    <option selected>Choose...</option>
+    ${width.map((width) => {
+      return `<option value="${width}">${width}</option>`;
+    })}
+  </select>
+  `;
+  $("#product-filters").append(widthHtml);
+}
+
+function fetchLensWidthOptions(width) {
+  let widthHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectLensWidth">Lens Width</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectLensWidth">
+    <option selected>Choose...</option>
+    ${width.map((width) => {
+      return `<option value="${width}">${width}</option>`;
+    })}
+  </select>
+  `;
+  $("#product-filters").append(widthHtml);
+}
+
+function fetchLensHeightOptions(height) {
+  let heightHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectLensHeight">Lens Height</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectLensHeight">
+    <option selected>Choose...</option>
+    ${height.map((height) => {
+      return `<option value="${height}">${height}</option>`;
+    })}
+  </select>
+  `;
+  $("#product-filters").append(heightHtml);
+}
+
+function fetchBridgeWidthOptions(width) {
+  let widthHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectBridgeWidth">Bridge Width</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectBridgeWidth">
+    <option selected>Choose...</option>
+    ${width.map((width) => {
+      return `<option value="${width}">${width}</option>`;
+    })}
+  </select>
+  `;
+  $("#product-filters").append(widthHtml);
+}
+
+async function fetchTempleLengthOptions(length) {
+  let lengthHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectTempleLength">Temple Length</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectTempleLength">
+    <option selected>Choose...</option>
+    ${length.map((length) => {
+      return `<option value="${length}">${length}</option>`;
+    })}
+  </select>
+  `;
+  $("#product-filters").append(lengthHtml);
+}
+
+
 
 // Usage: Fetch product filters and fetch color options
 function fetchFilterOptions(productCode) {
@@ -156,17 +240,34 @@ function fetchFilterOptions(productCode) {
     const front_materials = productModelFilters.front_material;
     const side_materials = productModelFilters.side_material;
     const shapes = productModelFilters.shape;
-
+    const frame_width = productModelFilters.frame_width;
+    const lens_width = productModelFilters.lens_width;
+    const lens_height = productModelFilters.lens_height;
+    const bridge_width = productModelFilters.bridge;
+    const temple_length = productModelFilters.temple_length;
+    
+    let filterOptionsHTML = `
+      <div id="product-filters">
+        <h3>Product Filters</h3>
+      </div>
+      </div>
+    `;
 
     fetchColorOptions(colors);
-    // fetchSizeOptions();
     fetchFrontMaterialOptions(front_materials);
     fetchSideMaterialOptions(side_materials);
-    fetchShapeOptions(shapes);  
+    fetchShapeOptions(shapes);
+    fetchFrameWidthOptions(frame_width);
+    fetchLensWidthOptions(lens_width);
+    fetchLensHeightOptions(lens_height);
+    fetchBridgeWidthOptions(bridge_width);
+    await fetchTempleLengthOptions(temple_length);
+    $("#product-summary").append(filterOptionsHTML);
+    console.log("filterOptionsHTML==>", filterOptionsHTML);
+    // fetchSizeOptions();
+   
   });
 }
-
-
 
 function getProductCode(color) {
   console.log("calltest", c);
@@ -186,55 +287,55 @@ function getProductCode(color) {
       id: "eZMq1h53",
     }),
     dataType: "json", // Expect JSON response
-    success: function (response) {
-      // Check if there's an error
-      if (response.error) {
-        $("#product-summary").append("<p>Error loading color options.</p>");
-        return;
-      }
+    // success: function (response) {
+    //   // Check if there's an error
+    //   if (response.error) {
+    //     $("#product-summary").append("<p>Error loading color options.</p>");
+    //     return;
+    //   }
 
-      // Assuming response.result contains the product data
-      let ProductModelFilters = response.result;
-      let ProductModelFiltersFrontColor = ProductModelFilters.front_color;
-      console.log("response ProductModelFilters==>", response);
+    //   // Assuming response.result contains the product data
+    //   let ProductModelFilters = response.result;
+    //   let ProductModelFiltersFrontColor = ProductModelFilters.front_color;
+    //   console.log("response ProductModelFilters==>", response);
 
-      // Dynamically create color options
-      const colors = ProductModelFiltersFrontColor; // Assume colors are in the API response
+    //   // Dynamically create color options
+    //   const colors = ProductModelFiltersFrontColor; // Assume colors are in the API response
 
-      let colorOptionsHTML = `
-      <div class=" image-gallery-group" data-gallery-id="1">
-        <div class="sub-heading">Select Colour :</div>
-        <div class="color-options">
-      `;
+    //   let colorOptionsHTML = `
+    //   <div class=" image-gallery-group" data-gallery-id="1">
+    //     <div class="sub-heading">Select Colour :</div>
+    //     <div class="color-options">
+    //   `;
 
-      colors.forEach((color, index) => {
-        colorOptionsHTML += `
-          <div class="colr">
-            <label class="radio">
-              <input type="radio" name="radio-gallery-1" value="${color}" ${
-          index === 0 ? 'checked="checked"' : ""
-        } onclick="getProductCode()"/>
-              <span class="color-box" style="background-color:${color}"></span>
-            </label>
-          </div>
-        `;
-        console.log("color==>", colorOptionsHTML);
-      });
+    //   colors.forEach((color, index) => {
+    //     colorOptionsHTML += `
+    //       <div class="colr">
+    //         <label class="radio">
+    //           <input type="radio" name="radio-gallery-1" value="${color}" ${
+    //       index === 0 ? 'checked="checked"' : ""
+    //     } onclick="getProductCode()"/>
+    //           <span class="color-box" style="background-color:${color}"></span>
+    //         </label>
+    //       </div>
+    //     `;
+    //     console.log("color==>", colorOptionsHTML);
+    //   });
 
-      colorOptionsHTML += `
-        </div>
+    //   colorOptionsHTML += `
+    //     </div>
 
-      `;
+    //   `;
 
-      // Append color options to product summary below the details
-      $("#product-summary").append(colorOptionsHTML);
+    //   // Append color options to product summary below the details
+    //   $("#product-summary").append(colorOptionsHTML);
 
-      // After appending color options, fetch and append size options
-      fetchSizeOptions();
-    },
+    //   // After appending color options, fetch and append size options
+    //   fetchSizeOptions();
+    // },
 
-    error: function () {
-      $("#product-summary").append("<p>Failed to load filter.</p>");
-    },
+    // error: function () {
+    //   $("#product-summary").append("<p>Failed to load filter.</p>");
+    // },
   });
 }
