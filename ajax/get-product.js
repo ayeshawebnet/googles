@@ -1,4 +1,4 @@
-function getProductDetails() {
+function getProductDetails(productCode) {
   // Show loader
   $(".loading-spinner").show();
   $("#product-list").hide(); // Initially hide the product list
@@ -9,7 +9,7 @@ function getProductDetails() {
       jsonrpc: "2.0",
       method: "products.getProductDetails",
       params: {
-        code: "20112068",
+        code: productCode, //20112068
         sub_shopCode: "gulzarioptics",
       },
       id: "k1PQf2Rp",
@@ -51,7 +51,7 @@ function getProductDetails() {
       $("#product-summary").append(detailsHTML); // Append product details
 
       // Fetch color options after details
-      fetchColorOptions(productDetail.productInfo.product_code); 
+      fetchFilterOptions(productDetail.productInfo.product_code); 
 
       // Hide loader and show product list
       $(".loading-spinner").hide();
@@ -174,4 +174,4 @@ function getProductDetails() {
 
 }
 
-getProductDetails()
+getProductDetails("20112068")
