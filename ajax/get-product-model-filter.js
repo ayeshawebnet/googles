@@ -101,14 +101,68 @@ function fetchSizeOptions() {
   });
 }
 
+//fetch functino material options
+function fetchFrontMaterialOptions(materials) {
+  let materialHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectFrontMaterial">Front Material</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectFrontMaterial">
+    <option selected>Choose...</option>
+    ${materials.map((material) => {
+      return `<option value="${material}">${material}</option>`;})}
+  </select>
+</div>
+  `;
+  $("#product-summary").append(materialHtml);
+}
+
+function fetchSideMaterialOptions(materials) {
+  let materialHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectSideMaterial">Side Material</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectSideMaterial">
+    <option selected>Choose...</option>
+    ${materials.map((material) => {
+      return `<option value="${material}">${material}</option>`;})}
+  </select>
+  `;
+  $("#product-summary").append(materialHtml);
+}
+
+function fetchShapeOptions(shape) {
+  let shapeHtml = `
+  <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelectShape">Shape</label>
+  </div>
+  <select class="custom-select" id="inputGroupSelectShapeO">
+    <option selected>Choose...</option>
+   ${shape.map((shape) => {
+    return `<option value="${shape}">${shape}</option>`;
+   })}
+  </select>
+  `;
+  $("#product-summary").append(shapeHtml);
+}
+
 // Usage: Fetch product filters and fetch color options
 function fetchFilterOptions(productCode) {
   fetchProductModelFilters(productCode, function (productModelFilters) {
     const colors = productModelFilters.front_color;
-    fetchColorOptions(colors);
+    const front_materials = productModelFilters.front_material;
+    const side_materials = productModelFilters.side_material;
+    const shapes = productModelFilters.shape;
 
-    // After appending color options, fetch and append size options
-    fetchSizeOptions();
+
+    fetchColorOptions(colors);
+    // fetchSizeOptions();
+    fetchFrontMaterialOptions(front_materials);
+    fetchSideMaterialOptions(side_materials);
+    fetchShapeOptions(shapes);  
   });
 }
 
