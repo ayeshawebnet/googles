@@ -1687,6 +1687,9 @@ span.item_price {
     border: none;
     width: 50%;
   }
+  #product-filters .input-group{
+    min-width: 100%;
+  }
 }
 
 @media (max-width: 414px) {
@@ -2799,6 +2802,18 @@ label:last-child span {
 .gallery-thumbs .swiper-slide img {
   width: 100%;
   height: 100%;
+}
+#product-filters{
+  padding: 10px 0px;
+  display: flex;
+    flex-wrap: wrap;
+    gap: 0px 15px;
+}
+#product-filters .input-group{
+  max-width: 48%;
+}
+#product-filters .input-group .input-group-text{
+  background-color:#ffeaf4;
 }
 /* .input-group-text{
   background-color:#f4f9ff;
