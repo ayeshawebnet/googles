@@ -25,40 +25,6 @@ $(document).ready(function () {
     }
   }
 
-  // Fetch products using AJAX
-  async function fetchProducts() {
-    const response = await $.ajax({
-      url: "https://gulzarioptics.testspace.click/interface/index.php",
-      method: "POST",
-      data: JSON.stringify({
-        jsonrpc: "2.0",
-        method: "products.getAllProducts",
-        params: {
-          featured: "",
-          SearchBy: "",
-          FilterBy: "",
-          latest: "",
-          isActive: "active",
-          catCode: "optics_frames",
-          model: "",
-          price_min: "",
-          price_max: "",
-          tryon: "",
-          sale: "",
-          page: 1,
-          per_page: 20,
-          tags_count: "yes",
-          sub_shopCode: "gulzarioptics",
-        },
-        id: "LKlUvgLR",
-      }),
-      dataType: "json",
-    });
-    
-    if (response.error) throw new Error("Error loading products");
-    return response.result.list;
-  }
-
   // Generate product HTML for each product in the list
   function generateProductHTML(products) {
     return products.map((product, index) => `

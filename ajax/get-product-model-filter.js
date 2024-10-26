@@ -1,59 +1,36 @@
-// API call to fetch product model filters
-function fetchProductModelFilters(productCode) {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: "https://gulzarioptics.testspace.click/interface/index.php",
-      method: "POST",
-      data: JSON.stringify({
-        jsonrpc: "2.0",
-        method: "products.getProductModelFilters",
-        params: {
-          productCode: productCode,
-        },
-        id: "R7c1DXiJ",
-      }),
-      dataType: "json",
-      success: function (response) {
-        if (response.error) {
-          $("#product-summary").append("<p>Error loading product filters.</p>");
-          reject(response.error); // Reject if there’s an error
-        } else {
-          const productModelFilters = response.result;
-          resolve(productModelFilters); // Resolve with the filters data
-        }
-      },
-      error: function () {
-        $("#product-summary").append("<p>Failed to load product filters.</p>");
-        reject(new Error("Failed to load product filters"));
-      },
-    });
-  });
-}
 // Functions to fetch filter options
-function fetchColorOptions(colors,getColor) {
+function fetchColorOptions(colorOptions, defaultColor,product_model) {
   return new Promise((resolve) => {
-    let colorOptionsHTML = `
+    // Start building color options HTML
+    const colorOptionsHTML = `
       <div class="image-gallery-group" data-gallery-id="1">
         <div class="sub-heading">Select Colour :</div>
         <div class="color-options">
-    `;
-
-    colors.forEach((color, index) => {
-      colorOptionsHTML += `
-        <div class="colr">
-          <label class="radio">
-            <input type="radio" name="radio-gallery-1" value="${color}" ${
-        index === 1 ? 'checked="checked"' : ""
-      } onclick="getProductCode('${color}')"/>
-            <span class="color-box" style="background-color:${color}"></span>
-          </label>
+          ${colorOptions
+            .map(
+              (color) => `
+              <div class="colr">
+                <label class="radio">
+                  <input type="radio" name="radio-gallery-1" value="${color}" ${
+                color === defaultColor ? 'checked="checked"' : ""
+              } />
+                  <span class="color-box" style="background-color:${color}"></span>
+                </label>
+              </div>`
+            )
+            .join("")}
         </div>
-      `;
+      </div>`;
+
+    // Append the color options to #product-color
+    $("#product-color").html(colorOptionsHTML);
+
+    // Attach event listener to radio buttons for color selection change
+    $("input[name='radio-gallery-1']").on("change", function () {
+      const selectedColor = $(this).val();
+      console.log("Selected color: ", this.value);
+      getProductCode(selectedColor,"optics_frames_colour", "front_color",product_model);
     });
-
-    colorOptionsHTML += `</div></div>`;
-
-    $("#product-color").append(colorOptionsHTML);
     resolve(); // Resolve the promise once done
   });
 }
@@ -99,7 +76,7 @@ function fetchSizeOptions() {
   });
 }
 
-function fetchFrontMaterialOptions(materials,default_material) {
+function fetchFrontMaterialOptions(materialOptions,defaultMaterial,product_model) {
   return new Promise((resolve) => {
     let materialHtml = `
     <div class="input-group mb-3">
@@ -107,19 +84,23 @@ function fetchFrontMaterialOptions(materials,default_material) {
       <label class="input-group-text" for="inputGroupSelectFrontMaterial">Front Material</label>
     </div>
     <select class="custom-select" id="inputGroupSelectFrontMaterial">
-      <option selected>${default_material}</option>
-      ${materials.map((material) => {
-        return `<option value="${material}">${material}</option>`;
+      ${materialOptions.map((material) => {
+        return `<option value="${material}" ${material==defaultMaterial?"selected":""}>${material}</option>`;
       })}
     </select>
   </div>
     `;
     $("#product-filters").append(materialHtml);
+    $("#inputGroupSelectFrontMaterial").on("change", function () {
+      const selectedMaterial = $(this).val();
+      console.log("Selected front material: ", selectedMaterial);
+      getProductCode(selectedMaterial,"optics_frames_material","front_material",product_model);
+    });
     resolve();
   });
 }
 
-function fetchSideMaterialOptions(materials,default_material) {
+function fetchSideMaterialOptions(materialOptions,defaultMaterial,product_model) {
   return new Promise((resolve) => {
     let materialHtml = `
   <div class="input-group mb-3">
@@ -127,37 +108,45 @@ function fetchSideMaterialOptions(materials,default_material) {
     <label class="input-group-text" for="inputGroupSelectSideMaterial">Side Material</label>
   </div>
   <select class="custom-select" id="inputGroupSelectSideMaterial">
-    <option selected>${default_material}</option>
-    ${materials.map((material) => {
-      return `<option value="${material}">${material}</option>`;
+    ${materialOptions.map((material) => {
+      return `<option value="${material}"  ${material==defaultMaterial?"selected":""}>${material}</option>`;
     })}
   </select>
   `;
     $("#product-filters").append(materialHtml);
+    $("#inputGroupSelectSideMaterial").on("change", function () {
+      const selectedMaterial = $(this).val();
+      console.log("Selected side material: ", selectedMaterial);
+      getProductCode(selectedMaterial,"optics_frames_material","side_material",product_model);
+    })
     resolve();
   });
 }
 
-function fetchShapeOptions(shape,default_shape) {
+function fetchShapeOptions(shapeOptions,defaultShape,product_model) {
   return new Promise((resolve) => {
     let shapeHtml = `
     <div class="input-group mb-3">
     <div class="input-group-prepend">
       <label class="input-group-text" for="inputGroupSelectShape">Shape</label>
     </div>
-    <select class="custom-select" id="inputGroupSelectShapeO">
-      <option selected>${default_shape}</option>
-     ${shape.map((shape) => {
-       return `<option value="${shape}">${shape}</option>`;
+    <select class="custom-select" id="inputGroupSelectShape">
+     ${shapeOptions.map((shape) => {
+       return `<option value="${shape}"  ${shape==defaultShape?"selected":""}>${shape}</option>`;
      })}
     </select>
     `;
     $("#product-filters").append(shapeHtml);
+    $("#inputGroupSelectShape").on("change", function () {
+      const selectedShape = $(this).val();
+      console.log("Selected shape: ", selectedShape);
+      getProductCode(selectedShape,"optics_frames_style","shape",product_model);
+    });
     resolve();
   });
 }
 
-function fetchFrameWidthOptions(width,default_width) {
+function fetchFrameWidthOptions(widthOptions,defaultWidth,product_model) {
   return new Promise((resolve) => {
     let widthHtml = `
     <div class="input-group mb-3">
@@ -165,18 +154,22 @@ function fetchFrameWidthOptions(width,default_width) {
       <label class="input-group-text" for="inputGroupSelectFrameWidth">Frame Width</label>
     </div>
     <select class="custom-select" id="inputGroupSelectFrameWidth">
-      <option selected>${default_width}</option>
-      ${width.map((width) => {
-        return `<option value="${width}">${width}</option>`;
+      ${widthOptions.map((width) => {
+        return `<option value="${width}"  ${width==defaultWidth?"selected":""}>${width}</option>`;
       })}
     </select>
     `;
     $("#product-filters").append(widthHtml);
+    $("#inputGroupSelectFrameWidth").on("change", function () {
+      const selectedWidth = $(this).val();
+      console.log("Selected frame width: ", selectedWidth);
+      getProductCode(selectedWidth,"optics_frames_frame_dimensions","frame_width",product_model);
+    });
     resolve();
   });
 }
 
-function fetchLensWidthOptions(width,default_width) {
+function fetchLensWidthOptions(widthOptions,defaultWidth,product_model) {
   return new Promise((resolve) => {
     let widthHtml = `
     <div class="input-group mb-3">
@@ -184,18 +177,22 @@ function fetchLensWidthOptions(width,default_width) {
       <label class="input-group-text" for="inputGroupSelectLensWidth">Lens Width</label>
     </div>
     <select class="custom-select" id="inputGroupSelectLensWidth">
-      <option selected>${default_width}</option>
-      ${width.map((width) => {
-        return `<option value="${width}">${width}</option>`;
+      ${widthOptions.map((width) => {
+        return `<option value="${width}"  ${width==defaultWidth?"selected":""}>${width}</option>`;
       })}
     </select>
     `;
     $("#product-filters").append(widthHtml);
+    $("#inputGroupSelectLensWidth").on("change", function () {
+      const selectedWidth = $(this).val();
+      console.log("Selected lens width: ", selectedWidth);
+      getProductCode(selectedWidth,"optics_frames_frame_dimensions","lens_width",product_model);
+    });
     resolve();
   });
 }
 
-function fetchLensHeightOptions(height,default_height) {
+function fetchLensHeightOptions(heightOptions,defaultHeight,product_model) {
   return new Promise((resolve) => {
     let heightHtml = `
     <div class="input-group mb-3">
@@ -203,37 +200,44 @@ function fetchLensHeightOptions(height,default_height) {
       <label class="input-group-text" for="inputGroupSelectLensHeight">Lens Height</label>
     </div>
     <select class="custom-select" id="inputGroupSelectLensHeight">
-      <option selected>${default_height}</option>
-      ${height.map((height) => {
-        return `<option value="${height}">${height}</option>`;
+      ${heightOptions.map((height) => {
+        return `<option value="${height}"  ${height==defaultHeight?"selected":""}>${height}</option>`;
       })}
     </select>
     `;
     $("#product-filters").append(heightHtml);
+    $("#inputGroupSelectLensHeight").on("change", function () {
+      const selectedHeight = $(this).val();
+      console.log("Selected lens height: ", selectedHeight);
+      getProductCode(selectedHeight,"optics_frames_frame_dimensions","lens_height",product_model);
+    });  
     resolve();
   });
 }
 
-function fetchBridgeWidthOptions(width,default_width) {
+function fetchBridgeWidthOptions(widthOptions, defaultWidth,product_model) {
   return new Promise((resolve) => {
-    let widthHtml = `
-    <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <label class="input-group-text" for="inputGroupSelectBridgeWidth">Bridge Width</label>
-    </div>
-    <select class="custom-select" id="inputGroupSelectBridgeWidth">
-      <option selected>${default_width}</option>
-      ${width.map((width) => {
-        return `<option value="${width}">${width}</option>`;
-      })}
-    </select>
+    let bridgeWidthHtml = `
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelectBridgeWidth">Bridge Width</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelectBridgeWidth">
+          ${widthOptions.map((width) => `<option value="${width}" ${width==defaultWidth?"selected":""}>${width}</option>`).join("")}
+        </select>
+      </div>
     `;
-    $("#product-filters").append(widthHtml);
+    $("#product-filters").append(bridgeWidthHtml);
+    $("#inputGroupSelectBridgeWidth").on("change", function () {
+      const selectedWidth = $(this).val();
+      console.log("Selected bridge width: ", selectedWidth);
+      getProductCode(selectedWidth,"optics_frames_frame_dimensions","bridge",product_model);
+    });
     resolve();
   });
 }
 
-function fetchTempleLengthOptions(length,default_length) {
+function fetchTempleLengthOptions(length,default_length, product_model) {
   return new Promise((resolve) => {
     let lengthHtml = `
   <div class="input-group mb-3">
@@ -241,13 +245,17 @@ function fetchTempleLengthOptions(length,default_length) {
     <label class="input-group-text" for="inputGroupSelectTempleLength">Temple Length</label>
   </div>
   <select class="custom-select" id="inputGroupSelectTempleLength">
-    <option selected>${default_length}</option>
     ${length.map((length) => {
-      return `<option value="${length}">${length}</option>`;
+      return `<option ${length==default_length?"selected":""} value="${length}">${length}</option>`;
     })}
   </select>
   `;
     $("#product-filters").append(lengthHtml);
+    $("#inputGroupSelectTempleLength").on("change", function () {
+      const selectedLength = $(this).val();
+      console.log("Selected temple length: ", selectedLength);
+      getProductCode(selectedLength,product_model,"optics_frames_frame_dimensions","temple_length");
+    });
     resolve();
   });
 }
@@ -258,113 +266,46 @@ async function fetchFilterOptions(productDetail) {
     const productModelFilters = await fetchProductModelFilters(
       productDetail.productInfo.product_code
     );
+    const product_model = productDetail.productInfo.modal_number;
     if (productModelFilters) {
-      const colors = productModelFilters.front_color;
-      const front_materials = productModelFilters.front_material;
-      const side_materials = productModelFilters.side_material;
-      const shapes = productModelFilters.shape;
-      const frame_width = productModelFilters.frame_width;
-      const lens_width = productModelFilters.lens_width;
-      const lens_height = productModelFilters.lens_height;
-      const bridge_width = productModelFilters.bridge;
-      const temple_length = productModelFilters.temple_length;
-      const getFilteredData = productDetail.sets;
+      const {
+        front_color: colors,
+        front_material: frontMaterials,
+        side_material: sideMaterials,
+        shape: shapes,
+        frame_width: frameWidth,
+        lens_width: lensWidth,
+        lens_height: lensHeight,
+        bridge: bridgeWidth,
+        temple_length: templeLength,
+      } = productModelFilters;
+      const filteredData = productDetail.sets;
+
       let filterOptionsHTML = `
-    <div id="product-color"></div>
-    <h3 class="mt-4">Product Filters</h3>
-    <div id="product-filters">
-    </div>
-    `;
+        <div id="product-color"></div>
+        <h3 class="mt-4">Product Filters</h3>
+        <div id="product-filters"></div>
+      `;
+
       // Append all options after they have loaded
       $("#product-summary").append(filterOptionsHTML);
 
-      await fetchColorOptions(colors,getFilteredData.optics_frames_colour.front_color);
-      await fetchFrontMaterialOptions(front_materials,getFilteredData.optics_frames_material.front_material);
-      await fetchSideMaterialOptions(side_materials,getFilteredData.optics_frames_material.side_material);
-      await fetchShapeOptions(shapes,getFilteredData.optics_frames_style.shape);
-      await fetchFrameWidthOptions(frame_width,getFilteredData.optics_frames_frame_dimensions.frame_width);
-      await fetchLensWidthOptions(lens_width,getFilteredData.optics_frames_frame_dimensions.lens_height);
-      await fetchLensHeightOptions(lens_height,getFilteredData.optics_frames_frame_dimensions.lens_width);
-      await fetchBridgeWidthOptions(bridge_width,getFilteredData.optics_frames_frame_dimensions.bridge);
-      await fetchTempleLengthOptions(temple_length,getFilteredData.optics_frames_frame_dimensions.temple_length);
+      await fetchColorOptions(colors, filteredData.optics_frames_colour.front_color,product_model);
+      await fetchFrontMaterialOptions(frontMaterials, filteredData.optics_frames_material.front_material,product_model);
+      await fetchSideMaterialOptions(sideMaterials, filteredData.optics_frames_material.side_material,product_model);
+      await fetchShapeOptions(shapes, filteredData.optics_frames_style.shape,product_model);
+      await fetchFrameWidthOptions(frameWidth, filteredData.optics_frames_frame_dimensions.frame_width,product_model);
+      await fetchLensWidthOptions(lensWidth, filteredData.optics_frames_frame_dimensions.lens_width,product_model);
+      await fetchLensHeightOptions(lensHeight, filteredData.optics_frames_frame_dimensions.lens_height,product_model);
+      await fetchBridgeWidthOptions(bridgeWidth, filteredData.optics_frames_frame_dimensions.bridge,product_model);
+      await fetchTempleLengthOptions(templeLength, filteredData.optics_frames_frame_dimensions.temple_length,product_model);
     } else {
-      //show loader
       let loading = `<div class="loading-spinner">...loading</div>`;
       $("#product-summary").append(loading);
-      console.log(loading);
     }
   } catch (error) {
     console.error("Error fetching filter options:", error);
   }
 }
 
-function getProductCode(color) {
-  console.log("calltest", c);
-  $.ajax({
-    url: "https://gulzarioptics.testspace.click/interface/index.php", // Path to the server-side handler
-    method: "POST",
-    data: JSON.stringify({
-      jsonrpc: "2.0",
-      method: "products.getProductCodeByTag",
-      params: {
-        product_model: "1509",
-        setCode: "optics_frames_colour",
-        tag_key: "front_color",
-        tag_value: color,
-        sub_shopCode: "gulzarioptics",
-      },
-      id: "eZMq1h53",
-    }),
-    dataType: "json", // Expect JSON response
-    // success: function (response) {
-    //   // Check if there's an error
-    //   if (response.error) {
-    //     $("#product-summary").append("<p>Error loading color options.</p>");
-    //     return;
-    //   }
 
-    //   // Assuming response.result contains the product data
-    //   let ProductModelFilters = response.result;
-    //   let ProductModelFiltersFrontColor = ProductModelFilters.front_color;
-    //   console.log("response ProductModelFilters==>", response);
-
-    //   // Dynamically create color options
-    //   const colors = ProductModelFiltersFrontColor; // Assume colors are in the API response
-
-    //   let colorOptionsHTML = `
-    //   <div class=" image-gallery-group" data-gallery-id="1">
-    //     <div class="sub-heading">Select Colour :</div>
-    //     <div class="color-options">
-    //   `;
-
-    //   colors.forEach((color, index) => {
-    //     colorOptionsHTML += `
-    //       <div class="colr">
-    //         <label class="radio">
-    //           <input type="radio" name="radio-gallery-1" value="${color}" ${
-    //       index === 0 ? 'checked="checked"' : ""
-    //     } onclick="getProductCode()"/>
-    //           <span class="color-box" style="background-color:${color}"></span>
-    //         </label>
-    //       </div>
-    //     `;
-    //     console.log("color==>", colorOptionsHTML);
-    //   });
-
-    //   colorOptionsHTML += `
-    //     </div>
-
-    //   `;
-
-    //   // Append color options to product summary below the details
-    //   $("#product-summary").append(colorOptionsHTML);
-
-    //   // After appending color options, fetch and append size options
-    //   fetchSizeOptions();
-    // },
-
-    // error: function () {
-    //   $("#product-summary").append("<p>Failed to load filter.</p>");
-    // },
-  });
-}
