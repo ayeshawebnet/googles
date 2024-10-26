@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
   initializeProductSummary();
-getProductDetails("20112068"); // Fetch initial product details after setup
+  getProductDetails("20112068"); // Fetch initial product details after setup
 });
 
 function initializeProductSummary() {
@@ -30,14 +30,16 @@ function initializeProductSummary() {
 
 async function getProductDetails(productCode) {
   try {
+
     const productDetail = await fetchProductDetails(productCode);
     if (productDetail) {
+      console.log("productDetail==>", productDetail);
       displayProductInfo(productDetail);
       displayProductPrice(productDetail.productInfo.base_price);
       displayProductDescription(productDetail.productInfo.product_desc);
-      await fetchFilterOptions(productDetail);
-      updateRatings(4, 25);
       await fetchProductImages(productDetail.productImg);
+      updateRatings(4, 25);
+      await fetchFilterOptions(productDetail);
     } else {
       $("#product-summary").html(`<p>Product not found</p>`);
     }

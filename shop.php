@@ -2026,6 +2026,7 @@
       <script>
          AOS.init();
       </script>
+      <script src="./ajax/api.js"></script>
       <script src="./ajax/get-products-list.js"></script>
       <script src="js/minicart.js"></script>
       <script>

@@ -254,7 +254,7 @@ function fetchTempleLengthOptions(length,default_length, product_model) {
     $("#inputGroupSelectTempleLength").on("change", function () {
       const selectedLength = $(this).val();
       console.log("Selected temple length: ", selectedLength);
-      getProductCode(selectedLength,product_model,"optics_frames_frame_dimensions","temple_length");
+      getProductCode(selectedLength,"optics_frames_frame_dimensions","temple_length",product_model);
     });
     resolve();
   });
@@ -263,11 +263,16 @@ function fetchTempleLengthOptions(length,default_length, product_model) {
 // Usage: Fetch product filters and fetch color options
 async function fetchFilterOptions(productDetail) {
   try {
+    
     const productModelFilters = await fetchProductModelFilters(
       productDetail.productInfo.product_code
     );
     const product_model = productDetail.productInfo.modal_number;
     if (productModelFilters) {
+     
+      //remove filter option if already exists
+      $("#filter-option").remove();
+      console.log("productModelFilters==>", document.getElementById("filter-option"));
       const {
         front_color: colors,
         front_material: frontMaterials,
@@ -282,11 +287,13 @@ async function fetchFilterOptions(productDetail) {
       const filteredData = productDetail.sets;
 
       let filterOptionsHTML = `
-        <div id="product-color"></div>
+      <div id="filter-option">
+        <div id="product-color"></div>        
         <h3 class="mt-4">Product Filters</h3>
         <div id="product-filters"></div>
+        </div>
       `;
-
+      
       // Append all options after they have loaded
       $("#product-summary").append(filterOptionsHTML);
 
