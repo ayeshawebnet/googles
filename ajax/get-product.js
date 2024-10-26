@@ -1,260 +1,173 @@
+async function getProductDetails(productCode) {
+  try {
+    // showLoading(); // Show loader
 
-$(document).ready(function() {
-    $.ajax({
-        url: 'https://gulzarioptics.testspace.click/interface/index.php', // Path to the server-side handler
-        method: 'POST',
-        dataType: 'json', // Expect JSON response
-        success: function(response) {
-            // Check if there's an error
-            if (response.error) {
-                $('#product-list').html('<p>Error loading products.</p>');
-                return;
-            }
+    // Fetch product details
+    const productDetail = await fetchProductDetails(productCode);
 
-            // Assuming response.result.list contains the product data
-            let products = response.result.list;
-            let productHTML = '';
+    if(productDetail){
+    // Display product information and other details
+    displayProductInfo(productDetail);
+    displayProductPrice(productDetail.productInfo.base_price);
+    displayProductDescription(productDetail.productInfo.product_desc);
+  
+    // Fetch additional options and update ratings & images
+    await fetchFilterOptions(productDetail);
+    updateRatings(4, 25); // Example rating, replace with actual 
+    await fetchProductImages(productDetail.productImg);
+  }
+  else{
+    $("#product-summary").html(`<p>Product not found</p>`);
+  }
+    // showProductSummary(); // Hide loader, show product details
+  } catch (error) {
+    handleError(error, "#product-summary", "Failed to load product details.");
+  }
+}
 
-            $.each(products, function(index, product) {
-                productHTML += `
-                
-                `;
-            });
+// Fetch product details from API
+async function fetchProductDetails(productCode) {
+  const response = await $.ajax({
+    url: "https://gulzarioptics.testspace.click/interface/index.php",
+    method: "POST",
+    data: JSON.stringify({
+      jsonrpc: "2.0",
+      method: "products.getProductDetails",
+      params: { code: productCode, sub_shopCode: "gulzarioptics" },
+      id: "k1PQf2Rp",
+    }),
+    dataType: "json",
+  });
 
-            // Append the products to the container
-            $('#product-list').html(productHTML);
-        },
-        error: function() {
-            $('#product-list').html('<p>Failed to load products.</p>');
-        }
-    });
+if (response?.error) throw new Error(response.error.message || "Error loading product details");
+return response?.result || {};
+}
 
-    // Function to generate stars
-    function generateStars(rating) {
-        let starsHTML = '';
-        for (let i = 1; i <= 5; i++) {
-            if (i <= rating) {
-                starsHTML += `<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>`;
-            } else if (i === Math.ceil(rating)) {
-                starsHTML += `<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>`;
-            } else {
-                starsHTML += `<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>`;
-            }
-        }
-        return starsHTML;
-    }
-});
+// Display product title, price, and description
+function displayProductInfo({ productInfo }) {
+  const titleHTML = `<h2 class="product-title">${productInfo.title}</h2>`;
+  $("#product-summary").prepend(titleHTML);
+}
 
+function displayProductPrice(price) {
+  const priceHTML = `
+    <div class="price">
+      <h3><span>Rs. </span>${price}</h3>
+      <del>Rs. ${price + 200}</del>
+    </div>`;
+  $("#product-summary").append(priceHTML);
+}
 
-$(document).ready(function() {
-    // AJAX request to fetch product data
-    $.ajax({
-        url: 'get_products.php', // Path to the server-side handler
-        method: 'POST',
-        dataType: 'json', // Expect JSON response
-        success: function(response) {
-            // debugger;
-            // Check if there's an error
-            if (response.error) {
-                $('#product-list').html('<p>Error loading products.</p>');
-                return;
-            }
-            console.log(response);
-            // Assuming response.result.products contains the product data
-            let products = response.result.list;
-            
-            let productHTML = '';
-
-            $.each(products, function(index, product) {
-                productHTML += `
-                    <div class="product-item">
-                        <h4>${product.title}</h4>
-                        <img src="${product.vtry_image}" alt="${product.seo_title}" width="150" height="150">
-                        <p>Price: ${product.price}</p>
-                    </div>
-                `;
-            });
-
-            // Append the products to the container
-            $('#product-list').html(productHTML);
-        },
-        error: function() {
-            $('#product-list').html('<p>Failed to load products.</p>');
-        }
-    });
-});
+function displayProductDescription(description) {
+  const descriptionHTML = `
+    <div class="product-details mb-4">
+      <h3>Product Details</h3>
+      <p>${description}</p>
+    </div>`;
+  $("#product-summary").append(descriptionHTML);
+}
 
 
+// Display star ratings and review count
+function updateRatings(rating, reviewCount) {
+  const starHtml = Array.from({ length: 5 })
+    .map((_, i) =>
+      i < rating
+        ? `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="p-star">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>`
+        : `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" class="p-star">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                    </svg>`
+    )
+    .join("");
 
+  $("#p-stars").html(starHtml);
+  $("#review-count").text(reviewCount);
+}
 
+// Fetch and display images and thumbnails
+async function fetchProductImages(productImages) {
+  displaySlideImages(productImages);
+  displayThumbnailImages(productImages);
+  initializeSliders(productImages.length);
+}
 
+// Display main slider images
+function displaySlideImages(images) {
+  
+  const slideImagesHTML = `
+    <div class="swiper-wrapper">
+      ${images.map(
+          (data) =>
+            `<div class="swiper-slide"><img src="${data.image}" alt="Product Image" /></div>`
+          )
+        .join("")}
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>`;
+    
+  $(".gallery-slider").html(slideImagesHTML);
+  
+}
 
-$(document).ready(function() {
-    $.ajax({
-        url: 'https://gulzarioptics.testspace.click/interface/index.php', // Path to the server-side handler
-        method: 'POST',
-        data: JSON.stringify({  // Send data as JSON
-            "jsonrpc": "2.0",
-            "method": "products.getAllProducts",
-            "params": {
-                "featured": "",
-                "SearchBy": "",
-                "FilterBy": "",
-                "latest": "",
-                "isActive": "active",
-                "catCode": "optics_frames",
-                "model": "",
-                "price_min": "",
-                "price_max": "",
-                "tryon": "",
-                "sale": "",
-                "page": 1,
-                "per_page": 20,
-                "tags_count": "yes",
-                "sub_shopCode": "gulzarioptics"
-            },
-            "id": "LKlUvgLR"
-        }),  
-        dataType: 'json', // Expect JSON response
-        success: function(response) {
-            // Check if there's an error
-            if (response.error) {
-                $('#product-list').html('<p>Error loading products.</p>');
-                return;
-            }
-            
-            // Assuming response.result.list contains the product data
-            let products = response.result.list;
-            let productHTML = '';
-            console.log("response==>",response);
-            $.each(products, function(index, product) {
-                productHTML += `
-                <div class="col-md-3 product-men women_two">
-                  <div class="product-googles-info googles">
-                    <div class="men-pro-item">
-                      <div class="page-wrapper">
-                        <div class="page-inner">
-                          <div class="row">
-                            <div class="el-wrapper">
-                              <div class="box-up">
-                                <img class="img glass-image" src="${product.vtry_image}" alt="${product.seo_title}" />
-                                <div class="img-info">
-                                  <div class="info-inner">
-                                    <span class="p-name">${product.title}</span>
-                                    <span class="p-company">${product.company}</span>
-                                  </div>
-                                  <div class="a-size">
-                                    <div>Available sizes: <span class="size">S , M , L , XL</span></div>
-                                    <div class="d-flex justify-content-center">
-                                      Available color :
-                                   <!--   <ul class="colors-container">
-                                        ${product.colors.map(color => `
-                                          <li class="color">
-                                            <a role="button" class="color-btn" data-image="${color.image}"></a>
-                                            <span class="color-name">${color.name}</span>
-                                          </li>
-                                        `).join('')}
-                                      </ul>
-                                    </div>
-                                  </div>
-                                  <ul class="stars pb-2">
-                                    ${generateStars(product.rating)}
-                                  </ul>
-                                </div>
-                              </div>
-                              <div class="box-down">
-                                <div class="h-bg">
-                                  <div class="h-bg-inner"></div>
-                                </div>
-                                <a class="cart" href="single.html">
-                                  <span class="price">${product.price}</span>
-                                  <span class="add-to-cart">
-                                    <span class="txt">Quick View</span>
-                                  </span>
-                                  <span class="my-cart">
-                                    <div class="googles single-item hvr-outline-out">
-                                      <form action="#" method="post">
-                                        <input type="hidden" name="cmd" value="_cart" />
-                                        <input type="hidden" name="add" value="1" />
-                                        <input type="hidden" name="googles_item" value="${product.title}" />
-                                        <input type="hidden" name="amount" value="${product.price}" />
-                                        <button type="submit" class="googles-cart pgoogles-cart">
-                                          <i class="fas fa-cart-plus"></i>
-                                        </button>
-                                      </form>
-                                    </div>
-                                  </span>
-                                </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                `;
-            });
+// Display thumbnail images
+function displayThumbnailImages(images) {
+  console.log("myimages",images);
+  const thumbnailImagesHTML = `
+    <div class="swiper-wrapper">
+      ${images
+        .map(
+          (data) =>
+            `<div class="swiper-slide"><img src="${data.image}" alt="Product Image" /></div>`
+        )
+        .join("")}
+    </div>`;
+  $(".gallery-thumbs").html(thumbnailImagesHTML);
+  
+}
 
-            // Append the products to the container
-            $('#product-list').html(productHTML);
-        },
-        error: function() {
-            $('#product-list').html('<p>Failed to load products.</p>');
-        }
-    });
+// Initialize Swiper sliders
+function initializeSliders(totalSlides) {
+  var slider = new Swiper(".gallery-slider", {
+    slidesPerView: 1,
+    centeredSlides: true,
+    loop: true,
+    loopedSlides: totalSlides,
+    navigation: { 
+      nextEl: ".swiper-button-next", 
+      prevEl: ".swiper-button-prev" 
+    },
+  });
 
-    // Function to generate stars
-    function generateStars(rating) {
-        let starsHTML = '';
-        for (let i = 1; i <= 5; i++) {
-            if (i <= rating) {
-                starsHTML += `<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>`;
-            } else if (i === Math.ceil(rating)) {
-                starsHTML += `<li><a href="#"><i class="fa fa-star-half-o" aria-hidden="true"></i></a></li>`;
-            } else {
-                starsHTML += `<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>`;
-            }
-        }
-        return starsHTML;
-    }
-});
+  var thumbs = new Swiper(".gallery-thumbs", {
+    slidesPerView: "auto",
+    spaceBetween: 10,
+    centeredSlides: true,
+    loop: true,
+    slideToClickedSlide: true,
+  });
 
+  slider.controller.control = thumbs;
+  thumbs.controller.control = slider;
+}
 
-// $(document).ready(function() {
-//     // AJAX request to fetch product data
-//     $.ajax({
-//         url: 'get_products.php', // Path to the server-side handler
-//         method: 'POST',
-//         dataType: 'json', // Expect JSON response
-//         success: function(response) {
-//             // debugger;
-//             // Check if there's an error
-//             if (response.error) {
-//                 $('#product-list').html('<p>Error loading products.</p>');
-//                 return;
-//             }
-//             console.log(response);
-//             // Assuming response.result.products contains the product data
-//             let products = response.result.list;
-            
-//             let productHTML = '';
+// Helper functions
+function showLoading() {
+  $(".loading-spinner").show();
+  $("#product-list").hide();
+}
 
-//             $.each(products, function(index, product) {
-//                 productHTML += `
-//                     <div class="product-item">
-//                         <h4>${product.title}</h4>
-//                         <img src="${product.vtry_image}" alt="${product.seo_title}" width="150" height="150">
-//                         <p>Price: ${product.price}</p>
-//                     </div>
-//                 `;
-//             });
+function showProductSummary() {
+  $(".loading-spinner").hide();
+  $("#product-summary").fadeIn();
+}
 
-//             // Append the products to the container
-//             $('#product-list').html(productHTML);
-//         },
-//         error: function() {
-//             $('#product-list').html('<p>Failed to load products.</p>');
-//         }
-//     });
-// });
+function handleError(error, selector, message) {
+  $(".loading-spinner").hide();
+  $(selector).html(`<p>${message}</p>`);
+  console.error(error);
+}
+
+// Start fetching product details
+getProductDetails("20112068");
