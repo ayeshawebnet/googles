@@ -1319,7 +1319,6 @@ var compile = exports.compile = function(str, options){
 exports.render = function(str, options){
   var fn
     , options = options || {};
-    console.log('googles_checkout');
 
   if (options.cache) {
     if (options.filename) {
