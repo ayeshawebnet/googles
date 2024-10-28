@@ -1,37 +1,14 @@
 // Fetch products using AJAX
-async function fetchProducts() {
+async function fetchProducts(filters) {
+  
+
   const response = await $.ajax({
     url: "https://gulzarioptics.testspace.click/interface/index.php",
     method: "POST",
     data: JSON.stringify({
       jsonrpc: "2.0",
       method: "products.getAllProducts",
-      params: {
-        featured: "",
-        SearchBy: "",
-        FilterBy: {
-          optics_frames_style: {
-            genders: "gender_men|gender_unisex|gender_women",
-            shape: "pilot",
-            brand: "Marshall",
-            rim: "full_rim",
-          },
-          optics_frames_colour: { front_color: "gold" },
-          optics_frames_material: { front_material: "metal" },
-        },
-        latest: "",
-        isActive: "active",
-        catCode: "optics_frames",
-        model: "",
-        price_min: 0,
-        price_max: 15700,
-        tryon: true,
-        sale: "",
-        page: 1,
-        per_page: 20,
-        tags_count: "yes",
-        sub_shopCode: "gulzarioptics",
-      },
+      params: filters,
       id: "siiCYawo",
     }),
     dataType: "json",
@@ -81,7 +58,7 @@ function fetchProductModelFilters(productCode) {
           reject(response.error); // Reject if there’s an error
         } else {
           const productModelFilters = response.result;
-          console.log("productModelFilters==>", productModelFilters);
+          // console.log("productModelFilters==>", productModelFilters);
           resolve(productModelFilters); // Resolve with the filters data
         }
       },
@@ -117,7 +94,7 @@ function getProductCode(tag_value, setCode, tag_key, product_model) {
           $("#product-summary").append("<p>Error loading product code.</p>");
           reject(response.error);
         }
-        console.log("response==>", response);
+        // console.log("response==>", response);
         const productCode = response.result;
         getProductDetails(productCode);
         resolve(response.result);
@@ -126,7 +103,7 @@ function getProductCode(tag_value, setCode, tag_key, product_model) {
   });
 }
 
-function listCatergoriesFilter() {
+function listCategoryFilters(selectedCategory) {
   return new Promise((resolve, reject) => {
     $.ajax({
       url: "https://gulzarioptics.testspace.click/interface/index.php",
@@ -135,7 +112,7 @@ function listCatergoriesFilter() {
         jsonrpc: "2.0",
         method: "products.ListCategoryFilters",
         params: {
-          catCode: "optics_sunglasses",
+          catCode: selectedCategory,
           sub_shopCode: "gulzarioptics",
         },
         id: "3CZRL6Mp",
@@ -146,16 +123,15 @@ function listCatergoriesFilter() {
           $("#product-summary").append("<p>Error loading product code.</p>");
           reject(response.error);
         }
-        console.log("response==>", response);
         const productCode = response.result;
-        console.log("productCode==>", productCode);
+        console.log("getListCatergoriesFilterAPI==>", productCode);
         // getProductDetails(productCode);
         resolve(response.result);
       },
     });
   });
 }
-// listCatergoriesFilter();
+
 
 function listProductCategories() {
   return new Promise((resolve, reject) => {
@@ -174,10 +150,6 @@ function listProductCategories() {
           $("#product-summary").append("<p>Error loading product code.</p>");
           reject(response.error);
         }
-        console.log("response==>", response);
-        const productCode = response.result;
-        console.log("productCode==>", productCode);
-        // getProductDetails(productCode);
         resolve(response.result);
       },
     });
