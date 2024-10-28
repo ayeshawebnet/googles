@@ -1,73 +1,64 @@
+
+$(document).ready(function() {
+  initializeProductSummary();
+  getProductDetails("20112068"); // Fetch initial product details after setup
+});
+
+function initializeProductSummary() {
+  const productSummaryHTML = `
+    <div id="product-summary-content">
+      <h2 class="product-title" id="product-title"></h2>
+       <div class="user-ratings d-flex align-items-center">
+       <div id="p-stars" class="p-stars"></div>
+       <a href="#reviews" rel="nofollow" class="total-review ml-2">
+            (<span id="review-count" class="count"><i>...loading</i></span> customer reviews)
+       </a>
+      </div>
+      <div class="price">
+       <h3><span>Rs. </span><span id="product-price"></span></h3>
+      <del>Rs. <span id="del-price"></span></del>
+      </div>
+      <div class="product-details mb-4">
+      <h3>Product Details</h3><p id="product-description"></p>
+      </div>
+      
+     
+    </div>
+  `;
+  $("#product-summary").html(productSummaryHTML);
+}
+
 async function getProductDetails(productCode) {
   try {
-    // showLoading(); // Show loader
 
-    // Fetch product details
     const productDetail = await fetchProductDetails(productCode);
-
-    if(productDetail){
-    // Display product information and other details
-    displayProductInfo(productDetail);
-    displayProductPrice(productDetail.productInfo.base_price);
-    displayProductDescription(productDetail.productInfo.product_desc);
-  
-    // Fetch additional options and update ratings & images
-    await fetchFilterOptions(productDetail);
-    updateRatings(4, 25); // Example rating, replace with actual 
-    await fetchProductImages(productDetail.productImg);
-  }
-  else{
-    $("#product-summary").html(`<p>Product not found</p>`);
-  }
-    // showProductSummary(); // Hide loader, show product details
+    if (productDetail) {
+      console.log("productDetail==>", productDetail);
+      displayProductInfo(productDetail);
+      displayProductPrice(productDetail.productInfo.base_price);
+      displayProductDescription(productDetail.productInfo.product_desc);
+      await fetchProductImages(productDetail.productImg);
+      updateRatings(4, 25);
+      await fetchFilterOptions(productDetail);
+    } else {
+      $("#product-summary").html(`<p>Product not found</p>`);
+    }
   } catch (error) {
     handleError(error, "#product-summary", "Failed to load product details.");
   }
 }
 
-// Fetch product details from API
-async function fetchProductDetails(productCode) {
-  const response = await $.ajax({
-    url: "https://gulzarioptics.testspace.click/interface/index.php",
-    method: "POST",
-    data: JSON.stringify({
-      jsonrpc: "2.0",
-      method: "products.getProductDetails",
-      params: { code: productCode, sub_shopCode: "gulzarioptics" },
-      id: "k1PQf2Rp",
-    }),
-    dataType: "json",
-  });
-
-if (response?.error) throw new Error(response.error.message || "Error loading product details");
-return response?.result || {};
-}
-
 // Display product title, price, and description
 function displayProductInfo({ productInfo }) {
-  const titleHTML = `<h2 class="product-title">${productInfo.title}</h2>`;
-  $("#product-summary").prepend(titleHTML);
+  $("#product-title").text(productInfo.title);
 }
-
 function displayProductPrice(price) {
-  const priceHTML = `
-    <div class="price">
-      <h3><span>Rs. </span>${price}</h3>
-      <del>Rs. ${price + 200}</del>
-    </div>`;
-  $("#product-summary").append(priceHTML);
+  $("#product-price").text(price);
+  $("#del-price").text(price + 500);
 }
-
 function displayProductDescription(description) {
-  const descriptionHTML = `
-    <div class="product-details mb-4">
-      <h3>Product Details</h3>
-      <p>${description}</p>
-    </div>`;
-  $("#product-summary").append(descriptionHTML);
+  $("#product-description").text(description);
 }
-
-
 // Display star ratings and review count
 function updateRatings(rating, reviewCount) {
   const starHtml = Array.from({ length: 5 })
@@ -95,25 +86,24 @@ async function fetchProductImages(productImages) {
 
 // Display main slider images
 function displaySlideImages(images) {
-  
   const slideImagesHTML = `
     <div class="swiper-wrapper">
-      ${images.map(
+      ${images
+        .map(
           (data) =>
             `<div class="swiper-slide"><img src="${data.image}" alt="Product Image" /></div>`
-          )
+        )
         .join("")}
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>`;
-    
+
   $(".gallery-slider").html(slideImagesHTML);
-  
 }
 
 // Display thumbnail images
 function displayThumbnailImages(images) {
-  console.log("myimages",images);
+  console.log("myimages", images);
   const thumbnailImagesHTML = `
     <div class="swiper-wrapper">
       ${images
@@ -124,7 +114,6 @@ function displayThumbnailImages(images) {
         .join("")}
     </div>`;
   $(".gallery-thumbs").html(thumbnailImagesHTML);
-  
 }
 
 // Initialize Swiper sliders
@@ -134,9 +123,9 @@ function initializeSliders(totalSlides) {
     centeredSlides: true,
     loop: true,
     loopedSlides: totalSlides,
-    navigation: { 
-      nextEl: ".swiper-button-next", 
-      prevEl: ".swiper-button-prev" 
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
     },
   });
 
@@ -169,5 +158,3 @@ function handleError(error, selector, message) {
   console.error(error);
 }
 
-// Start fetching product details
-getProductDetails("20112068");
