@@ -511,7 +511,7 @@
             <div class="row">
                <!-- Sidebar for Desktop -->
                <div id="filter-desktop" class="side-bar sidebar-desktop col-lg-3 px-3 py-3">
-                
+
                </div>
                <!-- Product Display Section -->
                <div class="left-ads-display col-lg-9 mt-5">
@@ -532,7 +532,9 @@
                                  </div>
                                  <!-- Shared Filter Component -->
                                  <div class="col-lg-12 m-auto col-sm-12 h-100 side-bar">
-                                    <?php include 'filter.php'; ?>
+                                 <div id="filter-mobile" class="side-bar sidebar-desktop col-lg-3 px-3 py-3">
+
+</div>
                                  </div>
                               </div>
                            </div>
@@ -541,6 +543,13 @@
 
                      <!-- Product List -->
                      <div class="row p-row" id="product-list"></div>
+
+                     <div class="pagination-controls">
+                        <button id="btnPreviousP">&larr; Previous</button>
+                        <span id="pageIndicator"></span>
+                        <button id="btnNextP">Next &rarr;</button>
+                     </div>
+                     <!-- <div id="pagination-dots" class="pagination-dots"></div> -->
                   </div>
                </div>
             </div>
@@ -1719,7 +1728,7 @@
       AOS.init();
    </script>
 
-
+   <script src="https://cdn.josetxu.com/js/pure-pajinate.es5.min.js"></script>
 
 
    <!-- js file -->
