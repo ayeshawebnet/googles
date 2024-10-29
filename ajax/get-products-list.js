@@ -1,11 +1,11 @@
-// Initialize the page with loader, fetch products, and render cart model
-async function initializeShopPage() {
+
+async function renderShopPage(products) {
   try {
       // Show loader and hide product list initially
       // $(".loading-spinner").show();
       // $("#product-list").hide();
       
-      const products = await fetchProducts();
+    //   const products = await fetchProducts();
       
       if (!products || products.length === 0) throw new Error("No products available");
 

@@ -980,7 +980,7 @@ input.checked {
 
 .wrapper_top_shop {
   /* padding: 15px; */
-  border: 1px solid #e4e4e4;
+  /* border: 1px solid #e4e4e4; */
 }
 .wrapper_top_shop .p-row {
   margin: 30px 0px !important;
@@ -2087,6 +2087,7 @@ span.item_price {
   color: #3e4963;
   text-align: center;
   transition: background-color 0.5s ease;
+  font-size: 14px;
 }
 
 label:first-child span {
@@ -2818,3 +2819,62 @@ label:last-child span {
 /* .input-group-text{
   background-color:#f4f9ff;
 } */
+
+
+/* filters */
+.filter-select {
+  appearance: none;
+  border: 0;
+  outline: 0;
+  background: none;
+  color: white;
+  box-shadow: none;
+}
+.filter-select::-ms-expand {
+  display: none;
+}
+
+/* Custom Select wrapper */
+.filter-select-wrapper {
+  position: relative;
+  display: flex;
+  max-width: min(20rem, 90vw);
+  background: #2E2E2e;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+.filter-select-wrapper option {
+  color: black;
+}
+
+/* Select style inside .filter-select-wrapper */
+.filter-select-wrapper .filter-select {
+  flex: 1;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+/* Arrow style */
+.filter-select-wrapper::after {
+  content: "\25BC";
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  transition: 0.25s all ease;
+  pointer-events: none; /* Ensures the arrow doesn’t block clicks */
+}
+
+/* Arrow hover */
+.filter-select-wrapper:hover::after {
+  color: #f39c12;
+  animation: filter-bounce 0.5s infinite;
+}
+
+@keyframes filter-bounce {
+  25% {
+    transform: translateY(5px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}

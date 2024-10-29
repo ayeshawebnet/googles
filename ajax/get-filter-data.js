@@ -1,8 +1,9 @@
 // Call initializePage to load everything when the script runs
 
-function initialFilterHtml() {
+function initializeFilterHtml() {
   const filterHTML = `
 <div id="filters">
+   <!-- 
     <div class="search-hotel">
         <form id="searchForm" action="#" method="post">
             <input class="form-control" type="search" id="searchInput" placeholder="Search here..." required="" />
@@ -13,16 +14,33 @@ function initialFilterHtml() {
     </div>
 
     <div class="range" id="priceRange"></div>
+    -->
+
+
+    <!-- Category Filters -->
     <div class="left-side">
-    <h3 class="agileits-sear-head">Brand</h3>
+    <h3 class="agileits-sear-head">Category</h3>
        <div class="mydict">
-        <div id="categoryFilters">
-            
-        </div>
+        <div id="categoryFilters"></div>
+      </div>
+    </div>
+
+    <!-- Gender Filters -->
+    <div class="left-side">
+    <h3 class="agileits-sear-head">Gender</h3>
+    <div class="gender-card">
+        <form action="#">
+            <div class="radio-wrapper" id="genderFilters"></div>
+        </form>
     </div>
     </div>
-    <div class="left-side" id="genderFilters"></div>
-    <div class="left-side" id="brandFilters"></div>
+    
+    <!-- Front Color Filters -->
+    <div class="left-side" id="frontColorFilters">
+     
+    </div>
+
+
     <div class="left-side" id="sizeFilters"></div>
     <div class="left-side" id="frameShapeFilters"></div>
     <div class="left-side" id="frameMaterialFilters"></div>
@@ -34,74 +52,169 @@ function initialFilterHtml() {
   $("#filter-desktop").html(filterHTML);
 }
 
-function collectFilterData() {
-  const selectedCategories = [];
-  $('input[type="checkbox"]:checked').each(function () {
-    selectedCategories.push($(this).attr("id")); // Use the ID of the category
-  });
-
-  //selected Gender is array 
-  const selectedGender = $('input[name="gender"]:checked').val(); // Get selected gender
-  const selectedBrand = $('input[name="brand"]:checked').val(); // Get selected brand (only one should be selected)
-  const selectedSize = $('input[name="size"]:checked').val(); // Get selected size (only one should be selected)
-  const selectedFrameShape = $('input[name="frameShape"]:checked').val(); // Get selected frame shape (only one should be selected)
-  const selectedFrameMaterial = $('input[name="frameMaterial"]:checked').val(); // Get selected frame material (only one should be selected)
-  const selectedLensType = $('input[name="lensType"]:checked').val(); // Get selected lens type (only one should be selected)
-  const selectedReview = $('input[name="customerReview"]:checked').val(); // Get selected review (only one should be selected)
-  const selectedDeal = $('input[name="specialDeals"]:checked').val(); // Get selected deal (only one should be selected)
-
-  const priceRange = {
-    min: $("#amount").val().split(" - ")[0], // Assuming the slider value is set in the input field
-    max: $("#amount").val().split(" - ")[1],
-  };
-
-  const searchTerm = $("#searchInput").val(); // Get the search input value
-
-  // Construct filters as an object
+// Function to gather selected filter data
+async function collectSelectedFilters() {
   const filters = {
-    featured: selectedFeatured || "",
-    SearchBy: selectedSearchBy || "",
-    FilterBy: {
-        optics_frames_style: {
-            gender: selectedGender || "",
-            shape: selectedShape || "",
-            brand: selectedBrand || "",
-            rim: selectedRim || "",
-        }
+    catCode: $('input[name="category"]:checked').val() || "",
+    genders: $('input[name="gender"]:checked').val() || "",
+    FilterBy:{
+      optics_frames_colour: $(".filter-select").val() || "",
     },
-    categories: selectedCategories.join(","), // Convert array to comma-separated string
-   
-    front_color: selectedFrontColor || "",
-    front_material: selectedFrontMaterial || "",
-    front_material: selectedFrontMaterial || "",
-    latest: selectedLatest || "",
-    isActive: selectedIsActive || "",
-    catCode: selectedCatCode || "",
-    model: selectedModel || "",
-    pricemin: selectedPriceMin || "",
-    pricemax: selectedPriceMax || "",
-    tryon: selectedTryon || "",
-    sale: selectedSale || "",
-    page: selectedPage || "",
-    per_page: selectedPerPage || "",
-    tags_count: selectedTagsCount || "yes",
-    sub_shopCode: selectedSubShopCode || "gulzarioptics",
-    size: selectedSize || "",
-    frameShape: selectedFrameShape || "",
-    frameMaterial: selectedFrameMaterial || "",
-    lensType: selectedLensType || "",
-    review: selectedReview || "",
-    deal: selectedDeal || "",
-   
+    // brand: $('input[name="brand"]:checked').val() || "",
+    // size: $('input[name="size"]:checked').val() || "",
+    // frameShape: $('input[name="frameShape"]:checked').val() || "",
+    // frameMaterial: $('input[name="frameMaterial"]:checked').val() || "",
+    sub_shopCode: "gulzarioptics",
   };
+  console.log("Selected Filters:", filters);
+  const products = await fetchProducts(filters);
+  await renderShopPage(products);
+}
+
+// Function to fetch and display product categories with radio buttons
+async function renderCategoryFilters() {
+  const categories = await listProductCategories();
+  const categoryHtml = categories
+    .map(
+      (category) => `
+        <label>
+          <input type="radio" 
+                 ${category.code === "optics_frames" ? 'checked="checked"' : ""}
+                 value="${category.code}" name="category" />
+          <span>${category.label}</span>
+        </label>`
+    )
+    .join("");
+  $("#categoryFilters").html(categoryHtml);
+
+  // Initial filter application based on the default checked category
+  const initialCategory = $('input[name="category"]:checked').val();
+  handleCategoryChange(initialCategory);
+
+  // Event listener for category changes
+  $('input[name="category"]').change(function () {
+    handleCategoryChange($(this).val());
+  });
+}
+
+// Function to update and render filters based on the selected category
+async function handleCategoryChange(selectedCategory) {
+  const categoryFilters = await listCategoryFilters(selectedCategory);
+  renderSubCategoryFilters(selectedCategory, categoryFilters);
+  collectSelectedFilters();
+}
+
+
+// Function to render sub-category filters based on selected category
+function renderSubCategoryFilters(selectedCategory, categoryFilters) {
+  if (!categoryFilters || !categoryFilters.filters) return;
+
+  // Iterate over each filter in categoryFilters.filters and render based on 'code'
+  categoryFilters.filters.forEach((filter) => {
+    switch (filter.code) {
+      case "genders":
+        renderGenderFilters(filter.attributes);
+        break;
+      case "front_color":
+        renderFrontColorFilters(filter.attributes);
+        break;
+      case "front_material":
+        renderFrontMaterialFilters();
+        break;
+      case "shape":
+        renderShapeFilters();
+        break;
+      case "brand":
+        renderBrandFilters();
+        break;
+      case "rim":
+        renderRimFilters();
+        break;
+      case "is_trending":
+        renderTrendingFilters();
+        break;
+      default:
+        console.warn("Unknown filter type:", filter.code);
+    }
+  });
+}
+
+// Placeholder functions for rendering specific filters
+function renderGenderFilters(filter) {
+  console.log("Rendering Gender Filter");
+    const genderFilterHTML = filter
+    .map((attr) => {
+      // const icon = genderIcons[attr.code] || genderIcons.default; // Use the matched icon or default
+       // ${icon.svg}
+      return `
+        <input class="gender-radio-buttons" id="${attr.code}" value="${attr.code}" name="gender" type="radio" />
+        <label class="genderlabel otherbutton" for="${attr.code}">
+          ${attr.label}
+        </label>
+      `;
+    })
+    .join("");
+  $("#genderFilters").html(genderFilterHTML);
+  //whenever it is change get value and it should call the collectSelectedFilters
+  $('input[name="gender"]').change(() => {
+    collectSelectedFilters();
+  });
+ }
+
+function renderFrontColorFilters(filter) {
+
+  const frontColorFilterHTML = `
+  <h3 class="agileits-sear-head">Front Color</h3>
+      <label class="filter-select-wrapper">
+      <select class="filter-select">
+        ${filter.map((attr) => {
+          return `<option value="${attr.code}">${attr.label}</option>`;
+        }).join("")}     
+      </select>
+    </label>`;
+  $("#frontColorFilters").html(frontColorFilterHTML);
+
+  //whenever it is change get value and it should call the collectSelectedFilters
+  $(".filter-select").change(collectSelectedFilters);
 
   
-  return {
-    filters,
-    priceRange,
-    searchTerm,
-  };
+
+  console.log("Rendering Front Color Filter");
 }
+
+function renderFrontMaterialFilters() {
+  // Implement front material filter HTML generation here
+  console.log("Rendering Front Material Filter");
+}
+
+function renderShapeFilters() {
+  // Implement shape filter HTML generation here
+  console.log("Rendering Shape Filter");
+}
+
+function renderBrandFilters() {
+  // Implement brand filter HTML generation here
+  console.log("Rendering Brand Filter");
+}
+
+function renderRimFilters() {
+  // Implement rim filter HTML generation here
+  console.log("Rendering Rim Filter");
+}
+
+function renderTrendingFilters() {
+  // Implement trending filter HTML generation here
+  console.log("Rendering Trending Filter");
+}
+
+
+// Initialization on page load
+$(document).ready(function () {
+  initializeFilterHtml();
+  renderCategoryFilters();
+});
+
+
 // function createPriceRange() {
 //     const priceRangeHtml = `
 //         <h3 class="agileits-sear-head">Price range</h3>
@@ -115,46 +228,8 @@ function collectFilterData() {
 //     $('#priceRange').html(priceRangeHtml);
 // }
 
-async function createCategoryFilters() {
-  //use map
-    const categoryOptions=await listProductCategories();
-    console.log("categoryOptions==>",categoryOptions);
-  const categoryHtml = `<h3 class="agileits-sear-head">Category</h3><ul>
-    ${categoryOptions
-      .map(
-        (category) => `
-        <label>
-                <input type="radio" name="radio" />
-                <span>${category.label}</span>
-        </label>
-    `
-      )
-      .join("")}
-    </ul>`;
-  $("#categoryFilters").append(categoryHtml);
-}
 
-async function initFilters() {
-//   const getProduct = await fetchProducts();
-//   console.log("getProduct==>", getProduct);
-  // createPriceRange();
-  createCategoryFilters();
-  // createGenderFilters();
-  // createBrandFilters();
-  // createSizeFilters();
-  // createFrameShapeFilters();
-  // createFrameMaterialFilters();
-  // createLensTypeFilters();
-  // createReviewFilters();
-  // createSpecialDeals();
-}
 
-// Initialize filters on page load
-document.addEventListener("DOMContentLoaded", initFilters);
-$(document).ready(function () {
-    initialFilterHtml();
-    initFilters();
-    });
 // Handle search form submission
 // document.getElementById('searchForm').addEventListener('submit', function(event) {
 //     event.preventDefault();
@@ -166,6 +241,3 @@ $(document).ready(function () {
 // function setProductFilters(filters) {
 
 // }
-
-
-
