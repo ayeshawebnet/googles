@@ -15,7 +15,7 @@ async function fetchProducts(filters) {
   });
 
   if (response.error) throw new Error("Error loading products");
-  return response.result.list;
+  return response.result;
 }
 
 // Fetch product details from API

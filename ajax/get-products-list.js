@@ -1,43 +1,43 @@
 
+
 async function renderShopPage(products) {
   try {
-      // Show loader and hide product list initially
-      // $(".loading-spinner").show();
-      // $("#product-list").hide();
-      
-    //   const products = await fetchProducts();
-      
-      if (!products || products.length === 0) throw new Error("No products available");
+    // if (!products || products.length === 0) {
+    
+    //     $("#product-list").html(`<p>No products available</p>`);
+    //     return;
+    //   }
 
-      // Initialize cart after products are rendered
-      initializeCartModel();
-      
-      
-      // Render the products
-      
-      const productHTML = generateProductHTML(products);
-      $("#product-list").html(productHTML);
+    // Calculate total pages and render the first page
+    currentPage = 1;
+    totalPages = Math.ceil(products.length / itemsPerPage);
+    showPage(products, currentPage);
+    renderPaginationControls(products);
 
-      
+    // Render the products
 
-      // Hide loader and display product list
-      // $(".loading-spinner").hide();
-      // $("#product-list").fadeIn();
+    // const productHTML = generateProductHTML(products);
+    // $("#product-list").html(productHTML);
+
+    // Hide loader and display product list
+    // $(".loading-spinner").hide();
+    // $("#product-list").fadeIn();
   } catch (error) {
-      // $(".loading-spinner").hide();
-      $("#product-list").html(`<p>${error.message}</p>`);
-      console.error("Error loading products:", error);
+    // $(".loading-spinner").hide();
+    $("#product-list").html(`<p>${error.message}</p>`);
+    console.error("Error loading products:", error);
   }
 }
 
-// Initialize the cart model and setup checkout event listener
-function initializeCartModel() {
-  // Render cart model
-
-}
-
 // Function to generate a single Product component
-function ProductComponent({ title, product_code, price, vtry_image, seo_title, rating }) {
+function ProductComponent({
+  title,
+  product_code,
+  price,
+  vtry_image,
+  seo_title,
+  rating,
+}) {
   return `
       <div class="col-md-3 product-men women_two mb-4">
           <div class="product-googles-info googles h-100">
@@ -103,24 +103,93 @@ function ProductComponent({ title, product_code, price, vtry_image, seo_title, r
 
 // Generate product HTML for each product in the list
 function generateProductHTML(products) {
-  return products.map(product => ProductComponent({
-      title: product.title,
-      product_code: product.product_code,
-      price: product.price,
-      vtry_image: products[0].vtry_image,
-      seo_title: product.seo_title,
-      rating: Math.random() * 5 // For demonstration; replace with actual rating if available
-  })).join("");
+  return products
+    .map((product) =>
+      ProductComponent({
+        title: product.title,
+        product_code: product.product_code,
+        price: product.price,
+        vtry_image: products[0].vtry_image,
+        seo_title: product.seo_title,
+        rating: Math.random() * 5, // For demonstration; replace with actual rating if available
+      })
+    )
+    .join("");
 }
 
 // Generate star ratings for a product based on rating
 function generateStars(rating) {
   let starsHTML = "";
   for (let i = 1; i <= 5; i++) {
-      starsHTML += i <= rating
-          ? `<li><a href="#"><i class="fa fa-star" aria-hidden="true" style="color: #ffcc00;"></i></a></li>`
-          : `<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>`;
+    starsHTML +=
+      i <= rating
+        ? `<li><a href="#"><i class="fa fa-star" aria-hidden="true" style="color: #ffcc00;"></i></a></li>`
+        : `<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>`;
   }
   return starsHTML;
 }
+let currentPage = 1;
+const itemsPerPage = 20;
+let totalPages = 1;
+// Shows the specific page of products
+function showPage(products, page) {
+    
+    const offset = (page - 1) * itemsPerPage;
+    const paginatedProducts = products.slice(offset, offset + itemsPerPage);
+    
+    // Render the current page of products
+    $("#product-list").html(generateProductHTML(paginatedProducts));
+    updatePageIndicator();
+  }
+  
+  // Updates the page indicator to show the current page
+  function updatePageIndicator() {
+    $("#pageIndicator").text(`Page ${currentPage} of ${totalPages}`);
+  }
+  
+  // Render pagination controls dynamically
+  function renderPaginationControls(products) {
+    const paginationDots = $("#pagination-dots");
+    paginationDots.empty();
+  
+    for (let i = 1; i <= totalPages; i++) {
+      const dot = $("<button>")
+        .addClass("pagination-dot")
+        .text(i)
+        .attr("data-page", i)
+        .toggleClass("active", i === currentPage);
+  
+      dot.on("click", function () {
+        currentPage = parseInt($(this).attr("data-page"));
+        showPage(products, currentPage);
+        updatePaginationDots();
+      });
+  
+      paginationDots.append(dot);
+    }
+  
+    $("#btnPreviousP").on("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        showPage(products, currentPage);
+        updatePaginationDots();
+      }
+    });
+  
+    $("#btnNextP").on("click", () => {
+      if (currentPage < totalPages) {
+        currentPage++;
+        showPage(products, currentPage);
+        updatePaginationDots();
+      }
+    });
+  }
+  
+  // Updates the active class for pagination dots
+  function updatePaginationDots() {
+    $(".pagination-dot").removeClass("active");
+    $(`.pagination-dot[data-page=${currentPage}]`).addClass("active");
+  }
+  
 
+  
