@@ -17,7 +17,7 @@ function initializeFilterHtml() {
  <!-- Category Filters -->
     <div class="left-side">
     <h3 class="agileits-sear-head">Price Range</h3>  
-      <div id="priceRange" class="price-range-slider">
+      <div id="priceRange" class="priceRange price-range-slider">
  <i> ...loading </i>
       </div>
     </div>
@@ -30,7 +30,7 @@ function initializeFilterHtml() {
     <div class="left-side">
     <h3 class="agileits-sear-head">Category</h3>
        <div class="mydict">
-        <div id="categoryFilters"></div>
+        <div id="categoryFilters" class="categoryFilters"></div>
       </div>
     </div>
 
@@ -40,7 +40,7 @@ function initializeFilterHtml() {
     <h3 class="agileits-sear-head remove-content"></h3>
     <div class="gender-card">
         <form action="#">
-            <div class="radio-wrapper remove-content" id="genderFilters"></div>
+            <div class="radio-wrapper remove-content genderFilters" id="genderFilters" ></div>
         </form>
     </div>
     </div>
@@ -49,7 +49,7 @@ function initializeFilterHtml() {
      <div class="left-side">
      <h3 class="agileits-sear-head remove-content"></h3>
        <div class="mydict">
-        <div id="frontMaterialFilters" class="remove-content"></div>
+        <div id="frontMaterialFilters"  class="frontMaterialFilters remove-content"></div>
       </div>
      </div>
 
@@ -57,12 +57,12 @@ function initializeFilterHtml() {
 <div class="left-side">
 <h3 class="agileits-sear-head remove-content"></h3>
        <div class="mydict">
-        <div id="shapeFilters" class="remove-content"></div>
+        <div id="shapeFilters" class="shapeFilters remove-content"></div>
       </div>
 </div>
 
      <!-- Front Color Filters -->
-    <div class="left-side remove-content" id="frontColorFilters"></div>
+    <div class="left-side remove-content frontColorFilters" id="frontColorFilters"></div>
 
     <div class="left-side" id="sizeFilters"></div>
     
@@ -76,16 +76,16 @@ function initializeFilterHtml() {
   $("#filter-mobile").html(filterHTML)
 }
 
+
 // Function to gather selected filter data
 async function collectSelectedFilters() {
   const filters = {
     catCode: $('input[name="category"]:checked').val() || "",
-    
     FilterBy: {
-      optics_frames_style:{ 
+      optics_frames_style: {
         genders: $('input[name="gender"]:checked').val() || "",
         shape: $('input[name="shape"]:checked').val() || "",
-       },
+      },
       optics_frames_colour: { front_color: $(".filter-select").val() || "" },
       optics_frames_material: {
         front_material: $('input[name="front_material"]:checked').val() || "",
@@ -93,33 +93,32 @@ async function collectSelectedFilters() {
     },
     price_max: $(".max-price").val() || "",
     price_min: $(".min-price").val() || "",
-    // brand: $('input[name="brand"]:checked').val() || "",
-    // size: $('input[name="size"]:checked').val() || "",
-    // frameShape: $('input[name="frameShape"]:checked').val() || "",
-    // frameMaterial: $('input[name="frameMaterial"]:checked').val() || "",
     sub_shopCode: "gulzarioptics",
   };
-
 
   $("#product-list").html("...loading");
   $(".pagination-controls").hide();
   console.log("Selected Filters:", filters);
-  const products = await fetchProducts(filters);
-  //show loading text
-  if (products.list.length > 0) {
-    console.log("Products==>", products);
-    // Render the price range filters and products list if products are available
-    renderPriceRangeFilters(products.price_min, products.price_max);
-    await renderShopPage(products.list);
 
-    // Show pagination controls again after loading is complete
-    $(".pagination-controls").show();
-  } else {
-    // Display a message if no products were found
-    $("#product-list").html("No products found.");
+  try {
+    const products = await fetchProducts(filters);
+    if (products.list.length > 0) {
+      console.log("Products==>", products);
+
+      // Use Promise.all to concurrently render filters and products
+      await Promise.all([
+        renderPriceRangeFilters(products.price_min, products.price_max),
+        renderShopPage(products.list),
+      ]);
+
+      $(".pagination-controls").show();
+    } else {
+      $("#product-list").html("No products found.");
+    }
+  } catch (error) {
+    $("#product-list").html("Error loading products.");
+    console.error("Error in collectSelectedFilters:", error);
   }
-
- 
 }
 
 // Function to fetch and display product categories with radio buttons
@@ -136,18 +135,15 @@ async function renderCategoryFilters() {
         </label>`
     )
     .join("");
-  $("#categoryFilters").html(categoryHtml);
 
-  // Initial filter application based on the default checked category
+  $("#categoryFilters").html(categoryHtml);
   const initialCategory = $('input[name="category"]:checked').val();
   handleCategoryChange(initialCategory);
 
-  // Event listener for category changes
   $('input[name="category"]').change(function () {
     handleCategoryChange($(this).val());
   });
 }
-
 // Function to update and render filters based on the selected category
 async function handleCategoryChange(selectedCategory) {
   const categoryFilters = await listCategoryFilters(selectedCategory);
@@ -234,6 +230,9 @@ function renderGenderFilters(filter) {
   });
 }
 
+
+
+
 function renderFrontColorFilters(filter) {
   const frontColorFilterHTML = `
   <h3 class="agileits-sear-head">Front Color</h3>
@@ -313,8 +312,19 @@ function renderTrendingFilters() {
 $(document).ready(function () {
   renderCategoryFilters();
   initializeFilterHtml();
-  
+  debounceCollectFilters(); // Initialize debounce on filters
 });
+
+// Debounce to limit filter calls
+function debounce(fn, delay = 500) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), delay);
+  };
+}
+// Collect selected filters with debounce
+const debounceCollectFilters = debounce(collectSelectedFilters);
 
 // range slider
 

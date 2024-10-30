@@ -20,6 +20,7 @@
          window.scrollTo(0, 1);
       }
    </script>
+   <link href="css/header.css" rel="stylesheet" type="text/css" >
    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
    <link href="css/login_overlay.css" rel="stylesheet" type="text/css" />
    <link href="css/style6.css" rel="stylesheet" type="text/css" />
@@ -57,249 +58,124 @@
       </div>
       <!-- header -->
       <header>
-         <nav
-            class="navbar navbar-expand-lg navbar-light bg-white navbar-custom">
-            <div class="container d-block">
-               <div class="d-flex justify-content-between glasses-header">
-                  <div class="d-flex ">
-                     <!-- Search -->
-                     <form class="form-inline header-searchbar">
-                        <span class="search-icon">
-                           <svg
-                              color="#000"
-                              focusable="false"
-                              width="15"
-                              height="15"
-                              class="icon icon--header-search"
-                              viewBox="0 0 18 18">
-                              <path
-                                 d="M12.336 12.336c2.634-2.635 2.682-6.859.106-9.435-2.576-2.576-6.8-2.528-9.435.106C.373 5.642.325 9.866 2.901 12.442c2.576 2.576 6.8 2.528 9.435-.106zm0 0L17 17"
-                                 fill="none"
-                                 stroke="currentColor"
-                                 stroke-width="1.4"></path>
-                           </svg>
-                        </span>
-                        <input
-                           class="form-control header-search"
-                           type="search"
-                           placeholder="Search Products"
-                           aria-label="Search" />
-                     </form>
-                     <!-- Submenu Toggle Button for Mobile -->
-                     <button class="navbar-toggler" type="button" onclick="toggleSubMenu()">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                     </button>
-                  </div>
-                  <!-- Brand Logo -->
-                  <div class="logo-here">
-                     <a class="navbar-brand mx-auto" href="#">Glasses Hub</a>
-                  </div>
-
-                  <!-- Icons Section -->
-                  <div class="navbar-icons d-flex align-items-center pl-xl-5">
-                     <div class="col-md-4 top-info-cart text-right">
-                        <ul class="cart-inner-info">
-                           <li class="button-log">
-                              <a class="btn-open nav-link" href="#">
-                                 <svg
-                                    focusable="false"
-                                    width="18"
-                                    height="17"
-                                    class="icon icon--header-customer"
-                                    viewBox="0 0 18 17">
-                                    <circle
-                                       cx="9"
-                                       cy="5"
-                                       r="4"
-                                       fill="none"
-                                       stroke="currentColor"
-                                       stroke-width="1.4"
-                                       stroke-linejoin="round"></circle>
-                                    <path
-                                       d="M1 17v0a4 4 0 014-4h8a4 4 0 014 4v0"
-                                       fill="none"
-                                       stroke="currentColor"
-                                       stroke-width="1.4"></path>
-                                 </svg>
-                              </a>
-                           </li>
-                           <li>
-                              <a class="navbar-brand mx-auto d-none responsive-logo" href="#">Glasses Hub</a>
-                           </li>
-                           <li class="galssescart galssescart2 cart cart box_1">
-                              <a class="nav-link open-cart" role="button">
-                                 <svg
-                                    color="#000"
-                                    focusable="false"
-                                    width="20"
-                                    height="18"
-                                    class="icon icon--header-cart"
-                                    viewBox="0 0 20 18">
-                                    <path
-                                       d="M3 1h14l1 16H2L3 1z"
-                                       fill="none"
-                                       stroke="currentColor"
-                                       stroke-width="1.4"></path>
-                                    <path
-                                       d="M7 4v0a3 3 0 003 3v0a3 3 0 003-3v0"
-                                       fill="none"
-                                       stroke="currentColor"
-                                       stroke-width="1.4"></path>
-                                 </svg>
-                                 <span class="badge badge-pill badge-dark">1</span>
-                              </a>
-                              <!-- <form action="#" method="post" class="last">
-                                      <input type="hidden" name="cmd" value="_cart" />
-                                      <input type="hidden" name="display" value="1" />
-                                      <button
-                                        class="top_googles_cart"
-                                        type="submit"
-                                        name="submit"
-                                        value=""
-                                      >
-                                        My Cart
-                                        <i class="fas fa-shopping-bag"></i>
-                                        
-                                      </button>
-                                    </form> -->
-                           </li>
-                        </ul>
-                     </div>
-                  </div>
-               </div>
+        <nav
+          class="navbar navbar-expand-lg navbar-light bg-white navbar-custom"
+        >
+          <div class="container d-block">
+            <div class="row d-flex justify-content-between glasses-header">
+              <div class="col d-flex ">
+          
             </div>
-         </nav>
+              <!-- Brand Logo -->
+              <div class="col logo-here text-center">
+                <a class="navbar-brand mx-auto" href="#">Glasses Hub</a>
+              </div>
 
-
-
-         <!-- Submenu -->
-         <div class="sub-menu">
-            <div class="container">
-               <ul class="nav justify-content-center">
-                  <li class="nav-item">
-                     <a class="nav-link active" href="index.html">Home</a>
-                  </li>
-                  <li class="nav-item"></li>
-                  <a class="nav-link" href="shop.php">Shop</a>
-                  </li>
-                  <!-- <li class="nav-item dropdown">
-                    <a
-                    class="nav-link dropdown-toggle"
-                    href="shop.php"
-                    id="navbarDropdown1"
-                    role="button"
-                    data-toggle="dropdown"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Shops
-                  </a>
-                  <ul class="nav-mega dropdown-menu mega-menu">
+              <!-- Icons Section -->
+              <div class="col navbar-icons d-flex align-items-center pl-xl-5">
+                <div class="col-md-4 top-info-cart text-right">
+                  <ul class="cart-inner-info">
+                    <li class="button-log">
+                      <a class="btn-open nav-link" href="#">
+                        <svg
+                          focusable="false"
+                          width="18"
+                          height="17"
+                          class="icon icon--header-customer"
+                          viewBox="0 0 18 17"
+                        >
+                          <circle
+                            cx="9"
+                            cy="5"
+                            r="4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.4"
+                            stroke-linejoin="round"
+                          ></circle>
+                          <path
+                            d="M1 17v0a4 4 0 014-4h8a4 4 0 014 4v0"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.4"
+                          ></path>
+                        </svg>
+                      </a>
+                    </li>
                     <li>
-                      <div class="row">
-                        <div class="col-md-4 media-list span4 text-left">
-                          <h5 class="tittle-w3layouts-sub">
-                            Top Picks for Every Style
-                          </h5>
-                          <ul>
-                            <li class="media-mini mt-3">
-                              <a href="shop.php">Designer Glasses</a>
-                            </li>
-                            <li class="">
-                              <a href="shop.php"> Ray-Ban</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Prescription Glasses</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Rx Sunglasses</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Contact Lenses</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Multifocal Glasses</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Kids Glasses</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Lightweight Glasses</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Sports Glasses</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-md-4 media-list span4 text-left">
-                          <h5 class="tittle-w3layouts-sub">
-                            Designer Collections
-                          </h5>
-                          <ul>
-                            <li class="media-mini mt-3">
-                              <a href="shop.php">Brooks Brothers</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Persol</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Polo Ralph Lauren</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Prada</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Ray-Ban Jr</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Sferoflex</a>
-                            </li>
-                          </ul>
-                          <ul class="sub-in text-left">
-                            <li>
-                              <a href="shop.php">Polo Ralph Lauren</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Prada</a>
-                            </li>
-                            <li>
-                              <a href="shop.php">Ray-Ban Jr</a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="col-md-4 media-list span4 text-left">
-                          <h5 class="tittle-w3layouts-sub-nav">
-                            Classic Beauty in Black Eyewear
-                          </h5>
-                          <div class="media-mini mt-3">
-                            <a href="shop.php">
-                              <img
-                                src="images/g1.jpg"
-                                class="img-fluid"
-                                alt=""
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                      <hr />
+                        <a class="navbar-brand mx-auto d-none responsive-logo" href="#">Glasses Hub</a>
+                    </li>
+                    <li class="galssescart galssescart2 cart cart box_1">
+                      <a class="nav-link open-cart" role="button">
+                        <svg
+                          color="#000"
+                          focusable="false"
+                          width="20"
+                          height="18"
+                          class="icon icon--header-cart"
+                          viewBox="0 0 20 18"
+                        >
+                          <path
+                            d="M3 1h14l1 16H2L3 1z"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.4"
+                          ></path>
+                          <path
+                            d="M7 4v0a3 3 0 003 3v0a3 3 0 003-3v0"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.4"
+                          ></path>
+                        </svg>
+                        <span class="badge badge-pill badge-dark">1</span>
+                      </a>
+                      <!-- <form action="#" method="post" class="last">
+                                  <input type="hidden" name="cmd" value="_cart" />
+                                  <input type="hidden" name="display" value="1" />
+                                  <button
+                                    class="top_googles_cart"
+                                    type="submit"
+                                    name="submit"
+                                    value=""
+                                  >
+                                    My Cart
+                                    <i class="fas fa-shopping-bag"></i>
+                                    
+                                  </button>
+                                </form> -->
                     </li>
                   </ul>
-                  </li>  -->
-
-                  <li class="nav-item">
-                     <a class="nav-link" href="about.html">About us</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact us</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="blogs.html">Blogs</a>
-                  </li>
-               </ul>
+                </div>
+              </div>
             </div>
-         </div>
+          </div>
+        </nav>
       </header>
+      <div id="page-body">
+        <div class="ecomm-nav">
+          <div class="ecomm-navbar">
+            <i class="fa fa-bars"></i>
+            <!-- <div class="ecomm-logo"><a href="#">Glasses Hub</a></div> -->
+            <div class="ecomm-logo"></div>
+            <div class="ecomm-nav-links">
+              <div class="ecomm-sidebar-logo">
+                <span class="logo-name">Glasses Hub</span>
+                <i class="fa fa-window-close"></i>
+              </div>
+              <ul class="ecomm-links"></ul>
+            </div>
+            <div class="search-box">
+              <!-- <i class='bx bx-search'></i> -->
+              <i class="fa fa-search"></i>
+
+              <div class="input-box">
+                <input type="text" placeholder="Search..." />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- //header -->
       <!--start cart panel-->
       <div class="cart-menu">
@@ -518,7 +394,7 @@
                   <div class="wrapper_top_shop pt-3">
                      <!-- Filter for Mobile (Overlay) -->
                      <div class="col-md-6 d-none sidebar-mobile">
-                        <ins id="trigger-overlay">Filter by (2)</ins>
+                        <!-- <ins id="trigger-overlay">Filter by (2)</ins> -->
 
                         <!-- Mobile Overlay -->
                         <div class="overlay overlay-door h-100" style="overflow: auto;">
@@ -1548,6 +1424,8 @@
    </footer>
    <!-- //footer -->
    <!--jQuery-->
+   <script src="js/header.js"></script>
+   <script src="js/script.js"></script>
    <script src="js/jquery-2.2.3.min.js"></script>
    <!-- newsletter modal -->
    <!--search jQuery-->
