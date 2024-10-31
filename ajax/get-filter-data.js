@@ -1,5 +1,16 @@
 // Call initializePage to load everything when the script runs
+function loaderwildcard() {
+  const loader = `
+  <!-- <div style="display: flex; justify-content: center; align-items: center; height: 50vh; width: 200vh;">
+    <div cl style="text-align: center; max-width: 400px; margin: auto;">
+      <div class="spinner"></div>
+    </div>
+ </div> -->
 
+  <div class="spinner m-auto"></div>
+  `;
+  return loader;
+}
 function initializeFilterHtml() {
   const filterHTML = `
 <div id="filters">
@@ -101,7 +112,7 @@ async function collectSelectedFilters() {
   };
 
 
-  $("#product-list").html("...loading");
+  $("#product-list").html(loaderwildcard());
   $(".pagination-controls").hide();
   console.log("Selected Filters:", filters);
   const products = await fetchProducts(filters);

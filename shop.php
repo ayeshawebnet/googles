@@ -515,7 +515,7 @@
                </div>
                <!-- Product Display Section -->
                <div class="left-ads-display col-lg-9 mt-5">
-                  <div class="wrapper_top_shop pt-3">
+                  <div class="wrapper_top_shop pt-3 h-100">
                      <!-- Filter for Mobile (Overlay) -->
                      <div class="col-md-6 d-none sidebar-mobile">
                         <ins id="trigger-overlay">Filter by (2)</ins>
@@ -542,7 +542,7 @@
                      </div>
 
                      <!-- Product List -->
-                     <div class="row p-row" id="product-list"></div>
+                     <div class="row p-row h-100" id="product-list"></div>
 
                      <div class="pagination-controls">
                         <button id="btnPreviousP">&larr; Previous</button>
