@@ -1,3 +1,5 @@
+
+
 // Sample JSON data
 const menuData = [
   {
@@ -431,7 +433,17 @@ function renderMenu(menuItems, parentElement) {
     });
   }
   
-  // Call renderMenu to render the dynamic menu
-  const menuContainer = document.querySelector(".ecomm-links ");
-  renderMenu(menuData, menuContainer);
+
+  async function initializeMenu() {
+    try {
+      const menuItems = await getMenuItem();
+      const menuContainer = document.querySelector(".ecomm-links");
+      console.log("menuItems==>", menuItems);
+      renderMenu(menuItems, menuContainer);
+    } catch (error) {
+      console.error("Error fetching menu items:", error);
+    }
+  }
+  
+  initializeMenu();
   

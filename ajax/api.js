@@ -167,9 +167,27 @@ function getMenuItem(){
           reject(response.error);
         }
         console.log("hello-response==>", response);
-        resolve(response.result);
+        resolve(response);
       },
     });
   });
 }
-// getMenuItem();
+
+
+function getFooterItem(){
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "https://gulzarioptics.testspace.click/footer_menu/menu.json",
+      method: "GET",
+      dataType: "json",
+      success: function (response) {
+        if (response.error) {
+          reject(response.error);
+        }
+        console.log("hello-response==>", response);
+        resolve(response);
+      },
+    });
+  });
+}
+getFooterItem();
