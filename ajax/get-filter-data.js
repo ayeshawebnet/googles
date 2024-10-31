@@ -116,7 +116,18 @@ async function collectSelectedFilters() {
     $(".pagination-controls").show();
   } else {
     // Display a message if no products were found
-    $("#product-list").html("No products found.");
+    $("#product-list").html(`
+      <div style="display: flex; justify-content: center; align-items: center; height: 70vh; width:200vh;">
+        <div style="text-align: center; max-width: 450px; margin: auto;">
+          <img src="images/noproducts.png" alt="No products found" style="width: 160px; height: auto;">
+          <h2 style="font-family: Arial, Helvetica, sans-serif; margin-top: 12px;">No Products Found</h2>
+          <br>
+          <p style="line-height: 1.4;">We’re sorry, but the product you’re looking for is currently unavailable or may have been removed. 
+          Please check our latest collections for a variety of stylish options. If you need assistance, our support team is 
+          here to help!</p>
+        </div>
+      </div>
+    `);
   }
 
  
