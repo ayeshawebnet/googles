@@ -21,7 +21,7 @@
            window.scrollTo(0, 1);
          }
       </script>
-          <link href="css/header.css" rel="stylesheet" type="text/css" >
+          <link href="css/header-footer.css" rel="stylesheet" type="text/css" >
       <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
       <link href="css/login_overlay.css" rel="stylesheet" type="text/css" />
       <link href="css/style6.css" rel="stylesheet" type="text/css" />
@@ -1578,128 +1578,10 @@
         
       </section>
       <!--footer -->
-      <footer class="py-lg-5 py-3">
-         <div class="container-fluid px-lg-5 px-3">
-            <div class="row footer-top-w3layouts">
-               <div class="col-lg-3 footer-grid-w3ls">
-                  <div class="footer-title">
-                     <h3>About Us</h3>
-                  </div>
-                  <div class="footer-text">
-                     <p>
-                        Curabitur non nulla sit amet nislinit tempus convallis quis ac
-                        lectus. lac inia eget consectetur sed, convallis at tellus.
-                        Nulla porttitor accumsana tincidunt.
-                     </p>
-                     <ul class="footer-social text-left mt-lg-4 mt-3">
-                        <li class="mx-2">
-                           <a href="#">
-                           <span class="fab fa-facebook-f"></span>
-                           </a>
-                        </li>
-                        <li class="mx-2">
-                           <a href="#">
-                           <span class="fab fa-twitter"></span>
-                           </a>
-                        </li>
-                        <li class="mx-2">
-                           <a href="#">
-                           <span class="fab fa-google-plus-g"></span>
-                           </a>
-                        </li>
-                        <li class="mx-2">
-                           <a href="#">
-                           <span class="fab fa-linkedin-in"></span>
-                           </a>
-                        </li>
-                        <li class="mx-2">
-                           <a href="#">
-                           <span class="fas fa-rss"></span>
-                           </a>
-                        </li>
-                        <li class="mx-2">
-                           <a href="#">
-                           <span class="fab fa-vk"></span>
-                           </a>
-                        </li>
-                     </ul>
-                  </div>
-               </div>
-               <div class="col-lg-3 footer-grid-w3ls">
-                  <div class="footer-title">
-                     <h3>Get in touch</h3>
-                  </div>
-                  <div class="contact-info">
-                     <h4>Location :</h4>
-                     <p>0926k 4th block building, king Avenue, New York City.</p>
-                     <div class="phone">
-                        <h4>Contact :</h4>
-                        <p>Phone : +121 098 8907 9987</p>
-                        <p>
-                           Email :
-                           <a href="mailto:info@example.com">info@example.com</a>
-                        </p>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-3 footer-grid-w3ls">
-                  <div class="footer-title">
-                     <h3>Quick Links</h3>
-                  </div>
-                  <ul class="links">
-                     <li>
-                        <a href="index.html">Home</a>
-                     </li>
-                     <li>
-                        <a href="about.html">About</a>
-                     </li>
-                     <li>
-                        <a href="404.html">Error</a>
-                     </li>
-                     <li>
-                        <a href="shop.php">Shop</a>
-                     </li>
-                     <li>
-                        <a href="contact.html">Contact Us</a>
-                     </li>
-                  </ul>
-               </div>
-               <div class="col-lg-3 footer-grid-w3ls">
-                  <div class="footer-title">
-                     <h3>Sign up for your offers</h3>
-                  </div>
-                  <div class="footer-text">
-                     <p>
-                        By subscribing to our mailing list you will always get latest
-                        news and updates from us.
-                     </p>
-                     <form action="#" method="post">
-                        <input
-                           class="form-control"
-                           type="email"
-                           name="Email"
-                           placeholder="Enter your email..."
-                           required=""
-                           />
-                        <button class="btn1">
-                        <i class="far fa-envelope" aria-hidden="true"></i>
-                        </button>
-                        <div class="clearfix"></div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright-w3layouts mt-4">
-               <p class="copy-right text-center">
-                  &copy; 2024 Glasses Hub. All Rights Reserved | Design by
-                  <a href="https://webnetpk.com/"> Webnet Pakistan Pvt Ltd.</a>
-               </p>
-            </div>
-         </div>
-      </footer>
+      <div class="ecomm-footer"></div>
       <!-- //footer -->
       <!--jQuery-->
-      <script src="js/header.js"></script>
+   
       <script src="js/script.js"></script>
       <script src="js/jquery-2.2.3.min.js"></script>
       <!-- newsletter modal -->
@@ -1833,94 +1715,7 @@
       </script>
       <!-- FlexSlider -->
       <script src="js/jquery.flexslider.js"></script>
-      
-      <!-- <script>
-         document.addEventListener("DOMContentLoaded", function () {
-           const galleryGroups = document.querySelectorAll(".image-gallery-group");
-         
-           // Simulate an API that returns images based on the selected color
-           const api = {
-             getImages: function (color) {
-               const images = {
-                 grey: [
-                   "images/dgrey1.jpg",
-                   "images/dgrey2.jpg",
-                   "images/dgrey3.jpg",
-                 ],
-                 black: [
-                   "images/dblack1.jpg",
-                   "images/dblack2.jpg",
-                   "images/dblack3.jpg",
-                 ],
-         
-                 brown: [
-                   "images/dbrown1.jpg",
-                   "images/dbrown2.jpg",
-                   "images/dbrown3.jpg",
-                 ],
-               };
-               return images[color] || [];
-             },
-           };
-         
-           // Function to load images into the gallery
-         //   function loadImages(color) {
-         //     const imageGallery =
-         //       document.getElementsByClassName("imageGallery-1")[0];
-         //     const imageUrls = api.getImages(color); // Get the images based on color
-         //     imageGallery.innerHTML = imageUrls
-         //       .map(
-         //         (url) => `
-         // <li data-thumb="${url}">
-         //   <div class="thumb-image text-center">
-         //     <img src="${url}" data-imagezoom="true" class="img-fluid" alt="${color}" />
-         //   </div>
-         // </li>
-         // `
-         //       )
-         //       .join("");
-         
-         //     console.log("Images for", color, "loaded");
-         //     // Remove the current Flexslider instance
-         //     const flexsliderInstance = $(".flexslider1").data("flexslider");
-         
-         //     if (flexsliderInstance) {
-         //       console.log("flexsliderInstance", flexsliderInstance);
-         //       $(".flexslider1").data("flexslider", null);
-         //       $(".flexslider1").find(".slides").removeAttr("style");
-         //       $(".flexslider1").find(".slides li").removeAttr("style");
-         //       $(".flexslider1")
-         //         .find(".flex-control-nav, .flex-direction-nav")
-         //         .remove();
-         //     }
-         //     $(".flexslider1").flexslider({
-         //       animation: "fade",
-         //       controlNav: "thumbnails",
-         //       slideshow: false,
-         //       startAt:2,
-         //       start: function (slider) {
-         //       //   console.log("Flexslider initialized ", slider);
-         //       },
-         //     });
-         //   }
-         
-           // Load images for the default selected color
-         //   const defaultColor = document.querySelector(
-         //     'input[name="radio-gallery-1"]:checked'
-         //   ).value;
-         const defaultColor="black"
-           loadImages(defaultColor);
-         
-           // Add event listeners to each radio button
-           document
-             .querySelectorAll('input[name="radio-gallery-1"]')
-             .forEach((radio) => {
-               radio.addEventListener("change", function () {
-                 loadImages(this.value);
-               });
-             });
-         });
-      </script> -->
+
       <!-- //FlexSlider-->
       <script>
          $(".next").click(function(){
@@ -2031,10 +1826,10 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.8.4/swiper-bundle.min.js"></script>
 
       <!-- js file -->
-       <script src="ajax/api.js"></script>
-       <script src="ajax/get-product.js"></script>
-
+      <script src="ajax/api.js"></script>
+      <script src="ajax/get-product.js"></script>
       <script src="ajax/get-product-model-filter.js"></script>
-<!-- <script src="js/script.js"></script> -->
+      <script src="js/header.js"></script>
+      <script src="js/footer.js"></script>
    </body>
 </html>

@@ -174,20 +174,25 @@ function getMenuItem(){
 }
 
 
-function getFooterItem(){
+function getFooterItem() {
   return new Promise((resolve, reject) => {
     $.ajax({
-      url: "https://gulzarioptics.testspace.click/footer_menu/menu.json",
+      url: "https://gulzarioptics.testspace.click/shop-footer.html",
       method: "GET",
-      dataType: "json",
+      dataType: "html",
       success: function (response) {
+        console.log("Response from API:", response); // Check the response
         if (response.error) {
           reject(response.error);
+        } else {
+          resolve(response); // Adjust if result is nested differently
         }
-        console.log("hello-response==>", response);
-        resolve(response);
+      },
+      error: function (xhr, status, error) {
+        console.log("Reject Response from API:", error);
+        reject(error);
       },
     });
   });
 }
-getFooterItem();
+// getFooterItem();

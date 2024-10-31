@@ -840,7 +840,7 @@ figure.effect-lexi:hover p {
 
 .shine {
   font-size: 1.7em;
-  font-weight: 800;
+  /* font-weight: 800; */
   color: rgba(255, 255, 255, 0.3);
   background: var(--black);
   background-image: -webkit-linear-gradient(
@@ -1906,7 +1906,7 @@ ul.links li a:hover {
 /*--//social-icons--*/
 
 .copyright-w3layouts a {
-  color: var(--primary-color);
+  color: #fff;
 }
 
 /*--//footer--*/

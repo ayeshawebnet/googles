@@ -128,9 +128,9 @@ function generateStars(rating) {
   }
   return starsHTML;
 }
-let currentPage = 1;
-const itemsPerPage = 20;
-let totalPages = 1;
+var currentPage = 1;
+var itemsPerPage = 20;
+var totalPages = 1;
 // Shows the specific page of products
 function showPage(products, page) {
     
