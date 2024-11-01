@@ -13,7 +13,7 @@ async function fetchProducts(filters) {
     }),
     dataType: "json",
   });
-
+  console.log("response==>", response,filters);
   if (response.error) throw new Error("Error loading products");
   return response.result;
 }
