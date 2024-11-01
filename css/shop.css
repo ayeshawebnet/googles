@@ -843,8 +843,12 @@ ul.dropdown-menu6 li p {
 }
 
 span.amount {
-  color: #ffffff;
+  color: rgb(0 0 0 / 66%);
   font-size: 16px;
+}
+
+span.label{
+  color: #000;
 }
 
 input#amount,
