@@ -2986,3 +2986,13 @@ label:last-child span {
   transition: opacity .2s;
   padding:5px 5px 5px 5px;
 }
+
+.btn-secondary{
+  background-color: white;
+  color: #000;
+}
+
+.btn-secondary:hover, .btn-secondary:focus{
+  background-color: white;
+  color: black;
+}

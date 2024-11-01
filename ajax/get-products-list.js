@@ -190,22 +190,35 @@ function showPage(products, page) {
     $(".pagination-dot").removeClass("active");
     $(`.pagination-dot[data-page=${currentPage}]`).addClass("active");
   }
-  
-  getTrendingList()
-  async function getTrendingList(){
-    const filters = {
-      catCode: "optics_frames",
-      page:1,
-      per_page: 8,
-      tags_count: "no",
-      FilterBy: {
-        optics_frames_style: {
-          genders: "gender_men",
-        },
+
+
+$('.dropdown-menu .dropdown-item').on('click', function(event) {
+  event.preventDefault(); 
+
+  const selectedGender = $(this).data('value');
+
+  getTrendingList(selectedGender);
+});
+
+async function getTrendingList(gender) {
+  const filters = {
+    catCode: "optics_frames",
+    page: 1,
+    per_page: 8,
+    tags_count: "no",
+    FilterBy: {
+      optics_frames_style: {
+        genders: gender 
       },
-    };
-    const products = await fetchProducts(filters);
-      $("#trending-list").html(generateProductHTML(products.list));
-  }
+    },
+  };
+
+  const products = await fetchProducts(filters);
+  $("#trending-list").html(generateProductHTML(products.list));
+}
+
+$(document).ready(function(){
+  getTrendingList('gender_men');
+});
 
   
