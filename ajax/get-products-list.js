@@ -109,7 +109,7 @@ function generateProductHTML(products) {
         title: product.title,
         product_code: product.product_code,
         price: product.price,
-        vtry_image: products[0].vtry_image,
+        vtry_image: products.vtry_image,
         seo_title: product.seo_title,
         rating: Math.random() * 5, // For demonstration; replace with actual rating if available
       })
@@ -191,5 +191,21 @@ function showPage(products, page) {
     $(`.pagination-dot[data-page=${currentPage}]`).addClass("active");
   }
   
+  getTrendingList()
+  async function getTrendingList(){
+    const filters = {
+      catCode: "optics_frames",
+      page:1,
+      per_page: 8,
+      tags_count: "no",
+      FilterBy: {
+        optics_frames_style: {
+          genders: "gender_men",
+        },
+      },
+    };
+    const products = await fetchProducts(filters);
+      $("#trending-list").html(generateProductHTML(products.list));
+  }
 
   

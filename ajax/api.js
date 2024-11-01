@@ -31,7 +31,6 @@ async function fetchProductDetails(productCode) {
     }),
     dataType: "json",
   });
-
   if (response?.error)
     throw new Error(response.error.message || "Error loading product details");
   return response?.result || {};
@@ -55,11 +54,10 @@ function fetchProductModelFilters(productCode) {
       success: function (response) {
         if (response.error) {
           $("#product-summary").append("<p>Error loading product filters.</p>");
-          reject(response.error); // Reject if there’s an error
+          reject(response.error);
         } else {
           const productModelFilters = response.result;
-          // console.log("productModelFilters==>", productModelFilters);
-          resolve(productModelFilters); // Resolve with the filters data
+          resolve(productModelFilters);
         }
       },
       error: function () {
@@ -94,7 +92,6 @@ function getProductCode(tag_value, setCode, tag_key, product_model) {
           $("#product-summary").append("<p>Error loading product code.</p>");
           reject(response.error);
         }
-        // console.log("response==>", response);
         const productCode = response.result;
         getProductDetails(productCode);
         resolve(response.result);
@@ -124,8 +121,6 @@ function listCategoryFilters(selectedCategory) {
           reject(response.error);
         }
         const productCode = response.result;
-        console.log("getListCatergoriesFilterAPI==>", productCode);
-        // getProductDetails(productCode);
         resolve(response.result);
       },
     });
@@ -166,7 +161,6 @@ function getMenuItem(){
         if (response.error) {
           reject(response.error);
         }
-        console.log("hello-response==>", response);
         resolve(response);
       },
     });
@@ -181,11 +175,11 @@ function getFooterItem() {
       method: "GET",
       dataType: "html",
       success: function (response) {
-        console.log("Response from API:", response); // Check the response
+        console.log("Response from API:", response);
         if (response.error) {
           reject(response.error);
         } else {
-          resolve(response); // Adjust if result is nested differently
+          resolve(response);
         }
       },
       error: function (xhr, status, error) {

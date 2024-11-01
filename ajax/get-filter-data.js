@@ -23,9 +23,6 @@ function initializeFilterHtml() {
     </div>
 
 
-
-
-
     <!-- Category Filters -->
     <div class="left-side">
     <h3 class="agileits-sear-head">Category</h3>
@@ -229,9 +226,6 @@ function renderGenderFilters(filter) {
     collectSelectedFilters();
   });
 }
-
-
-
 
 function renderFrontColorFilters(filter) {
   const frontColorFilterHTML = `
