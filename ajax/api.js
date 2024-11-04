@@ -13,7 +13,7 @@ async function fetchProducts(filters) {
     }),
     dataType: "json",
   });
-
+  console.log("response==>", response,filters);
   if (response.error) throw new Error("Error loading products");
   return response.result;
 }
@@ -31,7 +31,6 @@ async function fetchProductDetails(productCode) {
     }),
     dataType: "json",
   });
-
   if (response?.error)
     throw new Error(response.error.message || "Error loading product details");
   return response?.result || {};
@@ -55,11 +54,10 @@ function fetchProductModelFilters(productCode) {
       success: function (response) {
         if (response.error) {
           $("#product-summary").append("<p>Error loading product filters.</p>");
-          reject(response.error); // Reject if there’s an error
+          reject(response.error);
         } else {
           const productModelFilters = response.result;
-          // console.log("productModelFilters==>", productModelFilters);
-          resolve(productModelFilters); // Resolve with the filters data
+          resolve(productModelFilters);
         }
       },
       error: function () {
@@ -94,7 +92,6 @@ function getProductCode(tag_value, setCode, tag_key, product_model) {
           $("#product-summary").append("<p>Error loading product code.</p>");
           reject(response.error);
         }
-        // console.log("response==>", response);
         const productCode = response.result;
         getProductDetails(productCode);
         resolve(response.result);
@@ -124,8 +121,6 @@ function listCategoryFilters(selectedCategory) {
           reject(response.error);
         }
         const productCode = response.result;
-        console.log("getListCatergoriesFilterAPI==>", productCode);
-        // getProductDetails(productCode);
         resolve(response.result);
       },
     });
@@ -155,3 +150,43 @@ function listProductCategories() {
     });
   });
 }
+
+function getMenuItem(){
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "https://gulzarioptics.testspace.click/header_menu/menu.json",
+      method: "GET",
+      dataType: "json",
+      success: function (response) {
+        if (response.error) {
+          reject(response.error);
+        }
+        resolve(response);
+      },
+    });
+  });
+}
+
+
+function getFooterItem() {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: "https://gulzarioptics.testspace.click/shop-footer.html",
+      method: "GET",
+      dataType: "html",
+      success: function (response) {
+        console.log("Response from API:", response);
+        if (response.error) {
+          reject(response.error);
+        } else {
+          resolve(response);
+        }
+      },
+      error: function (xhr, status, error) {
+        console.log("Reject Response from API:", error);
+        reject(error);
+      },
+    });
+  });
+}
+// getFooterItem();
