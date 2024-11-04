@@ -572,25 +572,38 @@
     <section class="banner-bottom-wthreelayouts py-lg-5 py-3">
       <div class="container-fluid">
         <div class="inner-sec-shop px-lg-4 px-3">
-          <h3 class="tittle-w3layouts my-lg-4 my-4">Trending Now</h3>
-          <!-- <div class="row"  id="trending-list"> </div> -->
-          <div class="slider-img mid-sec">
-            <div class="mid-slider">
-              <div class="owl-carousel owl-theme row" id="trending-list">
-              </div>
-            </div>
-          </div>
+
+           <!-- New Arrivals -->
           <h3 class="tittle-w3layouts my-lg-4 my-4">New Arrivals</h3>
-          <!-- <div class="row"  id="newArrivals-list"> </div> -->
           <div class="slider-img mid-sec">
             <div class="mid-slider">
               <div class="owl-carousel owl-theme row" id="newArrivals-list">
               </div>
             </div>
           </div>
+            <!-- Trending Now -->
+            <div class="d-flex justify-content-between align-items-center ">
+              <h3 class="tittle-w3layouts my-lg-4 my-4">Trending Now</h3>
+              <div class="dropdown">
+                <button class="btn dropdown-toggle gender-selection-btn" role="button" type="button" id="dropdownMenuButton" data-toggle="dropdown">
+                 
+                </button>
+                <div class="dropdown-menu gender-selection-menu"  aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" role="button" data-value="gender_men">Men</a>
+                  <a class="dropdown-item" role="button" data-value="gender_women">Women</a>
+                  <a class="dropdown-item" role="button" data-value="gender_kids">Kids</a>
+                </div>
+              </div>
+              </div>
+              <div class="slider-img mid-sec">
+                <div class="mid-slider">
+                  <div class="owl-carousel owl-theme row" id="trending-list">
+                  </div>
+                </div>
+              </div>
+          <!-- Sale Banner -->
           <div class="row justify-content-end">
             <div class="col-md-12 middle-slider my-4 position-time">
-              <!-- //extra -->
               <div class="col-md-6 position-time-inner">
                 <img
                   src="images/coundown_pro_img.png"
@@ -610,8 +623,7 @@
               </div>
             </div>
           </div>
-          <!--//meddle-->
-          <!--/slide-->
+         <!-- Featured Product -->
           <h3 class="tittle-w3layouts my-lg-4 my-4">Featured Products</h3>
           <div class="slider-img mid-sec">
             <div class="mid-slider">
@@ -619,6 +631,7 @@
               </div>
             </div>
           </div>
+
           <!-- /testimonials -->
           <div class="testimonials py-lg-4 py-3 mt-4">
             <div class="testimonials-inner py-lg-4 py-3">
@@ -926,40 +939,7 @@
     </script>
     <!--// Count-down -->
     <script src="js/owl.carousel.js"></script>
-    <script>
-      // $(document).ready(function () {
-      setTimeout(function () {
-        $(".owl-carousel").owlCarousel({
-          loop: true,
-          autoplay: true,
-          margin: 10,
-          responsiveClass: true,
-          responsive: {
-            0: {
-              items: 1,
-              nav: true,
-            },
-            600: {
-              items: 2,
-              nav: false,
-            },
-            900: {
-              items: 3,
-              nav: false,
-            },
-            1000: {
-              items: 4,
-              nav: true,
-              loop: false,
-              margin: 20,
-            },
-          },
-        });
-      // });
-    },3000)
-    </script>
-
-    <!-- //end-smooth-scrolling -->
+    
 
     <!-- dropdown nav -->
     <script>

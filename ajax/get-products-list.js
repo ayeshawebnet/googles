@@ -107,8 +107,8 @@ function ProductSliderComponent({
   rating,
 }) {
   return `
-   <div class="item h-100">
-                  <div class="h-100 gd-box-info text-center">
+   <div class="item h-100 ">
+                  <div class="h-100 gd-box-info text-center ">
                     <div class="h-100 w-100 product-men women_two bot-gd">
                       <div class="h-100  slide-img googles h-100">
                         <div class="men-pro-item h-100">
@@ -281,11 +281,19 @@ function updatePaginationDots() {
   $(`.pagination-dot[data-page=${currentPage}]`).addClass("active");
 }
 
-getTrendingList();
+
 getNewArrivalList();
 getFeaturedList();
+getTrendingList("gender_men","Men");
 
-async function getTrendingList() {
+$('.dropdown-menu .dropdown-item').on('click', function(event) {
+  event.preventDefault(); 
+  const selectedGender = $(this).data('value');
+  const selectedGenderText = $(this).text();
+  getTrendingList(selectedGender, selectedGenderText);
+});
+
+async function getTrendingList(gender,label) {
   const filters = {
     catCode: "optics_frames",
     page: 1,
@@ -293,12 +301,21 @@ async function getTrendingList() {
     tags_count: "no",
     FilterBy: {
       optics_frames_style: {
-        genders: "gender_men",
+        genders: gender,
       },
     },
   };
-  const products = await fetchProducts(filters);
-  $("#trending-list").html(generateProductSliderHTML(products.list));
+   // Destroy any existing carousel on #trending-list
+   const trendingList = $("#trending-list");
+   trendingList.trigger('destroy.owl.carousel');
+ 
+   // Fetch and render products
+   const products = await fetchProducts(filters);
+   trendingList.html(generateProductSliderHTML(products.list));
+   $(".gender-selection-btn").text(label);
+   
+   // Re-initialize carousel
+   initializeCarousel("#trending-list");
 }
 
 async function getNewArrivalList() {
@@ -310,6 +327,7 @@ async function getNewArrivalList() {
   };
   const products = await fetchProducts(filters);
   $("#newArrivals-list").html(generateProductSliderHTML(products.list));
+  initializeCarousel("#newArrivals-list");  // Initialize carousel for new arrivals
 }
 
 async function getFeaturedList() {
@@ -321,4 +339,36 @@ async function getFeaturedList() {
   };
   const products = await fetchProducts(filters);
   $("#feature-list").html(generateProductSliderHTML(products.list));
+  initializeCarousel("#feature-list");  // Initialize carousel for featured products
+}
+
+
+// Function to initialize carousel for a specific selector
+function initializeCarousel(selector) {
+  $(selector).owlCarousel({
+    loop: true,
+    autoplay: true,
+    margin: 10,
+    responsiveClass: true,
+    responsive: {
+      0: {
+        items: 1,
+        nav: true,
+      },
+      600: {
+        items: 2,
+        nav: false,
+      },
+      900: {
+        items: 3,
+        nav: false,
+      },
+      1000: {
+        items: 4,
+        nav: true,
+        loop: false,
+        margin: 20,
+      },
+    },
+  });
 }

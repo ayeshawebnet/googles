@@ -185,6 +185,7 @@ h1.logo-w3layouts a.navbar-brand {
 .dropdown-item {
   margin: 0 !important;
   color: #777;
+  cursor: pointer;
 }
 .dropdown-toggle{
   display: flex;
@@ -3213,4 +3214,18 @@ img.vert-move {
 
 .owl-stage{
   display: flex;
+}
+
+.gender-selection-btn{
+  color: #000;
+  border: 1px solid black;
+  background-color: white;
+ 
+}
+.gender-selection-menu{
+  position:absolute;
+  left:-87px;
+
+ 
+
 }
