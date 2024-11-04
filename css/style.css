@@ -2927,7 +2927,10 @@ ul.links li a:hover {
   h3.tittle-w3layouts.two {
     letter-spacing: 2px;
   }
-
+  .owl-item.active {
+    padding: 0px;
+    margin-right:0px!important ;
+  }
 }
 
 @media (max-width: 568px) {
@@ -3205,4 +3208,9 @@ img.vert-move {
   to {
       transform: rotate(1turn)
   }
+}
+
+
+.owl-stage{
+  display: flex;
 }

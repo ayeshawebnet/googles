@@ -107,127 +107,35 @@ function ProductSliderComponent({
   rating,
 }) {
   return `
- <div class="item">
-                  <div class="gd-box-info text-center">
-                    <div class="product-men women_two bot-gd">
-                      <div class="product-googles-info slide-img googles">
-                        <div class="men-pro-item">
-                          <div class="page-wrapper">
+   <div class="item h-100">
+                  <div class="h-100 gd-box-info text-center">
+                    <div class="h-100 w-100 product-men women_two bot-gd">
+                      <div class="h-100  slide-img googles h-100">
+                        <div class="men-pro-item h-100">
+                          <div class="page-wrapper w-100">
                             <div class="page-inner">
-                              <div class="row">
-                                <div class="el-wrapper">
-                                  <div class="box-up">
-                                    <img
-                                      class="img"
-                                      src="images/s5.jpg"
-                                      alt=""
-                                    />
-                                    <div class="img-info">
-                                      <div class="info-inner">
-                                        <span class="p-name"
-                                          >Fastrack Aviator</span
-                                        >
-                                        <span class="p-company">Grey</span>
+                              <div class="row h-100 w-100">
+                                <div class="el-wrapper w-100">
+                                  <div class="box-up h-100 w-100">
+
+                                    <!-- Product Image with Hover Zoom -->
+                                      <div class="image-container">
+                                          <img class="img glass-image" src="${vtry_image}" alt="${seo_title}" />
                                       </div>
-                                      <div class="a-size">
-                                        <div>
-                                          Available sizes :
-                                          <span class="size"
-                                            >S , M , L , XL</span
-                                          >
-                                        </div>
-                                        <div
-                                          class="d-flex justify-content-center"
-                                        >
-                                          Available color :
-                                          <ul class="colors-container">
-                                            <li class="color">
-                                              <a
-                                                role="button"
-                                                class="color-btn"
-                                                data-image="images/m1.jpg"
-                                              ></a>
-                                              <span class="color-name"
-                                                >asdsa</span
-                                              >
-                                            </li>
-                                            <li class="color">
-                                              <a
-                                                role="button"
-                                                class="color-btn"
-                                                data-image="images/m2.jpg"
-                                              ></a
-                                              ><span class="color-name"
-                                                >Team Navy</span
-                                              >
-                                            </li>
-                                            <li class="color">
-                                              <a
-                                                role="button"
-                                                class="color-btn"
-                                                data-image="images/m3.jpg"
-                                              ></a
-                                              ><span class="color-name"
-                                                >Pulse Blue</span
-                                              >
-                                            </li>
-                                            <li class="color active">
-                                              <a
-                                                role="button"
-                                                class="color-btn"
-                                                data-image="images/m4.jpg"
-                                              ></a
-                                              ><span class="color-name"
-                                                >Pink Fusion</span
-                                              >
-                                            </li>
-                                          </ul>
-                                        </div>
+
+                                      <!-- Product Info -->
+                                      <div class="img-info">
+                                          <div class="info-inner">
+                                              <span class="p-name">${title}</span><br />
+                                              <span class="p-company">${product_code}</span>
+                                          </div>
                                       </div>
-                                      <ul class="stars pb-2">
-                                        <li>
-                                          <a href="#">
-                                            <i
-                                              class="fa fa-star"
-                                              aria-hidden="true"
-                                            ></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="#">
-                                            <i
-                                              class="fa fa-star"
-                                              aria-hidden="true"
-                                            ></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="#">
-                                            <i
-                                              class="fa fa-star"
-                                              aria-hidden="true"
-                                            ></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="#">
-                                            <i
-                                              class="fa fa-star"
-                                              aria-hidden="true"
-                                            ></i>
-                                          </a>
-                                        </li>
-                                        <li>
-                                          <a href="#">
-                                            <i
-                                              class="fa fa-star-half-o"
-                                              aria-hidden="true"
-                                            ></i>
-                                          </a>
-                                        </li>
-                                      </ul>
-                                    </div>
                                   </div>
+                                  
+                                  <!-- Rating Stars -->
+                                  <ul class="stars pb-2 text-center">
+                                      ${generateStars(rating)}
+                                  </ul>
 
                                   <div class="box-down">
                                     <div class="h-bg">
@@ -235,7 +143,7 @@ function ProductSliderComponent({
                                     </div>
 
                                     <a class="cart" href="single.html">
-                                      <span class="price">$325.00</span>
+                                       <span class="price">Rs. ${price}</span>
                                       <span class="add-to-cart">
                                         <span class="txt">Quick View</span>
                                       </span>
@@ -244,26 +152,10 @@ function ProductSliderComponent({
                                           class="googles single-item hvr-outline-out"
                                         >
                                           <form action="#" method="post">
-                                            <input
-                                              type="hidden"
-                                              name="cmd"
-                                              value="_cart"
-                                            />
-                                            <input
-                                              type="hidden"
-                                              name="add"
-                                              value="1"
-                                            />
-                                            <input
-                                              type="hidden"
-                                              name="googles_item"
-                                              value="Farenheit"
-                                            />
-                                            <input
-                                              type="hidden"
-                                              name="amount"
-                                              value="575.00"
-                                            />
+                                            <input type="hidden" name="cmd"  value="_cart"/>
+                                            <input type="hidden" name="add" value="1" />
+                                              <input type="hidden" name="googles_item" value="${title}" />
+                                              <input type="hidden" name="amount" value="${price}" />
                                             <button
                                               type="submit"
                                               class="googles-cart pgoogles-cart"
@@ -284,7 +176,8 @@ function ProductSliderComponent({
                     </div>
                   </div>
                 </div>
-  `;
+ 
+                `;
 }
 // Generate product HTML for each product in the list
 function generateProductHTML(products) {
@@ -396,7 +289,7 @@ async function getTrendingList() {
   const filters = {
     catCode: "optics_frames",
     page: 1,
-    per_page: 4,
+    per_page: 8,
     tags_count: "no",
     FilterBy: {
       optics_frames_style: {
@@ -405,25 +298,25 @@ async function getTrendingList() {
     },
   };
   const products = await fetchProducts(filters);
-  $("#trending-list").html(generateProductHTML(products.list));
+  $("#trending-list").html(generateProductSliderHTML(products.list));
 }
 
 async function getNewArrivalList() {
   const filters = {
     catCode: "optics_frames",
     page: 1,
-    per_page: 4,
+    per_page: 8,
     sortby: "new-arrivals",
   };
   const products = await fetchProducts(filters);
-  $("#newArrivals-list").html(generateProductHTML(products.list));
+  $("#newArrivals-list").html(generateProductSliderHTML(products.list));
 }
 
 async function getFeaturedList() {
   const filters = {
     catCode: "optics_frames",
     page: 1,
-    per_page: 4,
+    per_page: 8,
     featured: "yes",
   };
   const products = await fetchProducts(filters);
