@@ -17,7 +17,7 @@ function initializeFilterHtml() {
  <!-- Category Filters -->
     <div class="left-side">
     <h3 class="agileits-sear-head">Price Range</h3>  
-      <div id="priceRange" class="price-range-slider">
+      <div id="priceRange" class="priceRange price-range-slider">
  <i> ...loading </i>
       </div>
     </div>
@@ -30,7 +30,7 @@ function initializeFilterHtml() {
     <div class="left-side">
     <h3 class="agileits-sear-head">Category</h3>
        <div class="mydict">
-        <div id="categoryFilters"></div>
+        <div id="categoryFilters" class="categoryFilters"></div>
       </div>
     </div>
 
@@ -40,7 +40,7 @@ function initializeFilterHtml() {
     <h3 class="agileits-sear-head remove-content"></h3>
     <div class="gender-card">
         <form action="#">
-            <div class="radio-wrapper remove-content" id="genderFilters"></div>
+            <div class="radio-wrapper remove-content genderFilters" id="genderFilters" ></div>
         </form>
     </div>
     </div>
@@ -49,7 +49,7 @@ function initializeFilterHtml() {
      <div class="left-side">
      <h3 class="agileits-sear-head remove-content"></h3>
        <div class="mydict">
-        <div id="frontMaterialFilters" class="remove-content"></div>
+        <div id="frontMaterialFilters"  class="frontMaterialFilters remove-content"></div>
       </div>
      </div>
 
@@ -57,12 +57,12 @@ function initializeFilterHtml() {
 <div class="left-side">
 <h3 class="agileits-sear-head remove-content"></h3>
        <div class="mydict">
-        <div id="shapeFilters" class="remove-content"></div>
+        <div id="shapeFilters" class="shapeFilters remove-content"></div>
       </div>
 </div>
 
      <!-- Front Color Filters -->
-    <div class="left-side remove-content" id="frontColorFilters"></div>
+    <div class="left-side remove-content frontColorFilters" id="frontColorFilters"></div>
 
     <div class="left-side" id="sizeFilters"></div>
     

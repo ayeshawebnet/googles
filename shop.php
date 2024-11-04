@@ -518,7 +518,7 @@
                   <div class="wrapper_top_shop pt-3">
                      <!-- Filter for Mobile (Overlay) -->
                      <div class="col-md-6 d-none sidebar-mobile">
-                        <ins id="trigger-overlay">Filter by (2)</ins>
+                        <!-- <ins id="trigger-overlay">Filter by (2)</ins> -->
 
                         <!-- Mobile Overlay -->
                         <div class="overlay overlay-door h-100" style="overflow: auto;">
