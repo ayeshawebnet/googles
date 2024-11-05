@@ -3233,3 +3233,31 @@ img.vert-move {
  
 
 }
+
+
+.overlay-login {
+  max-height: auto; 
+  overflow-y: auto;  
+  overflow-x: hidden; 
+}
+
+
+.overlay-login::-webkit-scrollbar {
+  width: 4px;  
+}
+
+
+.overlay-login::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+ 
+
+.overlay-login::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 10px;
+}
+
+
+.overlay-login::-webkit-scrollbar-thumb:hover {
+  background: black; 
+}
