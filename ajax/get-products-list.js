@@ -187,7 +187,7 @@ function generateProductHTML(products) {
         title: product.title,
         product_code: product.product_code,
         price: product.price,
-        vtry_image: products.vtry_image,
+        vtry_image: product.vtry_image,
         seo_title: product.seo_title,
         rating: Math.random() * 5, // For demonstration; replace with actual rating if available
       })
@@ -201,7 +201,7 @@ function generateProductSliderHTML(products) {
         title: product.title,
         product_code: product.product_code,
         price: product.price,
-        vtry_image: products.vtry_image,
+        vtry_image: product.vtry_image,
         seo_title: product.seo_title,
         rating: Math.random() * 5, // For demonstration; replace with actual rating if available
       })
@@ -350,6 +350,8 @@ function initializeCarousel(selector) {
     autoplay: true,
     margin: 10,
     responsiveClass: true,
+   animateIn: 'fadeIn',
+animateOut: 'fadeOut',
     responsive: {
       0: {
         items: 1,

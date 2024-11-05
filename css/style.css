@@ -3013,8 +3013,11 @@ ul.links li a:hover {
 }
 @media (max-width: 384px) {
   .carousel-item {
-    height: 14em;
+    height: 11em;
   }
+  .carousel-caption {
+    bottom: 0;
+}
   .carousel-caption h2,
   .carousel-caption h3 {
     line-height: 1.4em;
@@ -3113,6 +3116,7 @@ img.vert-move {
 
 .overlay-login.opened {
   transform: translateX(0px);
+  border:1px solid #eaeaea;
 }
 
 /* color container */
