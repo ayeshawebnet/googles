@@ -357,16 +357,16 @@
           <i class="fa fa-times" aria-hidden="true"></i>
         </button>
         <div class="wrap">
-          <h5 class="text-center mb-4">Login Now</h5>
+          <h5 class="text-center mb-4" id="formTitle">Login Now</h5>
           <div class="login p-5 bg-f2f2f2 mx-auto mw-100">
-            <form action="#" method="post">
+            <form action="#" method="post" id="authForm">
                <!-- Login and Registration Fields -->
               <div class="form-group">
                 <label class="mb-2">Email address</label>
                 <input
                   type="email"
                   class="form-control"
-                  id="exampleInputEmail1"
+                  id="email"
                   aria-describedby="emailHelp"
                   placeholder="Email address"
                   required=""
@@ -380,13 +380,23 @@
                 <input
                   type="password"
                   class="form-control"
-                  id="exampleInputPassword1"
+                  id="password"
                   placeholder="Password"
                   required=""
                 />
               </div>
               <!-- Registration Fields (Initially Hidden) -->
               <div id="registrationFields" style="display: none">
+                <div class="form-group">
+                  <label class="mb-2">Confirm Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmpassword"
+                    placeholder="Confirm Password"
+                    
+                  />
+                </div>
                 <div class="form-group">
                   <label class="mb-2">First Name</label>
                   <input
@@ -407,7 +417,7 @@
                 </div>
               </div>
 
-              <div class="form-check mb-2">
+              <!-- <div class="form-check mb-2">
                 <input
                   type="checkbox"
                   class="form-check-input"
@@ -416,7 +426,7 @@
                 <label class="form-check-label" for="exampleCheck1"
                   >Check me out</label
                 >
-              </div>
+              </div> -->
               <button type="submit" class="btn btn-primary submit mb-4">
                 Sign In
               </button>
