@@ -829,11 +829,19 @@ figure.effect-lexi:hover p {
   gap:20px;
   padding: 20px;
   justify-content: center;
+  overflow: hidden;
+}
+
+.marquee{
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 65s linear infinite;
 }
 
 .brand {
   text-align: center;
   padding: 0px 50px;
+  margin: 0 23px;
   background-color: #f7f7f7; /* Optional: add background color */
   border-radius: 5px; /* Optional: round corners */
   border: 1px solid #cdcdcd;
@@ -868,14 +876,25 @@ figure.effect-lexi:hover p {
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
 
 .viewallbutton{
   background-color: white;
   color: black;
-  border: 1px solid black;
+  border: 2px solid black;
   padding: 9px 48px;
   font-size: 18px;
-  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .viewallbutton:hover{
@@ -1957,7 +1976,6 @@ ul.links li a:hover {
 
 /* marquee */
 .marquee {
-  background-color: #f8f9fa;
   padding: 8px;
   font-size: 16px;
   color: #4d4d4d;
