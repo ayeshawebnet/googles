@@ -281,19 +281,19 @@ function updatePaginationDots() {
   $(`.pagination-dot[data-page=${currentPage}]`).addClass("active");
 }
 
-
 getNewArrivalList();
 getFeaturedList();
-getTrendingList("gender_men","Men");
+getTrendingList("gender_men", "Men");
 
-$('.dropdown-menu .dropdown-item').on('click', function(event) {
-  event.preventDefault(); 
-  const selectedGender = $(this).data('value');
+$(".dropdown-menu .dropdown-item").on("click", function (event) {
+  event.preventDefault();
+  const selectedGender = $(this).data("value");
   const selectedGenderText = $(this).text();
   getTrendingList(selectedGender, selectedGenderText);
 });
 
-async function getTrendingList(gender,label) {
+async function getTrendingList(gender, label) {
+  showSkeletonLoader("#trending-list-skeleton");
   const filters = {
     catCode: "optics_frames",
     page: 1,
@@ -305,20 +305,25 @@ async function getTrendingList(gender,label) {
       },
     },
   };
-   // Destroy any existing carousel on #trending-list
-   const trendingList = $("#trending-list");
-   trendingList.trigger('destroy.owl.carousel');
- 
-   // Fetch and render products
-   const products = await fetchProducts(filters);
-   trendingList.html(generateProductSliderHTML(products.list));
-   $(".gender-selection-btn").text(label);
-   
-   // Re-initialize carousel
-   initializeCarousel("#trending-list");
+  // Destroy any existing carousel on #trending-list
+  const trendingList = $("#trending-list");
+  trendingList.trigger("destroy.owl.carousel");
+
+  
+  // Fetch and render products
+  
+  const products = await fetchProducts(filters);
+  if (products.list.length) {
+    hideSkeletonLoader("#trending-list-skeleton");
+  trendingList.html(generateProductSliderHTML(products.list));
+  $(".gender-selection-btn").text(label);
+  // Re-initialize carousel
+  initializeCarousel("#trending-list");
+  }
 }
 
 async function getNewArrivalList() {
+  showSkeletonLoader("#newArrivals-list-skeleton");
   const filters = {
     catCode: "optics_frames",
     page: 1,
@@ -326,11 +331,20 @@ async function getNewArrivalList() {
     sortby: "new-arrivals",
   };
   const products = await fetchProducts(filters);
-  $("#newArrivals-list").html(generateProductSliderHTML(products.list));
-  initializeCarousel("#newArrivals-list");  // Initialize carousel for new arrivals
+  console.log("show list", products.list.length);
+  if (products.list.length) {
+    hideSkeletonLoader("#newArrivals-list-skeleton");
+    $("#newArrivals-list").html(generateProductSliderHTML(products.list));
+    initializeCarousel("#newArrivals-list");
+  } 
+  //else {
+  //   //show no products available
+  //   $("#newArrivals-list").parent().html(`<p>No products available</p>`);
+  // }
 }
 
 async function getFeaturedList() {
+  showSkeletonLoader("#feature-list-skeleton");
   const filters = {
     catCode: "optics_frames",
     page: 1,
@@ -338,10 +352,13 @@ async function getFeaturedList() {
     featured: "yes",
   };
   const products = await fetchProducts(filters);
+  if (products.list.length) {
+    hideSkeletonLoader("#feature-list-skeleton");
   $("#feature-list").html(generateProductSliderHTML(products.list));
-  initializeCarousel("#feature-list");  // Initialize carousel for featured products
-}
+  initializeCarousel("#feature-list"); // Initialize carousel for featured products
+  }
 
+}
 
 // Function to initialize carousel for a specific selector
 function initializeCarousel(selector) {
@@ -350,8 +367,8 @@ function initializeCarousel(selector) {
     autoplay: true,
     margin: 10,
     responsiveClass: true,
-   animateIn: 'fadeIn',
-animateOut: 'fadeOut',
+    animateIn: "fadeIn",
+    animateOut: "fadeOut",
     responsive: {
       0: {
         items: 1,

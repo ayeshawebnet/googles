@@ -17,7 +17,7 @@ $(".next").click(function(){
     }
   });
   
-
+// header
 // search-box open close js code
 var ecomm_navbar = document.querySelector(".ecomm-navbar");
 var  searchBox = document.querySelector(".search-box .fa-search");
@@ -43,5 +43,21 @@ menuCloseBtn.onclick = function() {
 navLinks.style.left = "-100%";
 
 }
+
+//skeleton loader
+function showSkeletonLoader(containerSelector) {
+  const skeletonHTML = `
+      <div class="skeleton-loader">
+          <div class="skeleton-image"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text short"></div>
+      </div>`;
+  $(containerSelector).html(skeletonHTML);
+}
+
+function hideSkeletonLoader(containerSelector) {
+  $(containerSelector).empty(); // Remove the skeleton loader once data is available
+}
+
 
 

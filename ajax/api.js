@@ -1,192 +1,161 @@
-// Fetch products using AJAX
-async function fetchProducts(filters) {
-  
-
-  const response = await $.ajax({
-    url: "https://gulzarioptics.testspace.click/interface/index.php",
-    method: "POST",
-    data: JSON.stringify({
-      jsonrpc: "2.0",
-      method: "products.getAllProducts",
-      params: filters,
-      id: "siiCYawo",
-    }),
-    dataType: "json",
-  });
-  console.log("response==>", response,filters);
-  if (response.error) throw new Error("Error loading products");
-  return response.result;
+async function fetchApi(method, params,id){
+    try{
+        const response =await fetch(API_URL,{
+            method:"POST",
+            headers:{"Content-Type":"application/json",},
+            body:JSON.stringify({
+                jsonrpc:"2.0",
+                method:method,
+                params:params,
+                id:id,
+            }),
+        })
+        const data=await response.json();
+        if(data.error) throw new Error(data.error.message || ERROR);
+    }
+    catch(error){
+        console.log("Error",error);
+        return null;
+    }
 }
 
-// Fetch product details from API
-async function fetchProductDetails(productCode) {
-  const response = await $.ajax({
-    url: "https://gulzarioptics.testspace.click/interface/index.php",
-    method: "POST",
-    data: JSON.stringify({
-      jsonrpc: "2.0",
-      method: "products.getProductDetails",
-      params: { code: productCode, sub_shopCode: "gulzarioptics" },
-      id: "k1PQf2Rp",
-    }),
-    dataType: "json",
-  });
-  if (response?.error)
-    throw new Error(response.error.message || "Error loading product details");
-  return response?.result || {};
+//Fetch Products
+async function fetchProducts(filter){
+   return await fetchApi("products.getAllProducts",filters, "siiCYawo");
 }
 
-// API call to fetch product model filters
-function fetchProductModelFilters(productCode) {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: "https://gulzarioptics.testspace.click/interface/index.php",
-      method: "POST",
-      data: JSON.stringify({
-        jsonrpc: "2.0",
-        method: "products.getProductModelFilters",
-        params: {
-          productCode: productCode,
-        },
-        id: "R7c1DXiJ",
-      }),
-      dataType: "json",
-      success: function (response) {
-        if (response.error) {
-          $("#product-summary").append("<p>Error loading product filters.</p>");
-          reject(response.error);
-        } else {
-          const productModelFilters = response.result;
-          resolve(productModelFilters);
-        }
-      },
-      error: function () {
-        $("#product-summary").append("<p>Failed to load product filters.</p>");
-        reject(new Error("Failed to load product filters"));
-      },
-    });
-  });
+//Fetch Product Details
+async function fetchProductDetails(productCode){
+    const params={code:productCode,sub_shopCode:SHOP_CODE};
+    try{
+        const productDetails = await fetchApi("products.getProductDetails",params,"k1PQf2Rp");
+        return productDetails;
+    }
+    catch(error){
+        console.log("Error",error);
+        return null;
+    }
 }
 
-//API call to fetch product code by tag
-function getProductCode(tag_value, setCode, tag_key, product_model) {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: "https://gulzarioptics.testspace.click/interface/index.php",
-      method: "POST",
-      data: JSON.stringify({
-        jsonrpc: "2.0",
-        method: "products.getProductCodeByTag",
-        params: {
-          product_model: product_model,
-          setCode: setCode,
-          tag_key: tag_key,
-          tag_value: tag_value,
-          sub_shopCode: "gulzarioptics",
-        },
-        id: "eZMq1h53",
-      }),
-      dataType: "json",
-      success: function (response) {
-        if (response.error) {
-          $("#product-summary").append("<p>Error loading product code.</p>");
-          reject(response.error);
-        }
-        const productCode = response.result;
-        getProductDetails(productCode);
-        resolve(response.result);
-      },
-    });
-  });
+//Fetch Product Model Filters
+async function fetchProductModelFilters(productCode){
+    const params={productCode:productCode};
+    try{
+        const productModelFilters = await fetchApi("products.getProductModelFilters",params,"R7c1DXiJ");
+        return productModelFilters;
+    }
+    catch(error){
+        console.log("Error",error);
+        return null;
+    }
 }
 
-function listCategoryFilters(selectedCategory) {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: "https://gulzarioptics.testspace.click/interface/index.php",
-      method: "POST",
-      data: JSON.stringify({
-        jsonrpc: "2.0",
-        method: "products.ListCategoryFilters",
-        params: {
-          catCode: selectedCategory,
-          sub_shopCode: "gulzarioptics",
-        },
-        id: "3CZRL6Mp",
-      }),
-      dataType: "json",
-      success: function (response) {
-        if (response.error) {
-          $("#product-summary").append("<p>Error loading product code.</p>");
-          reject(response.error);
-        }
-        const productCode = response.result;
-        resolve(response.result);
-      },
-    });
-  });
+//Fetch Product Code by Tag
+async function fetchProductCodeByTag(tag_value, setCode, tag_key, product_model){
+    const params={
+        tag_value:tag_value,
+        setCode:setCode,
+        tag_key:tag_key,
+        product_model:product_model,
+    }
+    try{
+        const productCode = await fetchApi("products.getProductCodeByTag",params,"eZMq1h53");
+        return productCode;
+    }
+    catch(error){
+        console.log("Error",error);
+        return null;
+    }
+}
+
+//Fetch List Categories Filters
+async function fetchListCategoriesFilters(selectedCategory){
+    const params={
+        catCode:selectedCategory,
+        sub_shopCode:SHOP_CODE,
+    }
+    try{
+        const listCategoriesFilters = await fetchApi("products.getListCategoriesFilters",params,"3CZRL6Mp");
+        return listCategoriesFilters;
+    }
+    catch(error){
+        console.log("Error",error);
+        return null;
+    }
 }
 
 
-function listProductCategories() {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: "https://gulzarioptics.testspace.click/interface/index.php",
-      method: "POST",
-      data: JSON.stringify({
-        jsonrpc: "2.0",
-        method: "home.listProductCategories",
-        params: { sub_shopCode: "gulzarioptics" },
-        id: "BYTNgXCk",
-      }),
-      dataType: "json",
-      success: function (response) {
-        if (response.error) {
-          $("#product-summary").append("<p>Error loading product code.</p>");
-          reject(response.error);
-        }
-        resolve(response.result);
-      },
-    });
-  });
+
+async function fetchProducts(params) {
+    try{
+        const response = await fetch(API_URL, {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body:JSON.stringify({
+                jsonrpc:"2.0",
+                method:"products.getAllProducts",
+                params:params,
+                id:"siiCYawo",
+            }),
+        });
+        const data = await response.json();
+        if(data.error) throw new Error(data.error.message || ERROR_LOADING_PRODUCT);
+        return data.result;
+    } catch(error){
+        console.log("Error",error);
+        return null;
+    }
 }
 
-function getMenuItem(){
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: "https://gulzarioptics.testspace.click/header_menu/menu.json",
-      method: "GET",
-      dataType: "json",
-      success: function (response) {
-        if (response.error) {
-          reject(response.error);
-        }
-        resolve(response);
-      },
-    });
-  });
+async function fetchMenuItems(){
+    try{
+        const response = await fetch(MENU_URL);
+        const data = await response.json();
+        return data;
+    } catch(error){
+        console.log("Error",error);
+        return null;
+    }
 }
 
-
-function getFooterItem() {
-  return new Promise((resolve, reject) => {
-    $.ajax({
-      url: "https://gulzarioptics.testspace.click/shop-footer.html",
-      method: "GET",
-      dataType: "html",
-      success: function (response) {
-        console.log("Response from API:", response);
-        if (response.error) {
-          reject(response.error);
-        } else {
-          resolve(response);
-        }
-      },
-      error: function (xhr, status, error) {
-        console.log("Reject Response from API:", error);
-        reject(error);
-      },
-    });
-  });
+async function fetchFooter(){
+    try{
+        const response = await fetch(FOOTER_URL);
+        const data = await response.text();
+        return data;
+    }
+    catch(error){
+        console.log("Error",error);
+        return null;
+    }
 }
-// getFooterItem();
+
+async function fetchProductDetails(productCode){
+    try{
+        const response = await fetch(API_URL, {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body:JSON.stringify({
+                jsonrpc:"2.0",
+                method:"products.getProductDetails",
+                params:{
+                    code:productCode,
+                    sub_shopCode:SHOP_CODE,
+                },
+                id:"k1PQf2Rp",
+            }),
+        });
+        const data = await response.json();
+        if(data.error) throw new Error(data.error.message || ERROR_LOADING_PRODUCT);
+        return data.result;
+    } catch(error){
+        console.log("Error",error);
+        return null;
+    }
+}
+
+function 

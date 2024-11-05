@@ -39,8 +39,8 @@
 .overlay-login button.overlay-close1  {
 	z-index: 999;
     right: 0;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height:35px;
     position: absolute;
 	left: 20px;
     top: 20px;
@@ -72,6 +72,8 @@
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
 	transform: translateX(100%);
+	box-shadow:0 5px 10px rgba(0, 0, 0, 0.2);
+	border:1px solid #eaeaea;
 }
 .overlay-login.opened {
 	transform: translateX(0px);

@@ -8,7 +8,7 @@
       name="glasses, eyeglasses, sunglasses, eyewear, prescription lenses, affordable glasses, stylish eyewear, buy glasses online, Glasses Hub"
       content="Discover a wide range of stylish and affordable glasses at Glasses Hub. Shop the latest eyeglasses, sunglasses, and prescription lenses for men, women, and kids. Fast shipping and top-quality eyewear guaranteed!"
     />
-    <script>
+    <!-- <script>
       addEventListener(
         "load",
         function () {
@@ -20,7 +20,7 @@
       function hideURLbar() {
         window.scrollTo(0, 1);
       }
-    </script>
+    </script> -->
     <link href="css/header-footer.css" rel="stylesheet" type="text/css" />
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="css/login_overlay.css" rel="stylesheet" type="text/css" />
@@ -621,6 +621,7 @@
                 class="owl-carousel owl-theme row"
                 id="newArrivals-list"
               ></div>
+              <div id="newArrivals-list-skeleton"></div>
             </div>
           </div>
           <!-- Trending Now -->
@@ -653,6 +654,7 @@
           <div class="slider-img mid-sec">
             <div class="mid-slider">
               <div class="owl-carousel owl-theme row" id="trending-list"></div>
+              <div id="trending-list-skeleton"></div>
             </div>
           </div>
           <!-- Sale Banner -->
@@ -682,6 +684,7 @@
           <div class="slider-img mid-sec">
             <div class="mid-slider">
               <div class="owl-carousel owl-theme row" id="feature-list"></div>
+              <div id="feature-list-skeleton"></div>
             </div>
           </div>
 
@@ -972,6 +975,7 @@
     <!-- // modal -->
 
     <!--search jQuery-->
+    <script src="ajax/constant.js"></script>
     <script src="ajax/auth.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/script.js"></script>
