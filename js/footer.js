@@ -125,7 +125,7 @@ let footerHTML = `<footer class="footer-section">
 
 async function initializeFooter() {
     try {
-    //   const footerHTML = await getFooterItem();
+    //   const footerHTML = await fetchFooter();
       const footerContainer = document.querySelector(".ecomm-footer");
       if (footerContainer) {
         footerContainer.innerHTML = footerHTML; // Append footer HTML to the footer container

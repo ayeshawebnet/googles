@@ -59,5 +59,35 @@ function hideSkeletonLoader(containerSelector) {
   $(containerSelector).empty(); // Remove the skeleton loader once data is available
 }
 
-
+// Function to initialize carousel for a specific selector
+function initializeCarousel(selector) {
+  $(selector).owlCarousel({
+    loop: true,
+    autoplay: true,
+    margin: 10,
+    responsiveClass: true,
+    animateIn: "fadeIn",
+    animateOut: "fadeOut",
+    responsive: {
+      0: {
+        items: 1,
+        nav: true,
+      },
+      600: {
+        items: 2,
+        nav: false,
+      },
+      900: {
+        items: 3,
+        nav: false,
+      },
+      1000: {
+        items: 4,
+        nav: true,
+        loop: false,
+        margin: 20,
+      },
+    },
+  });
+}
 

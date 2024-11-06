@@ -29,7 +29,7 @@ function fetchColorOptions(colorOptions, defaultColor,product_model) {
     $("input[name='radio-gallery-1']").on("change", function () {
       const selectedColor = $(this).val();
       console.log("Selected color: ", this.value);
-      getProductCode(selectedColor,"optics_frames_colour", "front_color",product_model);
+      fetchProductCodeByTag(selectedColor,"optics_frames_colour", "front_color",product_model);
     });
     resolve(); // Resolve the promise once done
   });
@@ -94,7 +94,7 @@ function fetchFrontMaterialOptions(materialOptions,defaultMaterial,product_model
     $("#inputGroupSelectFrontMaterial").on("change", function () {
       const selectedMaterial = $(this).val();
       console.log("Selected front material: ", selectedMaterial);
-      getProductCode(selectedMaterial,"optics_frames_material","front_material",product_model);
+      fetchProductCodeByTag(selectedMaterial,"optics_frames_material","front_material",product_model);
     });
     resolve();
   });
@@ -117,7 +117,7 @@ function fetchSideMaterialOptions(materialOptions,defaultMaterial,product_model)
     $("#inputGroupSelectSideMaterial").on("change", function () {
       const selectedMaterial = $(this).val();
       console.log("Selected side material: ", selectedMaterial);
-      getProductCode(selectedMaterial,"optics_frames_material","side_material",product_model);
+      fetchProductCodeByTag(selectedMaterial,"optics_frames_material","side_material",product_model);
     })
     resolve();
   });
@@ -140,7 +140,7 @@ function fetchShapeOptions(shapeOptions,defaultShape,product_model) {
     $("#inputGroupSelectShape").on("change", function () {
       const selectedShape = $(this).val();
       console.log("Selected shape: ", selectedShape);
-      getProductCode(selectedShape,"optics_frames_style","shape",product_model);
+      fetchProductCodeByTag(selectedShape,"optics_frames_style","shape",product_model);
     });
     resolve();
   });
@@ -163,7 +163,7 @@ function fetchFrameWidthOptions(widthOptions,defaultWidth,product_model) {
     $("#inputGroupSelectFrameWidth").on("change", function () {
       const selectedWidth = $(this).val();
       console.log("Selected frame width: ", selectedWidth);
-      getProductCode(selectedWidth,"optics_frames_frame_dimensions","frame_width",product_model);
+      fetchProductCodeByTag(selectedWidth,"optics_frames_frame_dimensions","frame_width",product_model);
     });
     resolve();
   });
@@ -186,7 +186,7 @@ function fetchLensWidthOptions(widthOptions,defaultWidth,product_model) {
     $("#inputGroupSelectLensWidth").on("change", function () {
       const selectedWidth = $(this).val();
       console.log("Selected lens width: ", selectedWidth);
-      getProductCode(selectedWidth,"optics_frames_frame_dimensions","lens_width",product_model);
+      fetchProductCodeByTag(selectedWidth,"optics_frames_frame_dimensions","lens_width",product_model);
     });
     resolve();
   });
@@ -209,7 +209,7 @@ function fetchLensHeightOptions(heightOptions,defaultHeight,product_model) {
     $("#inputGroupSelectLensHeight").on("change", function () {
       const selectedHeight = $(this).val();
       console.log("Selected lens height: ", selectedHeight);
-      getProductCode(selectedHeight,"optics_frames_frame_dimensions","lens_height",product_model);
+      fetchProductCodeByTag(selectedHeight,"optics_frames_frame_dimensions","lens_height",product_model);
     });  
     resolve();
   });
@@ -231,7 +231,7 @@ function fetchBridgeWidthOptions(widthOptions, defaultWidth,product_model) {
     $("#inputGroupSelectBridgeWidth").on("change", function () {
       const selectedWidth = $(this).val();
       console.log("Selected bridge width: ", selectedWidth);
-      getProductCode(selectedWidth,"optics_frames_frame_dimensions","bridge",product_model);
+      fetchProductCodeByTag(selectedWidth,"optics_frames_frame_dimensions","bridge",product_model);
     });
     resolve();
   });
@@ -254,7 +254,7 @@ function fetchTempleLengthOptions(length,default_length, product_model) {
     $("#inputGroupSelectTempleLength").on("change", function () {
       const selectedLength = $(this).val();
       console.log("Selected temple length: ", selectedLength);
-      getProductCode(selectedLength,"optics_frames_frame_dimensions","temple_length",product_model);
+      fetchProductCodeByTag(selectedLength,"optics_frames_frame_dimensions","temple_length",product_model);
     });
     resolve();
   });

@@ -436,7 +436,7 @@ function renderMenu(menuItems, parentElement) {
 
   async function initializeMenu() {
     try {
-      const menuItems = await getMenuItem();
+      const menuItems = await fetchMenuItems();
       const menuContainer = document.querySelector(".ecomm-links");
       renderMenu(menuItems, menuContainer);
     } catch (error) {

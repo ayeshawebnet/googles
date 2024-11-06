@@ -425,7 +425,7 @@
                         <span id="pageIndicator"></span>
                         <button id="btnNextP">Next &rarr;</button>
                      </div>
-                     <!-- <div id="pagination-dots" class="pagination-dots"></div> -->
+                     <div id="pagination-dots" class="pagination-dots"></div>
                   </div>
                </div>
             </div>
@@ -1308,6 +1308,8 @@
    <!--jQuery-->
    <script src="js/script.js"></script>
    <script src="js/jquery-2.2.3.min.js"></script>
+   <script src="ajax/constant.js"></script>
+    <script src="ajax/ecommerce-classes.js"></script>
    <!-- newsletter modal -->
    <!--search jQuery-->
    <script src="js/modernizr-2.6.2.min.js"></script>

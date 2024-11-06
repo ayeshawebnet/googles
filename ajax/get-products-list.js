@@ -1,29 +1,15 @@
-async function renderShopPage(products) {
+async function renderShopComponent(products) {
   try {
-    // if (!products || products.length === 0) {
-
-    //     $("#product-list").html(`<p>No products available</p>`);
-    //     return;
-    //   }
-
-    // Calculate total pages and render the first page
+    console.log("Pagination==>", products);
+    // Setup pagination
     currentPage = 1;
-    totalPages = Math.ceil(products.length / itemsPerPage);
+    setupPagination(products);
+    // Show the first page of products
     showPage(products, currentPage);
-    renderPaginationControls(products);
-
-    // Render the products
-
-    // const productHTML = generateProductHTML(products);
-    // $("#product-list").html(productHTML);
-
-    // Hide loader and display product list
-    // $(".loading-spinner").hide();
-    // $("#product-list").fadeIn();
+    // Update page indicator
+    updatePageIndicator();
   } catch (error) {
-    // $(".loading-spinner").hide();
     $("#product-list").html(`<p>${error.message}</p>`);
-    console.error("Error loading products:", error);
   }
 }
 
@@ -157,7 +143,7 @@ function ProductSliderComponent({
                                               <input type="hidden" name="googles_item" value="${title}" />
                                               <input type="hidden" name="amount" value="${price}" />
                                             <button
-                                              type="submit"
+                                              
                                               class="googles-cart pgoogles-cart"
                                             >
                                               <i class="fas fa-cart-plus"></i>
@@ -219,22 +205,27 @@ function generateStars(rating) {
   }
   return starsHTML;
 }
-var currentPage = 1;
-var itemsPerPage = 20;
-var totalPages = 1;
-// Shows the specific page of products
-function showPage(products, page) {
-  const offset = (page - 1) * itemsPerPage;
-  const paginatedProducts = products.slice(offset, offset + itemsPerPage);
+// Initialize pagination parameters
+let currentPage = 1;
+let itemsPerPage = 20;
+let totalPages = 1;
+let visibleDots = 5; // Number of visible dots in pagination
 
-  // Render the current page of products
-  $("#product-list").html(generateProductHTML(paginatedProducts));
-  updatePageIndicator();
+// Set up pagination controls
+function setupPagination(products) {
+  totalPages = Math.ceil(products.length / itemsPerPage);
+  renderPaginationControls(products);
 }
 
-// Updates the page indicator to show the current page
-function updatePageIndicator() {
-  $("#pageIndicator").text(`Page ${currentPage} of ${totalPages}`);
+// Show the specific page of products
+function showPage(products, page) {
+  currentPage = page;
+  const offset = (page - 1) * itemsPerPage;
+  const paginatedProducts = products.slice(offset, offset + itemsPerPage);
+  
+  // Render the current page of products
+  $("#product-list").html(generateProductHTML(paginatedProducts));
+  updatePageIndicator(); // Update page indicator whenever the page is shown
 }
 
 // Render pagination controls dynamically
@@ -242,37 +233,48 @@ function renderPaginationControls(products) {
   const paginationDots = $("#pagination-dots");
   paginationDots.empty();
 
-  for (let i = 1; i <= totalPages; i++) {
-    const dot = $("<button>")
-      .addClass("pagination-dot")
-      .text(i)
-      .attr("data-page", i)
-      .toggleClass("active", i === currentPage);
+  // Determine range of page numbers to display
+  let start = Math.max(1, currentPage - Math.floor(visibleDots / 2));
+  let end = Math.min(totalPages, currentPage + Math.floor(visibleDots / 2));
 
-    dot.on("click", function () {
-      currentPage = parseInt($(this).attr("data-page"));
-      showPage(products, currentPage);
-      updatePaginationDots();
-    });
+  // Adjust range to ensure we show enough dots near the beginning or end if needed
+  if (currentPage <= Math.floor(visibleDots / 2)) {
+    end = Math.min(totalPages, visibleDots);
+  } else if (currentPage + Math.floor(visibleDots / 2) >= totalPages) {
+    start = Math.max(1, totalPages - visibleDots + 1);
+  }
 
+  // Generate pagination dots
+  for (let i = start; i <= end; i++) {
+    const dot = createPaginationDot(i);
     paginationDots.append(dot);
   }
 
-  $("#btnPreviousP").on("click", () => {
-    if (currentPage > 1) {
-      currentPage--;
-      showPage(products, currentPage);
-      updatePaginationDots();
-    }
-  });
+  // Add Previous and Next buttons
+  $("#btnPreviousP").off("click").on("click", () => handlePageChange(-1, products));
+  $("#btnNextP").off("click").on("click", () => handlePageChange(1, products));
+}
 
-  $("#btnNextP").on("click", () => {
-    if (currentPage < totalPages) {
-      currentPage++;
+// Handle page change for Previous/Next buttons
+function handlePageChange(direction, products) {
+  if ((direction === -1 && currentPage > 1) || (direction === 1 && currentPage < totalPages)) {
+    currentPage += direction;
+    showPage(products, currentPage);
+  }
+}
+
+// Create a pagination dot for a given page
+function createPaginationDot(page) {
+  const dot = $("<button>")
+    .addClass("pagination-dot")
+    .text(page)
+    .attr("data-page", page)
+    .toggleClass("active", page === currentPage)
+    .on("click", function () {
+      currentPage = parseInt($(this).attr("data-page"));
       showPage(products, currentPage);
-      updatePaginationDots();
-    }
-  });
+    });
+  return dot;
 }
 
 // Updates the active class for pagination dots
@@ -281,9 +283,10 @@ function updatePaginationDots() {
   $(`.pagination-dot[data-page=${currentPage}]`).addClass("active");
 }
 
-getNewArrivalList();
-getFeaturedList();
-getTrendingList("gender_men", "Men");
+// Updates the page indicator to show the current page
+function updatePageIndicator() {
+  $("#pageIndicator").text(`Page ${currentPage} of ${totalPages}`);
+}
 
 $(".dropdown-menu .dropdown-item").on("click", function (event) {
   event.preventDefault();
@@ -292,102 +295,58 @@ $(".dropdown-menu .dropdown-item").on("click", function (event) {
   getTrendingList(selectedGender, selectedGenderText);
 });
 
-async function getTrendingList(gender, label) {
-  showSkeletonLoader("#trending-list-skeleton");
-  const filters = {
-    catCode: "optics_frames",
-    page: 1,
-    per_page: 8,
-    tags_count: "no",
-    FilterBy: {
-      optics_frames_style: {
-        genders: gender,
-      },
-    },
-  };
-  // Destroy any existing carousel on #trending-list
-  const trendingList = $("#trending-list");
-  trendingList.trigger("destroy.owl.carousel");
 
-  
-  // Fetch and render products
-  
-  const products = await fetchProducts(filters);
-  if (products.list.length) {
-    hideSkeletonLoader("#trending-list-skeleton");
-  trendingList.html(generateProductSliderHTML(products.list));
-  $(".gender-selection-btn").text(label);
-  // Re-initialize carousel
-  initializeCarousel("#trending-list");
-  }
-}
-
+// New Arrival List Function
 async function getNewArrivalList() {
-  showSkeletonLoader("#newArrivals-list-skeleton");
   const filters = {
     catCode: "optics_frames",
     page: 1,
     per_page: 8,
     sortby: "new-arrivals",
   };
-  const products = await fetchProducts(filters);
-  console.log("show list", products.list.length);
-  if (products.list.length) {
-    hideSkeletonLoader("#newArrivals-list-skeleton");
-    $("#newArrivals-list").html(generateProductSliderHTML(products.list));
-    initializeCarousel("#newArrivals-list");
-  } 
-  //else {
-  //   //show no products available
-  //   $("#newArrivals-list").parent().html(`<p>No products available</p>`);
-  // }
+
+  await fetchAndRenderProductList({
+    filters,
+    skeletonId: "#newArrivals-list-skeleton",
+    listId: "#newArrivals-list",
+  });
 }
 
+// Trending List Function
+async function getTrendingList(gender, label) {
+
+  const filters = {
+    catCode: "optics_frames",
+    page: 1,
+    per_page: 8,
+    tags_count: "no",
+    FilterBy: {
+      optics_frames_style: { genders: gender },
+    },
+  };
+
+  await fetchAndRenderProductList({
+    filters,
+    skeletonId: "#trending-list-skeleton",
+    listId: "#trending-list",
+    label,
+  });
+}
+
+// Featured List Function
 async function getFeaturedList() {
-  showSkeletonLoader("#feature-list-skeleton");
   const filters = {
     catCode: "optics_frames",
     page: 1,
     per_page: 8,
     featured: "yes",
   };
-  const products = await fetchProducts(filters);
-  if (products.list.length) {
-    hideSkeletonLoader("#feature-list-skeleton");
-  $("#feature-list").html(generateProductSliderHTML(products.list));
-  initializeCarousel("#feature-list"); // Initialize carousel for featured products
-  }
 
-}
-
-// Function to initialize carousel for a specific selector
-function initializeCarousel(selector) {
-  $(selector).owlCarousel({
-    loop: true,
-    autoplay: true,
-    margin: 10,
-    responsiveClass: true,
-    animateIn: "fadeIn",
-    animateOut: "fadeOut",
-    responsive: {
-      0: {
-        items: 1,
-        nav: true,
-      },
-      600: {
-        items: 2,
-        nav: false,
-      },
-      900: {
-        items: 3,
-        nav: false,
-      },
-      1000: {
-        items: 4,
-        nav: true,
-        loop: false,
-        margin: 20,
-      },
-    },
+  await fetchAndRenderProductList({
+    filters,
+    skeletonId: "#feature-list-skeleton",
+    listId: "#feature-list",
   });
 }
+
+
