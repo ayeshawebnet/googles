@@ -69,7 +69,7 @@ async function fetchProductCodeByTag(tag_value, setCode, tag_key, product_model)
     try{
         const productCode = await fetchApi("products.getProductCodeByTag",params,"eZMq1h53");
         //call fetchProductDetails(productCode) to get product details
-        const productDetails = await fetchProductDetails(productCode);
+        const productDetails = await getProductDetails(productCode);
         return productDetails;   
     }
     catch(error){

@@ -55,7 +55,7 @@ function ProductComponent({
                                       <div class="h-bg">
                                           <div class="h-bg-inner"></div>
                                       </div>
-                                      <a class="cart" href="single.html">
+                                      <a class="cart quick-view" href="single.html?productCode=${product_code}">
                                           <span class="price">Rs. ${price}</span>
                                           <span class="add-to-cart">
                                               <span class="txt">Quick View</span>
@@ -348,5 +348,3 @@ async function getFeaturedList() {
     listId: "#feature-list",
   });
 }
-
-

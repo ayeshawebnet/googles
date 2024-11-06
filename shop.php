@@ -425,7 +425,7 @@
                         <span id="pageIndicator"></span>
                         <button id="btnNextP">Next &rarr;</button>
                      </div>
-                     <div id="pagination-dots" class="pagination-dots"></div>
+                     <!-- <div id="pagination-dots" class="pagination-dots"></div> -->
                   </div>
                </div>
             </div>

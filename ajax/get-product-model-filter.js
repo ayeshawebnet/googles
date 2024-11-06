@@ -293,10 +293,10 @@ async function fetchFilterOptions(productDetail) {
         <div id="product-filters"></div>
         </div>
       `;
-      
+
       // Append all options after they have loaded
       $("#product-summary").append(filterOptionsHTML);
-
+      
       await fetchColorOptions(colors, filteredData.optics_frames_colour.front_color,product_model);
       await fetchFrontMaterialOptions(frontMaterials, filteredData.optics_frames_material.front_material,product_model);
       await fetchSideMaterialOptions(sideMaterials, filteredData.optics_frames_material.side_material,product_model);
