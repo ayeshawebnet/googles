@@ -89,7 +89,7 @@
                 <div class="col-md-4 top-info-cart text-right">
                   <ul class="cart-inner-info">
                     <li class="button-log">
-                      <a class="btn-open nav-link" href="#">
+                      <a class="btn-open nav-link" href="#" onclick="toggleDropdown()">
                         <svg
                           focusable="false"
                           width="18"
@@ -114,6 +114,10 @@
                           ></path>
                         </svg>
                       </a>
+                      <div id="customDropdownMenu" class="custom-dropdown-menu" style="display:none;">
+                        <a class="custom-dropdown-item" href="/profile">Profile</a>
+                        <a class="custom-dropdown-item" href="/logout">Logout</a>
+                      </div>
                     </li>
                     <li>
                       <a
@@ -1121,5 +1125,23 @@
     <script src="js/footer.js"></script>
 
     <!-- js file -->
+
+    <script>
+
+      function toggleDropdown(){
+        const dropdown = document.getElementById("customDropdownMenu");
+        dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
+      }
+
+      document.addEventListener("click", function(event){
+        const dropdown = document.getElementById("customDropdownMenu");
+        const button = document.querySelector(".btn-open");
+        if(!button.contains(event.target)){
+          dropdown.style.display = "none";
+        }
+      });
+
+    </script>
+    
   </body>
 </html>
