@@ -93,7 +93,7 @@ function ProductSliderComponent({
   rating,
 }) {
   return `
-   <div class="item h-100 ">
+   <div class="item h-100">
                   <div class="h-100 gd-box-info text-center ">
                     <div class="h-100 w-100 product-men women_two bot-gd">
                       <div class="h-100  slide-img googles h-100">
@@ -162,8 +162,7 @@ function ProductSliderComponent({
                     </div>
                   </div>
                 </div>
- 
-                `;
+`;
 }
 // Generate product HTML for each product in the list
 function generateProductHTML(products) {

@@ -121,3 +121,61 @@
         }
     });
 })(jQuery);
+
+
+
+    $('.resp-tabs-list li').each(function(index) {
+        $(this).on('click', function() {
+           // Remove active class from all tabs and contents
+           $('.resp-tabs-list li').removeClass('resp-tab-active');
+           $('.tab-content').removeClass('resp-content-active');
+     
+           // Add active class to the clicked tab and corresponding content
+           $(this).addClass('resp-tab-active');
+           $('.tab-content').eq(index).addClass('resp-content-active');
+        });
+     });
+
+     // Dummy object simulating the data from API
+const userData = {
+    firstName: 'John',
+    lastName: 'Doe',
+    email: 'john.doe@example.com',
+    phone: '123-456-7890'
+};
+prefillForm()
+// Function to prefill the form with dummy data
+function prefillForm() {
+    document.getElementById('firstName').value = userData.firstName;
+    document.getElementById('lastName').value = userData.lastName;
+    document.getElementById('email').value = userData.email;
+    document.getElementById('phone').value = userData.phone;
+}
+
+     function enableEditing() {
+   const form = document.getElementById('userForm');
+   const inputs = form.querySelectorAll('input');
+   inputs.forEach(input => input.disabled = false);
+   form.classList.add('edit-mode');
+}
+
+function saveFormData() {
+   const formData = {
+      firstName: document.getElementById('firstName').value,
+      lastName: document.getElementById('lastName').value,
+      email: document.getElementById('email').value,
+      phone: document.getElementById('phone').value,
+   };
+
+   console.log('Form Data:', formData);
+
+   // Reset form to non-editable state
+   const form = document.getElementById('userForm');
+   const inputs = form.querySelectorAll('input');
+   inputs.forEach(input => input.disabled = true);
+   form.classList.remove('edit-mode');
+   
+   // Call a function and pass the object (replace with actual function)
+   someSaveFunction(formData); 
+}
+
