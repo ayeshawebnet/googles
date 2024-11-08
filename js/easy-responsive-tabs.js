@@ -179,3 +179,57 @@ function saveFormData() {
    someSaveFunction(formData); 
 }
 
+
+function enableEditingAddress() {
+    const form = document.getElementById('addressForm');
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach(input => input.disabled = false);
+    form.classList.add('edit-mode');
+}
+
+function saveFormAddressData() {
+    const formData = {
+        name: document.getElementById('name').value,
+        unitStreet: document.getElementById('unitStreet').value,
+        areaSector: document.getElementById('areaSector').value,
+        city: document.getElementById('city').value,
+        province: document.getElementById('province').value,
+        country: document.getElementById('country').value,
+        postalCode: document.getElementById('postalCode').value,
+        phone: document.getElementById('phone').value,
+    };
+
+    console.log('Form Data:', formData);
+
+    const form = document.getElementById('addressForm');
+    const inputs = form.querySelectorAll('input'); 
+    inputs.forEach(input => input.disabled = true);
+    form.classList.remove('edit-mode');
+
+    someSaveFunction(formData);
+}
+
+
+function enableEditingPassword() {
+    const form = document.getElementById('resetForm');
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach(input => input.disabled = false);
+    form.classList.add('edit-mode');
+}
+
+function saveFormResetData() {
+    const formData = {
+        oldPassword: document.getElementById('oldPassword').value,
+        newPassword: document.getElementById('newPassword').value,
+        confirmPassword: document.getElementById('confirmPassword').value,
+    };
+
+    console.log('Form Data:', formData);
+
+    const form = document.getElementById('resetForm');
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach(input => input.disabled = true);
+    form.classList.remove('edit-mode');
+
+    someSaveFunction(formData);
+}
