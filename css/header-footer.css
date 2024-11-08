@@ -91,7 +91,13 @@
   border-radius: 0 0 4px 4px;
   display: none;
   z-index: 2;
+  transition: background-color 0.3s ease;
 }
+
+.ecomm-nav .ecomm-navbar .ecomm-links li .sub-menu li a:hover {
+  background-color: lightgrey;
+}
+
 .ecomm-nav .ecomm-navbar .ecomm-links li:hover .htmlCss-sub-menu,
 .ecomm-nav .ecomm-navbar .ecomm-links li:hover .js-sub-menu{
   display: block;
