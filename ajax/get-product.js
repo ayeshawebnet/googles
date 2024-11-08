@@ -25,7 +25,9 @@ function initializeProductSummary() {
       </div>
       <div class="product-details mb-4">
         <h3>Product Details</h3>
-        <p id="product-description"></p>
+        <p id="product-description" class="description"></p>
+        <a href="javascript:void(0);" class="read-more">Read More</a>
+        <a href="javascript:void(0);" class="show-less" style="display: none;">Show Less</a>
       </div>
     </div>
   `;
@@ -154,3 +156,31 @@ function handleError(error, selector, message) {
   $(selector).html(`<p>${message}</p>`);
   console.error(error.message || error);
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.product-details').forEach((productDetail) => {
+      const description = productDetail.querySelector('.description');
+      const readMoreLink = productDetail.querySelector('.read-more');
+      const showLessLink = productDetail.querySelector('.show-less');
+
+      if (description && readMoreLink && showLessLink) {
+          readMoreLink.style.display = "inline-block"
+          showLessLink.style.display = "none"
+
+          readMoreLink.addEventListener('click', () => {
+              description.style.webkitLineClamp = 'unset'; 
+              description.style.overflow = 'visible';
+              readMoreLink.style.display = 'none';
+              showLessLink.style.display = 'inline-block'; 
+          });
+
+          showLessLink.addEventListener('click', () => {
+            description.style.webkitLineClamp = '2'; 
+            description.style.overflow = 'hidden';
+            showLessLink.style.display = 'none';
+            readMoreLink.style.display = 'inline-block'; 
+        });
+      }
+  });
+});

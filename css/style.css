@@ -3284,3 +3284,25 @@ img.vert-move {
   }
 }
 
+.description{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.read-more{
+  color: black;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.show-less{
+  color: black;
+  cursor: pointer;
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 5px;
+}
