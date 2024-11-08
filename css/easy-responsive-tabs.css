@@ -46,7 +46,7 @@ ul.resp-tabs-list li.resp-tab-active {
   color: #fff;
   background-color: var(--main-color);
   position: relative;
-  margin: auto;
+  /* margin: auto; */
 }
 
 ul.resp-tabs-list li.resp-tab-active::before {

@@ -1,3 +1,4 @@
+
 async function renderShopComponent(products) {
   try {
     console.log("Pagination==>", products);
